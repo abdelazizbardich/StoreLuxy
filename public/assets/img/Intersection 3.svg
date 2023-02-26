@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="468.94" height="429.627" viewBox="0 0 468.94 429.627">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.451" y1="0.469" x2="0" y2="1.029" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffb300"/>
+      <stop offset="1" stop-color="#ff0"/>
+    </linearGradient>
+  </defs>
+  <path id="Intersection_3" data-name="Intersection 3" d="M308.881,880V450.373c15.731,48.584,28.035,107.183,74.287,153.753,73.521,74.027,140.915,30.4,161.592,116.329S628.237,807.7,673.421,827.529s77.35-3.965,101.857,44.945A27.223,27.223,0,0,1,777.821,880Z" transform="translate(-308.881 -450.373)" fill="url(#linear-gradient)"/>
+</svg>
