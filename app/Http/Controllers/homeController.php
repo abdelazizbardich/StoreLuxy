@@ -30,9 +30,9 @@ class homeController extends Controller
             // push thumbnail to product
             $arr->Product = $Product;
             $arr->Thumbnail = $thumbnail;
-            
 
-            // reviews 
+
+            // reviews
             $reviews = DB::table('reviews')->where('product_id',$Product->id)->get();
             $reviewStarsCount = 0;
             $reviewStarsAverage = 0.00;
@@ -40,7 +40,7 @@ class homeController extends Controller
                 $reviewStars = $review->stars;
                 $reviewStarsCount += $reviewStars;
             }
-            @$reviewStarsAverage = $reviewStarsCount/count($reviews);
+            @$reviewStarsAverage = ($reviewStarsCount>0)?$reviewStarsCount/count($reviews):0;
             $arr->stars = $reviewStarsAverage;
 
             // Categoru
@@ -55,7 +55,7 @@ class homeController extends Controller
 
 
             array_push($Productsdata,$arr);
-            
+
         }
         return $Productsdata;
     }
@@ -124,7 +124,7 @@ class homeController extends Controller
             }
             $arr->categorys = (object)$categorys;
 
-            // reviews 
+            // reviews
             $reviews = DB::table('reviews')->where('product_id',$TrendingProduct->id)->get();
             $reviewStarsCount = 0;
             $reviewStarsAverage = 0.00;
@@ -132,7 +132,7 @@ class homeController extends Controller
                 $reviewStars = $review->stars;
                 $reviewStarsCount += $reviewStars;
             }
-            @$reviewStarsAverage = $reviewStarsCount/count($reviews);
+            @$reviewStarsAverage = ($reviewStarsCount>0)?$reviewStarsCount/count($reviews):0;
             $arr->stars = $reviewStarsAverage;
 
             // push
@@ -175,7 +175,7 @@ class homeController extends Controller
             }
             $arr->categorys = (object)$categorys;
 
-            // reviews 
+            // reviews
             $reviews = DB::table('reviews')->where('product_id',$BestSallaerProduct->id)->get();
             $reviewStarsCount = 0;
             $reviewStarsAverage = 0.00;
@@ -183,13 +183,13 @@ class homeController extends Controller
                 $reviewStars = $review->stars;
                 $reviewStarsCount += $reviewStars;
             }
-            @$reviewStarsAverage = $reviewStarsCount/count($reviews);
+            @$reviewStarsAverage = ($reviewStarsCount>0)?$reviewStarsCount/count($reviews):0;
             $arr->stars = $reviewStarsAverage;
 
             // push
             array_push($BestSallaerProductsData,$arr);
         }
-        return $BestSallaerProductsData;   
+        return $BestSallaerProductsData;
     }
 
     public function getLast3Posts(){
@@ -215,8 +215,8 @@ class homeController extends Controller
 
             // Comments
             $Comments = DB::table('comments')->where('post_id',$Post->id)->where('state','approved')->get();
-            $arr->commentsCount = count((array)$Comments); 
-            
+            $arr->commentsCount = count((array)$Comments);
+
             // User
             $User = DB::table('users')->where('id',$Post->user_id)->first();
             $arr->user = $User->username;

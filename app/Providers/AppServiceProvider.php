@@ -66,7 +66,8 @@ class AppServiceProvider extends ServiceProvider
         if (Cookie::get('cart') !== null){
             $carts = json_decode(Cookie::get('cart'));
             $data = [];
-            foreach($carts as $cart){
+            if($carts != null)
+            foreach(($carts) as $cart){
                 $arr = (object)array();
                 // product
                 $Product = DB::table('products')->where('state','1')->where('id', $cart)->first();
@@ -101,7 +102,7 @@ class AppServiceProvider extends ServiceProvider
             Cookie::queue('chatmessage', true, 43800);
             $ChatMessage = Cookie::get('chatmessage');
         }
-        return $ChatMessage;
+        return true;
     }
     public function getCategorys(){
 

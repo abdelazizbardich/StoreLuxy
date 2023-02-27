@@ -5,14 +5,14 @@
             <div class="row no-gutters" style="min-width: 250px;min-height: 100px;padding: 15px;">
                 <div class="col-auto text-center"><img class="thumbnail" src="/assets/img/product-05.jpg" style="max-width: 80px;width: auto;max-height: 80px;height: auto;margin: auto;"></div>
                 <div class="col" style="padding-left: 15px;max-width: 250px;">
-                    <p style="font-size: 12px;line-height: 16px;margin-bottom: 0px;">Quelqu'un a commandé:</p>
+                    <p style="font-size: 12px;line-height: 16px;margin-bottom: 0px;">@lang("Quelqu'un a commandé:")</p>
                     <p class="title" style="font-size: 12px;font-weight: bold;margin-bottom: 5px;line-height: 19px;">------------</p>
-                    <div><span class="price" style="color: #FF0000;font-weight: bold;font-size: 15px;line-height: 16px;float: left;">----.-- Dh</span><span style="font-size: 12px;line-height: 16px;line-height: 16px;float: right;">il y a 1 minute</span></div>
+                    <div><span class="price" style="color: #FF0000;font-weight: bold;font-size: 15px;line-height: 16px;float: left;">----.-- @lang("Dh")</span><span style="font-size: 12px;line-height: 16px;line-height: 16px;float: right;">@lang("il y a 1 minute")</span></div>
                 </div>
             </div><span class="close" style="opacity: 1;"><i class="la la-close" style="position: absolute;top: 5px;right: 5px;color: red;font-weight: bold;font-size: 17px;"></i></span>
             </div>
     @endif
-    
+
         <div class="shadow-sm d-none d-lg-block d-xl-block" id="chat-btn"
             style="position: fixed;right: 35px;bottom: 89px;background: #ffffff;width: 35px;height: 35px;border-radius: 50px;text-align: center;background-color: rgba(0,102,255,0.84);z-index: 999;padding: 17px;">
             <a target="blank" href="https://m.me/{{ $options->SiteOptions->facebook_id}}" >
@@ -20,7 +20,7 @@
             @if($options->ChatMessage == true)
             <div style="position: absolute;left: -197px;top: -219%;">
             <img src="/assets/img/Union%201.png" style="width: 251px;height: 87px;">
-            <p class="text-left" style="font-size: 12px;line-height: 16px;position: absolute;left: 35px;top: 17px;right: 32px;">Vous pouvez discuter avec notre équipe, ils sont en ligne.</p>
+            <p class="text-left" style="font-size: 12px;line-height: 16px;position: absolute;left: 35px;top: 17px;right: 32px;">@lang("Vous pouvez discuter avec notre équipe, ils sont en ligne")</p>
             <button class="btn btn-primary" id="close-chat" type="button" style="position: absolute;right: 5px;top: 5px;background: none;border: 1px solid #ffe600;box-shadow: none;color: rgb(255,0,0);padding: 0px;width: 20px;height: 20px;border-radius: 30px;background-color: #ffffff;font-size: 10px;"><i class="fa fa-close"></i></button>
             </div>
             @endif
@@ -92,8 +92,8 @@
         <!-- End: Fixed items -->
         <footer style="position: relative;">
             <div style="position: absolute;left: 0;right: 0;margin: auto;width: fit-content;height: 60px;top: -80px;">
-                <p class="text-center" style="font-size: 24px;line-height: 32px;font-weight: bold;margin: 0;"><span style="color: rgb(42,115,216);">@ SUIVEZ-NOUS</span>&nbsp;SUR</p>
-                <p class="text-center" style="line-height: 22px;font-size: 16px;margin: 0;">INSTAGRAM</p>
+                <p class="text-center" style="font-size: 24px;line-height: 32px;font-weight: bold;margin: 0;"><span style="color: rgb(42,115,216);">@ @lang("SUIVEZ-NOUS")</span>&nbsp;@lang("SUR")</p>
+                <p class="text-center" style="line-height: 22px;font-size: 16px;margin: 0;">@lang("INSTAGRAM")</p>
             </div>
             <div class="container-fluid">
                 <div class="row">
@@ -109,14 +109,14 @@
                 <div class="container" style="padding-top: 15px;padding-bottom: 15px;">
                     <div class="row align-items-center">
                         <div class="col-12 col-lg-4 col-xl-auto text-center">
-                            <p style="font-size: 14px;line-height: 19px;font-weight: bold;color: rgb(255,255,255);margin-bottom: 0;">SOYEZ EN CONTACT AVEC NOUS:</p>
+                            <p style="font-size: 14px;line-height: 19px;font-weight: bold;color: rgb(255,255,255);margin-bottom: 0;">@lang("SOYEZ EN CONTACT AVEC NOUS")</p>
                         </div>
                         <div class="col-12 col-lg-6 col-xl-7 text-center">
                             <form id="newsletterForm">
                                 <div class="form-group" style="margin: 16px;">
                                     <div class="input-group">
-                                        <input id="newsemail" type name="email" class="form-control" type="text" style="font-size: 14px;line-height: 19px;border: none;" placeholder="Entrer votre Email...">
-                                        <div class="input-group-append"><button class="btn btn-primary" type="submit" style="font-size: 14px;line-height: 19px;background-color: #2A2A2A;border: none;">REJOIGNEZ-NOUS</button></div>
+                                        <input id="newsemail" type name="email" class="form-control" type="text" style="font-size: 14px;line-height: 19px;border: none;" placeholder="@lang("Entrer votre Email")...">
+                                        <div class="input-group-append"><button class="btn btn-primary" type="submit" style="font-size: 14px;line-height: 19px;background-color: #2A2A2A;border: none;">@lang("REJOIGNEZ-NOUS")</button></div>
                                     </div>
                                 </div>
                             </form>
@@ -156,9 +156,11 @@
             <div>
                 <div class="container" style="padding-bottom: 15px;padding-top: 15px;">
                     <div class="row align-items-center">
-                        <div class="col-12 col-lg-3 col-xl-3 text-center"><img src="{{ asset('storage/' . $options->SiteOptions->site_logo)}}"></div>
-                        <div class="col text-center text-lg-right text-xl-right">
-                            <p style="margin-bottom: 0;font-size: 14px;line-height: 19px;">© <strong>{{ $options->SiteOptions->site_name}} </strong>{{date('Y')}}. Tous droits réservés, Crée avec&nbsp;<i class="fa fa-heart" style="color: rgb(255,0,0);font-size: 12px;"></i> par&nbsp;<a rel="nofollow" target="_blank" href="https://webiframe.com"><span style="font-weight: bold;color: rgb(255,0,0);">webiframe</span></a></p>
+                        <div class="col-md-auto col-12"><img class="bottom-footer-logo" src="{{ asset('storage/' . $options->SiteOptions->site_logo)}}"></div>
+                        <div class="col-12 col-md text-center text-lg-right text-xl-right">
+                            <p style="margin-bottom: 0;font-size: 14px;line-height: 19px;"><strong>{{ $options->SiteOptions->site_name}} © </strong>{{date('Y')}}. @lang("Tous droits réservés")
+                                {{-- Crée avec&nbsp;<i class="fa fa-heart" style="color: rgb(255,0,0);font-size: 12px;"></i> par&nbsp;<a rel="nofollow" target="_blank" href="https://webiframe.com"><span style="font-weight: bold;color: rgb(255,0,0);">webiframe</span></a> --}}
+                            </p>
                         </div>
                     </div>
                 </div>

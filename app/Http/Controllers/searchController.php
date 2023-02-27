@@ -36,7 +36,7 @@ class searchController extends Controller
             }
             $Products[$i]->categorys = (object)$categorys;
 
-            // reviews 
+            // reviews
             $reviews = DB::table('reviews')->where('product_id',$Product->id)->get();
             $reviewStarsCount = 0;
             $reviewStarsAverage = 0.00;
@@ -44,7 +44,7 @@ class searchController extends Controller
                 $reviewStars = $review->stars;
                 $reviewStarsCount += $reviewStars;
             }
-            @$reviewStarsAverage = $reviewStarsCount/count($reviews);
+            @$reviewStarsAverage = ($reviewStarsCount>0)?$reviewStarsCount/count($reviews):0;
             $Products[$i]->stars = $reviewStarsAverage;
             $i++;
         }

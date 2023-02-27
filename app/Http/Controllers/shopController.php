@@ -145,7 +145,7 @@ class shopController extends Controller
                 $reviewStars = $review->stars;
                 $reviewStarsCount += $reviewStars;
             }
-            @$reviewStarsAverage = $reviewStarsCount/count($reviews);
+            @$reviewStarsAverage = ($reviewStarsCount>0)?$reviewStarsCount/count($reviews):0;
             $Products[$i]->stars = $reviewStarsAverage;
 
             if(in_array($calledCategoey_id->id,$Categorys_ids) != null){
@@ -196,7 +196,7 @@ class shopController extends Controller
                 $reviewStars = $review->stars;
                 $reviewStarsCount += $reviewStars;
             }
-            @$reviewStarsAverage = $reviewStarsCount/count($reviews);
+            @$reviewStarsAverage = ($reviewStarsCount>0)?$reviewStarsCount/count($reviews):0;
             $Products[$i]->stars = $reviewStarsAverage;
 
             if(in_array($calledCategoey_id->id,$Categorys_ids) != null){
@@ -254,7 +254,7 @@ class shopController extends Controller
                 $reviewStars = $review->stars;
                 $reviewStarsCount += $reviewStars;
             }
-            @$reviewStarsAverage = $reviewStarsCount/count($reviews);
+            @$reviewStarsAverage = ($reviewStarsCount>0)?$reviewStarsCount/count($reviews):0;
             $Products[$i]->stars = $reviewStarsAverage;
 
             if(in_array($calledCategoey_id->id,$Categorys_ids) != null){

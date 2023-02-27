@@ -1,7 +1,7 @@
 @include('inc.header')
     <main style="min-height: 100vh;position: relative;overflow: hidden;">
         <div class="text-uppercase" style="height: 150px;background-color: #F7F8FA;position: relative;">
-            <p class="text-center" style="font-size: 54px;line-height: 74px;font-weight: bold;position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;height: fit-content;width: fit-content;"><strong>Comparer les produits</strong></p>
+            <p class="text-center" style="font-size: 54px;line-height: 74px;font-weight: bold;position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;height: fit-content;width: fit-content;"><strong>@lang("Comparer les produits")</strong></p>
         </div>
         <div style="position: relative;overflow: hidden;height: auto;padding-top: 35px;padding-bottom: 150px;"><img src="/assets/img/65%20(2).svg" style="position: absolute;bottom: 0;right: 0;width: 40%;"><img src="/assets/img/65%20(1).svg" style="position: absolute;left: 0;top: 0;width: 20%;">
             <div class="container">

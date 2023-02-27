@@ -29,7 +29,7 @@
                                     <input type="text" name="product_id[]" value="{{$Product->Product->id}}" hidden />
                                         <div style="position: relative;padding: 2px;"><img style="width: 100%;margin-bottom: 5px;" src="{{asset('storage/' . $Product->Thumbnail->file)}}" />
                                             <p style="font-size: 14px;line-height: 19px;margin-bottom: 5px;width: 100%;">{{$Product->Product->name}}</p>
-                                            <p style="width: 100%;font-size: 14px;line-height: 19px;margin-bottom: 0;color: #ff0000;"><strong>Prix: <span class="product-price">{{$Product->Product->price}}</span> Dh</strong><br /></p>
+                                            <p style="width: 100%;font-size: 14px;line-height: 19px;margin-bottom: 0;color: #ff0000;"><strong>@lang("Prix"): <span class="product-price">{{$Product->Product->price}}</span> @lang("Dh")</strong><br /></p>
                                             <div class="input-group qte_input" style="width: fit-content;margin: auto;">
                                                 <div class="input-group-prepend">
                                                 <button class="btn btn-primary minus" type="button" style="color: #000000;font-size: 14px;line-height: 19px;width: 40px;height: 40px;padding: 0px;border-radius: 0px;border: none;background: none;">-</button>
@@ -38,28 +38,28 @@
                                                 <div class="input-group-append">
                                                 <button class="btn btn-primary text-center plus" type="button" style="color: #000000;font-size: 14px;line-height: 19px;width: 40px;height: 40px;padding: 0px;border-radius: 0px;border: none;background: none;">+</button></div>
                                             </div>
-                                            <p style="width: 100%;font-size: 14px;line-height: 19px;margin-bottom: 0;color: #ff0000;"><strong>Prix total: <span class="total-product-price cart-total-product-price">{{$Product->Product->price}}</span> Dh</strong><br /></p><button onclick="removeFromCarte(this)" data-id="{{$Product->Product->id}}" class="btn btn-primary shadow-sm" type="button" style="border: none;color: #ff0000;box-shadow: none;position: absolute;top: -10px;right: -10px;background-color: rgb(255,255,255);border-radius: 50px;border: 2px solid rgb(255,223,0);width: 20px;height: 20px;font-size: 12px;text-align: center;padding: 0px;"><i class="fa fa-close" style="display: block;"></i></button></div>
+                                            <p style="width: 100%;font-size: 14px;line-height: 19px;margin-bottom: 0;color: #ff0000;"><strong>@lang("Prix total"): <span class="total-product-price cart-total-product-price">{{$Product->Product->price}}</span> @lang("Dh")</strong><br /></p><button onclick="removeFromCarte(this)" data-id="{{$Product->Product->id}}" class="btn btn-primary shadow-sm" type="button" style="border: none;color: #ff0000;box-shadow: none;position: absolute;top: -10px;right: -10px;background-color: rgb(255,255,255);border-radius: 50px;border: 2px solid rgb(255,223,0);width: 20px;height: 20px;font-size: 12px;text-align: center;padding: 0px;"><i class="fa fa-close" style="display: block;"></i></button></div>
                                     </div>
                                 @endforeach
                             @endif
                             </div>
                         </div>
                             <div>
-                                <label class="text-uppercase" style="font-size: 16px;line-height: 22px;font-weight: bold;display: block;">Ajouter une note:</label>
+                                <label class="text-uppercase" style="font-size: 16px;line-height: 22px;font-weight: bold;display: block;">@lang("Ajouter une note"):</label>
                                 <input value="{{ Request::old('note') }}" type="text" name="note" style="height: 45px;width: 80%;border-radius: 50px;border: 2px solid rgb(255,230,0);background-color: #F5F5F5;padding-left: 22px;font-size: 12px;line-height: 16px;"placeholder="Quelques mots à l'équipe interne...">
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" style="background-color: #FFE600;position: relative;padding-right: 0;">
                             <div style="margin-top: 12vh;margin-left: 15%;margin-bottom: 12vh;position: relative;z-index: 1;">
-                                <p style="font-size: 36px;line-height: 49px;border-bottom: 3px solid #ffffff;margin-bottom: 35px;">Mon Panier</p>
+                                <p style="font-size: 36px;line-height: 49px;border-bottom: 3px solid #ffffff;margin-bottom: 35px;">@lang("Mon Panier")</p>
                                 <div style="margin-right: 15%;">
-                                    <p style="font-size: 16px;line-height: 20px;">Frais de livraison et taxes calculés au moment&nbsp;de la finalisation de la commande.</p>
+                                    <p style="font-size: 16px;line-height: 20px;">@lang("Frais de livraison et taxes calculés au moment de la finalisation de la commande").</p>
                                     <div>
                                         <div class="form-group {{ $errors->has('termes_check') ? ' has-error' : '' }}">
                                             <input class="form-check-input" name="termes_check" type="checkbox" id="termes_check">
-                                            <label class="form-check-label" for="termes_check">J'accepte&nbsp;<a href="#" style="font-weight: bold;">les termes et conditions</a></label>
+                                            <label class="form-check-label" for="termes_check">@lang("J'accepte")&nbsp;<a href="#" style="font-weight: bold;">@lang("les termes et conditions")</a></label>
                                         </div>
-                                    </div><button class="btn btn-primary" type="submit" style="font-size: 18px;line-height: 24px;padding: 15px 25px;border-radius: 50px;font-weight: 100;margin-top: 15px;">finaliser la commande</button></div>
+                                    </div><button class="btn btn-primary" type="submit" style="font-size: 18px;line-height: 24px;padding: 15px 25px;border-radius: 50px;font-weight: 100;margin-top: 15px;">@lang("finaliser la commande")</button></div>
                             </div><img src="/assets/img/Intersection%209.svg" style="max-width: 90%;max-height: 35%;position: absolute;bottom: 0;right: 0;"></div>
                     </div>
                 </div>

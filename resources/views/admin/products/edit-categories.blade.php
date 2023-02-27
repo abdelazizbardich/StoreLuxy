@@ -66,7 +66,7 @@
                                             <label style="line-height: 22px;font-size: 16px;">Miniature:</label>
                                             <button class="btn btn-primary close" type="button" style="top: 0;right: 0;position: absolute;color: var(--red);background: none;box-shadow: none;"><i class="fa fa-close"></i></button>
                                             <input type="text" value="{{$thisCategory->thumbnail}}" hidden class="form-control" name="thumbnail">
-                                            <img class="img-fluid thumbnail-placeholder" src="{{asset('storage/' . $thisCategory->Thumbnail->file)}}">
+                                            <img class="img-fluid thumbnail-placeholder" src="{{asset('storage/' . @$thisCategory->Thumbnail->file)}}">
                                         </div>
                                         </div>
                                         <div class="form-group">

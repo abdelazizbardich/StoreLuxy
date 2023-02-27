@@ -12,6 +12,7 @@
 */
 
 
+App::setLocale('ar');
 
 
 Route::get('/', [App\Http\Controllers\homeController::class,"getHome"]);

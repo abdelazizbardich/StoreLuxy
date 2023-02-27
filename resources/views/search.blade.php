@@ -2,7 +2,7 @@
     <main style="min-height: 100vh;position: relative;overflow: hidden;padding-bottom: 80px;">
         <div style="height: 150px;background-color: #F7F8FA;position: relative;">
             <div class="text-center" style="font-size: 18px;line-height: 24px;position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;height: fit-content;width: fit-content;">
-                <p class="text-uppercase text-center" style="font-size: 18px;line-height: 24px;font-weight: normal;"><strong>Résultat de recherche pour:</strong><br></p><span style="font-size: 35px;line-height: 47px;font-weight: bold;">{{$keyword}}</span></div>
+                <p class="text-uppercase text-center" style="font-size: 18px;line-height: 24px;font-weight: normal;"><strong>@lang("Résultat de recherche pour"):</strong><br></p><span style="font-size: 35px;line-height: 47px;font-weight: bold;">{{$keyword}}</span></div>
         </div>
         <div style="position: relative;padding-top: 35px;"><img src="/assets/img/65%20(1).svg" style="position: absolute;left: 0;top: 0;width: 20%;"><img src="/assets/img/Intersection%205.svg" style="position: absolute;top: 25vh;right: 0;width: 25%;">
             <div class="container">
@@ -28,13 +28,13 @@
                                 @endfor
                             </span>
                             <p class="text-center" style="font-size: 12px;line-height: 19px;margin-bottom: 5px;    min-height: 38px;">{{$product->name}}</p>
-                            <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;">{{$product->price}} Dh</p>
+                            <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;">{{$product->price}} @lang("Dh")</p>
                             <ul class="list-inline">
                             @foreach($product->photos as $photo)
                                 <li class="list-inline-item"><img src="{{asset('storage/' . $photo->file)}}" style="width: 30px;height: 30px;"></li>
                             @endforeach
                             </ul>
-                            <a class="btn btn-primary text-uppercase btn-add-to-carte" data-id="{{$product->id}}" role="button" style="margin: auto;border: none;border-radius: 0;font-size: 9px;color: rgb(255,255,255);"><i class="fa fa-cart-plus"></i>&nbsp;Ajouter au panier</a>
+                            <a class="btn btn-primary text-uppercase btn-add-to-carte" data-id="{{$product->id}}" role="button" style="margin: auto;border: none;border-radius: 0;font-size: 9px;color: rgb(255,255,255);"><i class="fa fa-cart-plus"></i>&nbsp;@lang("Ajouter au panier")</a>
                         </div>
                     </div>
                     @endforeach

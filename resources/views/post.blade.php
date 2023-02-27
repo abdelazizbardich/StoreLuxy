@@ -9,7 +9,7 @@
                         </a>
                     </div>
                     <div class="col-md-6" style="position: relative;">
-                        <h1 id="post-title">{{$Post->post->name}}</h1><span id="post-author">Par <strong style="text-transform: uppercase;">{{$Post->user}}</strong> le {{substr($Post->post->created_at,0,10)}}</span>
+                        <h1 id="post-title">{{$Post->post->name}}</h1><span id="post-author">@lang("Par") <strong style="text-transform: uppercase;">{{$Post->user}}</strong> @lang("le") {{substr($Post->post->created_at,0,10)}}</span>
                         <div id="post-details"><span style="font-size: 16px;line-height: 22px;position: relative;display: inline-block;">
                         <?php $i=1; $x=count((array)$Post->categorys); ?>
                                     @foreach($Post->categorys as $category)
@@ -51,7 +51,7 @@
         <div style="margin-top: 35px;">
             <div class="container">
                 <div class="row">
-                    <div class="col-12" style="margin-bottom: 54px;"><span style="display: block;font-size: 31px;line-height: 42px;font-weight: bold;background-color: #FFE600;padding: 15px;">Laissez Un Commentaire</span>
+                    <div class="col-12" style="margin-bottom: 54px;"><span style="display: block;font-size: 31px;line-height: 42px;font-weight: bold;background-color: #FFE600;padding: 15px;">@lang("Laissez Un Commentaire")</span>
                         <form action="/article/nouveau-commentaire" method="POST" style="padding: 15px;border: 1px solid #FFE600;">
                             @csrf
                             @method('POST')
@@ -59,27 +59,27 @@
                             <div class="form-row">
                                 <div class="col">
                                     <div class="form-group{{ $errors->has('fullname') ? ' has-error' : '' }}">
-                                        <label style="font-size: 18px;">Nom:</label>
-                                        <input value="{{ Request::old('fullname') }}"  id="fullname" name="fullname" class="form-control" type="text" placeholder="Tapez votre nom..." style="font-size: 14px;padding: 30px;border: none;border-bottom: 1px solid rgb(255,230,0);border-radius: 0;background-color: #FCFCFC;"><br/>
+                                        <label style="font-size: 18px;">@lang("Nom"):</label>
+                                        <input value="{{ Request::old('fullname') }}"  id="fullname" name="fullname" class="form-control" type="text" placeholder="@lang("Tapez votre nom")..." style="font-size: 14px;padding: 30px;border: none;border-bottom: 1px solid rgb(255,230,0);border-radius: 0;background-color: #FCFCFC;"><br/>
                                         @error('fullname')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group{{ $errors->has('comment') ? ' has-error' : '' }}">
-                                        <label style="font-size: 18px;">Commentaire:</label>
-                                        <textarea value="{{ Request::old('comment') }}"  id="comment" name="comment"  class="form-control" style="font-size: 14px;padding: 30px;border: none;border-bottom: 1px solid rgb(255,230,0);border-radius: 0;background-color: #FCFCFC;padding-top: 15px;min-height: 150px;color:black;" placeholder="Tapez votre commentaire..."></textarea><br/>
+                                        <label style="font-size: 18px;">@lang("Commentaire"):</label>
+                                        <textarea value="{{ Request::old('comment') }}"  id="comment" name="comment"  class="form-control" style="font-size: 14px;padding: 30px;border: none;border-bottom: 1px solid rgb(255,230,0);border-radius: 0;background-color: #FCFCFC;padding-top: 15px;min-height: 150px;color:black;" placeholder="@lang("Tapez votre commentaire")..."></textarea><br/>
                                         @error('comment')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                <div class="form-group"><button class="btn btn-primary text-uppercase" type="submit" style="padding: 15px;border: none;border-radius: 0;background: #ffe600;color: black;font-weight: bold;">commentez</button></div>
+                                <div class="form-group"><button class="btn btn-primary text-uppercase" type="submit" style="padding: 15px;border: none;border-radius: 0;background: #ffe600;color: black;font-weight: bold;">@lang("commentez")</button></div>
                             </div>
                     </div>
                     </form>
                 </div>
                 <div class="col-12" style="margin-bottom: 54px;">
                 @if($Post->comments)
-                <span style="font-size: 37px;line-height: 61px;font-weight: bold;margin-bottom: 10px;display: block;">Les commentaires:</span>
+                <span style="font-size: 37px;line-height: 61px;font-weight: bold;margin-bottom: 10px;display: block;">@lang("Les commentaires"):</span>
                 @endif
                     <ul class="list-unstyled">
                     @foreach($Post->comments as $comment)
@@ -88,10 +88,10 @@
                                 <div class="row no-gutters">
                                     <div class="col-auto"><i class="fa fa-user-circle" style="color: #FFE600;font-size: 39px;margin-right: 15px;"></i></div>
                                     <div class="col">
-                                        <div>Par <span style="font-size: 18px;font-weight: bold;line-height: 40px; text-transform: uppercase;">{{$comment->user}}</span><span style="float: right;line-height: 40px;font-size: 11px;">le {{$comment->comment->created_at}}</span></div>
+                                        <div>@lang("Par") <span style="font-size: 18px;font-weight: bold;line-height: 40px; text-transform: uppercase;">{{$comment->user}}</span><span style="float: right;line-height: 40px;font-size: 11px;">@lang("le") {{$comment->comment->created_at}}</span></div>
                                         <p style="font-size: 14px;line-height: 20px;margin-bottom: 8px;">{!! $comment->comment->comment !!}</p>
                                             <!-- <span style="font-size: 14px;color: #0066FF;font-weight: normal;">Répondre</span> -->
-                                            </div>
+                                        </div>
                                 </div>
                             </div>
                         </li>
@@ -104,7 +104,7 @@
         <div style="margin-bottom: 30px;margin-top: 60px;">
             <div style="margin-bottom: 15px;">
                 @if($RelatedPosts)
-                <p class="text-center" style="font-size: 24px;line-height: 32px;font-weight: bold;margin: 0;"><strong>Plus de sujets que vous aimerez</strong><br></p>
+                <p class="text-center" style="font-size: 24px;line-height: 32px;font-weight: bold;margin: 0;"><strong>@lang("Plus de sujets que vous aimerez")</strong><br></p>
                 @endif
             </div>
             <div class="container">
@@ -126,7 +126,7 @@
                                     <p style="font-size: 12px;line-height: 16px;margin-bottom: 5px;">{{substr(strip_tags($Post->post->content),0,125)}}</p>
                                     <div>
                                         <ul class="list-inline">
-                                            <li class="list-inline-item"><span style="font-size: 10px;line-height: 14px;">Par <strong style="text-transform: uppercase;">{{$Post->user}} </strong>le 
+                                            <li class="list-inline-item"><span style="font-size: 10px;line-height: 14px;">@lang("Par") <strong style="text-transform: uppercase;">{{$Post->user}} </strong>@lang("le")
                                             {{substr($Post->post->created_at,0,10)}}</span></li>
                                             <li class="list-inline-item"><span style="background-image: url(&quot;/assets/img/Icon%20awesome-comment.svg&quot;);width: 27px;display: block;background-size: contain;background-repeat: no-repeat;font-size: 10px;background-position: center;">{{$Post->commentsCount}}</span></li>
                                         </ul>

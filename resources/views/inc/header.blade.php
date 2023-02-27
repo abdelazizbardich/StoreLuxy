@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
-<html>
-
+<html lang="{{App::getLocale()}}" dir="@lang("dir")">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -9,18 +8,20 @@
     <meta name="site-storage-url"content="{{asset('storage/')}}">
     <title>{{ $options->SiteOptions->site_name}}</title>
     <link rel="icon" type="image/svg+xml" sizes="219x55" href="{{  asset('storage/' . $options->SiteOptions->site_icon)}}">
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href='/assets/bootstrap/css/bootstrap.@lang("dir").min.css'>
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700i,800,900">
     <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/fonts/line-awesome.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" href="/assets/css/styles.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.@lang("dir").min.css">
     <link rel="stylesheet" href="/assets/css/mobile-ready.css">
     <link rel="stylesheet" href="/assets/css/notiflix-2.1.3.min.css">
     <link rel="stylesheet" href="/assets/css/animate.min.css">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+
     <!-- Meta data -->
 
     <meta property="og:url"           content="{{ $options->SiteOptions->site_url}}" />
@@ -31,7 +32,7 @@
     {!! $options->SiteOptions->header_codes !!}
 </head>
 
-<body style="font-family: Nunito, sans-serif;">
+<body>
 {!! $options->SiteOptions->before_body_code !!}
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=953076688357292&autoLogAppEvents=1"></script>
@@ -45,7 +46,7 @@
                         <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                             <div class="collapse navbar-collapse" id="navcol-1">
                                 <ul class="nav navbar-nav text-uppercase text-center mx-auto" style="font-size: 16px;line-height: 22px;">
-                                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/">accueil</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/">@lang("accueil")</a></li>
                                     <li class="nav-item has-mega-menu" role="presentation">
                                         <div class="shadow" id="mega-menu" style="display: none;position: absolute;top: 70px;width: 835px;background: #ffffff;margin: auto;left: 0;right: 0;border-bottom: 4px solid #FFE600;text-transform: initial;">
                                             <div class="mega-menu-tabs">
@@ -62,7 +63,7 @@
                                                     <div class="tab-pane <?php if($i == 0){echo 'active'; $i = 1;} ?>" role="tabpanel" id="tab-{{$Category->category->id}}">
                                                         <div>
                                                             <div class="row no-gutters">
-                                                                <div class="col-auto" style="border-right: 1px solid rgb(241,241,241);">
+                                                                <div class="col-auto">
                                                                     <ul class="list-unstyled">
                                                                         @foreach($Category->subCategorys as $subCategory)
                                                                             <li class="text-left"><a href="/boutique/{{$Category->category->slug_name}}/{{$subCategory->slug_name}}" style="color: initial;text-decoration: none;font-size: 14px;line-height: 19px;padding: 18px;display: block;height: unset;">{{$subCategory->name}}</a></li>
@@ -89,16 +90,16 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                 @endforeach
-                                                    
+
                                                 <!-- ------- -->
                                                 </div>
                                             </div>
-                                        </div><a class="nav-link" href="/boutique">Boutique</a></li>
-                                    <li class="nav-item" role="presentation"><a class="nav-link" href="/à-propos">à propos</a></li>
-                                    <li class="nav-item" role="presentation"><a class="nav-link" href="/blogs">Blogs</a></li>
-                                    <li class="nav-item" role="presentation"><a class="nav-link" href="/contact">Contact</a></li>
+                                        </div><a class="nav-link" href="/boutique">@lang("Boutique")</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link" href="/à-propos">@lang("à propos")</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link" href="/blogs">@lang("Blogs")</a></li>
+                                    <li class="nav-item" role="presentation"><a class="nav-link" href="/contact">@lang("Contact")</a></li>
                                 </ul>
                             </div>
                         </div>

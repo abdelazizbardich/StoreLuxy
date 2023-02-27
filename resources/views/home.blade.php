@@ -8,13 +8,13 @@
                         <div class="carousel-inner" role="listbox" style="height: 100%;">
                         <?php $i=0; ?>
                             @foreach($SliderProducts as $SliderProduct)
-                                <div class="carousel-item <?php if($i ==0){echo 'active'; $i=1;} ?>" style="height: 100%;">
+                                <div class="carousel-item <?php if($i == 0){echo 'active'; $i=1;} ?>" style="height: 100%;">
                                     <div class="row justify-content-center align-items-center" style="height: 100%;">
                                         <div class="col-11 col-sm-11 col-md-12 col-lg-6 col-xl-6 order-2 order-sm-2 order-md-2 order-lg-1 order-xl-1">
                                             <div>
                                                 <span>
                                                     @foreach($SliderProduct->categorys as $category)
-                                                    <a style="color: inherit;" href="/boutique/{{$category->slug_name}}">{{$category->name}}</a>,  
+                                                    <a style="color: inherit;" href="/boutique/{{$category->slug_name}}">{{$category->name}}</a>,
                                                     @endforeach
                                                 </span>
                                                 <span style="margin-left: 15px;">
@@ -29,7 +29,7 @@
                                             <h1>{{$SliderProduct->Product->name}}</h1>
                                             <p>{{$SliderProduct->Product->short_desc}}</p>
                                             <div style="width: fit-content;border-radius: 50px;background: #C70000;">
-                                                <p style="margin-left: 15px;color: rgb(255,255,255);font-weight: bold;line-height: 33px;float: left;padding-top: 5px;padding-bottom: 5px;margin-bottom: 0px;font-size: 22px;">{{$SliderProduct->Product->price}} Dh</p><a href="/commandez-maintenant/{{$SliderProduct->Product->id}}/1" class="btn btn-primary" role="button" style="background-color: #FF0000;border: none;border-radius: 50px;font-size: 12px;font-weight: bold;padding-top: 12px;padding-bottom: 12px;margin-left: 15px;height: 100%;color: rgb(255,255,255);">COMMANDEZ</a></div>
+                                                <p style="margin-left: 15px;color: rgb(255,255,255);font-weight: bold;line-height: 33px;float: left;padding-top: 5px;padding-bottom: 5px;margin-bottom: 0px;font-size: 22px;">{{$SliderProduct->Product->price}} @lang("Dh")</p><a href="/commandez-maintenant/{{$SliderProduct->Product->id}}/1" class="btn btn-primary" role="button" style="background-color: #FF0000;border: none;border-radius: 50px;font-size: 12px;font-weight: bold;padding-top: 12px;padding-bottom: 12px;margin-left: 15px;height: 100%;color: rgb(255,255,255);">@lang("COMMANDEZ")</a></div>
                                         </div>
                                         <div class="col-8 col-sm-7 col-md-12 col-lg-6 col-xl-6 order-1 order-sm-1 order-md-1 order-lg-2 order-xl-2" style="position: relative;">
                                             <div style="position: relative;width: 100%;height: 100%;margin-bottom: 20%;margin-top: 20%;"><img class="img-fluid" src="/assets/img/Ellipse%201.svg" style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;margin: auto;width: 80%;" width="100%"><img class="img-fluid" src="{{asset('storage/' . $SliderProduct->Thumbnail->file)}}" style="z-index: 1;position: relative;"></div>
@@ -39,9 +39,9 @@
                             @endforeach
                         </div>
                         <div class="d-none">
-                            <!-- Start: Previous --><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><span class="carousel-control-prev-icon"></span><span class="sr-only">Previous</span></a>
+                            <!-- Start: Previous --><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><span class="carousel-control-prev-icon"></span><span class="sr-only">@lang("Previous")</span></a>
                             <!-- End: Previous -->
-                            <!-- Start: Next --><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><span class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a>
+                            <!-- Start: Next --><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><span class="carousel-control-next-icon"></span><span class="sr-only">@lang("Next")</span></a>
                             <!-- End: Next -->
                         </div>
                         <ol class="carousel-indicators">
@@ -89,7 +89,7 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach                    
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -97,8 +97,8 @@
     @if($TrendingProducts)
         <div style="margin-bottom: 30px;margin-top: 60px;">
                 <div style="margin-bottom: 50px;">
-                    <p class="text-center" style="font-size: 24px;line-height: 32px;font-weight: bold;margin: 0;">&nbsp;<strong>TENDANCE</strong></p>
-                    <p class="text-center" style="line-height: 22px;font-size: 16px;margin: 0;">VUES DE HAUT DANS CETTE SEMAINE</p>
+                    <p class="text-center" style="font-size: 24px;line-height: 32px;font-weight: bold;margin: 0;">&nbsp;<strong>@lang("TENDANCE")</strong></p>
+                    <p class="text-center" style="line-height: 22px;font-size: 16px;margin: 0;">@lang("VUES DE HAUT DANS CETTE SEMAINE")</p>
                 </div>
             <div class="container">
                 <div class="row justify-content-center" style="margin-top: 15px;margin-bottom: 15px;">
@@ -123,13 +123,13 @@
                                     @endfor
                                 </span>
                                 <p class="text-center" style="font-size: 12px;line-height: 19px;margin-bottom: 5px;">{{$TrendingProduct->product->name}}</p>
-                                <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;">{{$TrendingProduct->product->price}} Dh</p>
+                                <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;">{{$TrendingProduct->product->price}} @lang("Dh")</p>
                                 <ul class="list-inline">
                                 @foreach($TrendingProduct->photos as $photo)
                                     <li class="list-inline-item"><img src="{{asset('storage/' . $photo->file)}}" style="width: 30px;height: 30px;"></li>
                                 @endforeach
                                 </ul>
-                                <a class="btn btn-primary text-uppercase btn-add-to-carte" data-id="{{$TrendingProduct->product->id}}" role="button" style="margin: auto;border: none;border-radius: 0;font-size: 9px;color: rgb(255,255,255);"><i class="fa fa-cart-plus"></i>&nbsp;Ajouter au panier</a>
+                                <a class="btn btn-primary text-uppercase btn-add-to-carte" data-id="{{$TrendingProduct->product->id}}" role="button" style="margin: auto;border: none;border-radius: 0;font-size: 9px;color: rgb(255,255,255);"><i class="fa fa-cart-plus"></i>&nbsp;@lang("Ajouter au panier")</a>
                             </div>
                         </div>
                     @endforeach
@@ -155,7 +155,7 @@
                                 <p class="text-center" style="position: absolute;top: 0;bottom: 0;left: 0;right: 0;height: fit-content;width: fit-content;max-width: 80%;margin: auto;background-color: rgba(255,255,255,0.95);padding: 10px 15px;border-radius: 10px;"><span style="font-size: 12px;font-weight: bold;line-height: 24px;display: block;">{{$Cards[1]->Card->label}}</span><span style="line-height: 42px;font-size: 20px;font-weight: bold;">{!! $Cards[1]->Card->title !!}</span>
                                 </p>
                             </div>
-                        </a> 
+                        </a>
                     </div>
                     <div class="col-4" style="padding: 0;">
                         <a href="{{$Cards[2]->Card->link}}" style="color: unset;">
@@ -172,8 +172,8 @@
         @if($BestSallerProducts)
         <div style="margin-bottom: 30px;margin-top: 60px;">
             <div style="margin-bottom: 50px;">
-                <p class="text-center" style="font-size: 24px;line-height: 32px;font-weight: bold;margin: 0;"><strong>BEST SELLER</strong></p>
-                <p class="text-center" style="line-height: 22px;font-size: 16px;margin: 0;">TOP VENTE DANS CETTE SEMAINE</p>
+                <p class="text-center" style="font-size: 24px;line-height: 32px;font-weight: bold;margin: 0;"><strong>@lang("BEST SELLER")</strong></p>
+                <p class="text-center" style="line-height: 22px;font-size: 16px;margin: 0;">@lang("TOP VENTE DANS CETTE SEMAINE")</p>
             </div>
             <div class="container">
                 <div class="row justify-content-center" style="margin-top: 15px;margin-bottom: 15px;">
@@ -198,13 +198,13 @@
                                         @endfor
                                     </span>
                                     <p class="text-center" style="font-size: 12px;line-height: 19px;margin-bottom: 5px;">{{$BestSallerProduct->product->name}}</p>
-                                    <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;">{{$BestSallerProduct->product->price}} Dh</p>
+                                    <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;">{{$BestSallerProduct->product->price}} @lang("Dh")</p>
                                     <ul class="list-inline">
                                     @foreach($BestSallerProduct->photos as $photo)
                                         <li class="list-inline-item"><img src="{{asset('storage/' . $photo->file)}}" style="width: 30px;height: 30px;"></li>
                                     @endforeach
                                     </ul>
-                                    <a class="btn btn-primary text-uppercase btn-add-to-carte" data-id="{{$BestSallerProduct->product->id}}" role="button" style="margin: auto;border: none;border-radius: 0;font-size: 9px;color: rgb(255,255,255);"><i class="fa fa-cart-plus"></i>&nbsp;Ajouter au panier</a>
+                                    <a class="btn btn-primary text-uppercase btn-add-to-carte" data-id="{{$BestSallerProduct->product->id}}" role="button" style="margin: auto;border: none;border-radius: 0;font-size: 9px;color: rgb(255,255,255);"><i class="fa fa-cart-plus"></i>&nbsp;@lang("Ajouter au panier")</a>
                                 </div>
                             </div>
                         @endforeach
@@ -215,8 +215,8 @@
         @if($Last3Posts)
         <div style="margin-bottom: 30px;margin-top: 60px;">
             <div style="margin-bottom: 50px;">
-                <p class="text-center" style="font-size: 24px;line-height: 32px;font-weight: bold;margin: 0;">&nbsp;<strong>DERNIÈRE DU BLOG</strong></p>
-                <p class="text-center" style="line-height: 22px;font-size: 16px;margin: 0;">LES NOUVELLES LES PLUS FRAÎCHES ET LES PLUS EXCITANTES</p>
+                <p class="text-center" style="font-size: 24px;line-height: 32px;font-weight: bold;margin: 0;">&nbsp;<strong>@lang("DERNIÈRE DU BLOG")</strong></p>
+                <p class="text-center" style="line-height: 22px;font-size: 16px;margin: 0;">@lang("LES NOUVELLES LES PLUS FRAÎCHES ET LES PLUS EXCITANTES")</p>
             </div>
             <div class="container">
                 <div class="row justify-content-center" style="margin-top: 15px;margin-bottom: 15px;">
@@ -237,7 +237,7 @@
                                     <p style="font-size: 12px;line-height: 16px;margin-bottom: 5px;">{{substr(strip_tags($Post->post->content),0,125)}}</p>
                                     <div>
                                         <ul class="list-inline">
-                                            <li class="list-inline-item"><span style="font-size: 10px;line-height: 14px;">Par <strong style="text-transform: uppercase;">{{$Post->user}} </strong>le 
+                                            <li class="list-inline-item"><span style="font-size: 10px;line-height: 14px;">@lang("Par") <strong style="text-transform: uppercase;">{{$Post->user}} </strong>@lang("le")
                                             {{substr($Post->post->created_at,0,10)}}</span></li>
                                             <li class="list-inline-item"><span style="background-image: url(&quot;/assets/img/Icon%20awesome-comment.svg&quot;);width: 27px;display: block;background-size: contain;background-repeat: no-repeat;font-size: 10px;background-position: center;">{{$Post->commentsCount}}</span></li>
                                         </ul>
