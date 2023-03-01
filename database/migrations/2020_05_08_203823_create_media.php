@@ -33,6 +33,6 @@ class CreateMedia extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Medias');
+        Schema::dropIfExists('medias');
     }
 }
