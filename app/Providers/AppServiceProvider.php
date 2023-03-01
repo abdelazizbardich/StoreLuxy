@@ -26,27 +26,31 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (!Schema::hasTable('options')) {
-            // Using Closure based composers...
-            // site options
-            $this->Options = (object)[];
-            $this->Options->SiteOptions = $this->getSiteOptions();
-            // Cart
-            $this->Options->CartProducts = $this->getCartProducts();
-            // Order Notice
-            $this->Options->OrderNotice = $this->getOrderNoticeState();
-            // Chat Message
-            $this->Options->ChatMessage = $this->getChatMessageState();
-            // carte Count
-            $this->Options->CartCount = $this->getCartCount();
-            // Categorys
+        // Using Closure based composers...
+        // site options
+        $this->Options = (object)[];
+        if (Schema::hasTable('options'))
+        $this->Options->SiteOptions = $this->getSiteOptions();
+        // Cart
+        if (Schema::hasTable('products'))
+        $this->Options->CartProducts = $this->getCartProducts();
+        // Order Notice
+        if (Schema::hasTable('ordernotice'))
+        $this->Options->OrderNotice = $this->getOrderNoticeState();
+        // Chat Message
+        if (Schema::hasTable('chatmessage'))
+        $this->Options->ChatMessage = $this->getChatMessageState();
+        // carte Count
+        if (Schema::hasTable('ordernotice'))
+        $this->Options->CartCount = $this->getCartCount();
+        // Categorys
+        if (Schema::hasTable('categorys'))
             $this->Options->Categorys = $this->getCategorys();
             // Sare data to all views
             View::composer('*', function ($view) {
                 $view->with('options', $this->Options);
             });
             Schema::defaultStringLength(191);
-        }
 
     }
 
