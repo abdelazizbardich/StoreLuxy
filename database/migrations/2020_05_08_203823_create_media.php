@@ -13,7 +13,7 @@ class CreateMedia extends Migration
      */
     public function up()
     {
-        Schema::create('Medias', function (Blueprint $table) {
+        Schema::create('medias', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('type');
             $table->text('file');
