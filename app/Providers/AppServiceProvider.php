@@ -29,23 +29,17 @@ class AppServiceProvider extends ServiceProvider
         // Using Closure based composers...
         // site options
         $this->Options = (object)[];
-        if (Schema::hasTable('options'))
-        $this->Options->SiteOptions = $this->getSiteOptions();
+        $this->Options->SiteOptions = (Schema::hasTable('options'))?$this->getSiteOptions():"";
         // Cart
-        if (Schema::hasTable('products'))
-        $this->Options->CartProducts = $this->getCartProducts();
+        $this->Options->CartProducts = (Schema::hasTable('products'))?$this->getCartProducts():"";
         // Order Notice
-        if (Schema::hasTable('ordernotice'))
-        $this->Options->OrderNotice = $this->getOrderNoticeState();
+        $this->Options->OrderNotice = (Schema::hasTable('ordernotice'))?$this->getOrderNoticeState():"";
         // Chat Message
-        if (Schema::hasTable('chatmessage'))
-        $this->Options->ChatMessage = $this->getChatMessageState();
+        $this->Options->ChatMessage = (Schema::hasTable('chatmessage'))?$this->getChatMessageState():"";
         // carte Count
-        if (Schema::hasTable('ordernotice'))
-        $this->Options->CartCount = $this->getCartCount();
+        $this->Options->CartCount = (Schema::hasTable('ordernotice'))?$this->getCartCount():"";
         // Categorys
-        if (Schema::hasTable('categorys'))
-            $this->Options->Categorys = $this->getCategorys();
+            $this->Options->Categorys = (Schema::hasTable('categorys'))?$this->getCategorys():"";
             // Sare data to all views
             View::composer('*', function ($view) {
                 $view->with('options', $this->Options);
