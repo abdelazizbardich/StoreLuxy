@@ -35,7 +35,7 @@ class CreateProduct extends Migration
             $table->string('gallery_ids');
             $table->float('tax')->nullable()->default(00.00);
             $table->boolean('state')->nullable()->default(false);
-            $table->string('sku', 100)->nullable()->default('');
+            $table->string('sku', 100)->nullable();
             $table->boolean('sponsored')->nullable()->default(false);
             $table->timestamps();
         });
