@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-          // Using Closure based composers...
+  /*        // Using Closure based composers...
          // site options
          $this->Options = (object)[];
          $this->Options->SiteOptions = $this->getSiteOptions();
@@ -45,7 +45,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('options', $this->Options);
         });
         Schema::defaultStringLength(191);
-
+*/
 
     }
 
