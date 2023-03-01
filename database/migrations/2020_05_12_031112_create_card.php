@@ -15,9 +15,9 @@ class CreateCard extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('label')->nullable()->default('text');
-            $table->text('title')->nullable()->default('text');
-            $table->text('link')->nullable()->default('text');
+            $table->text('label')->nullable();
+            $table->text('title')->nullable();
+            $table->text('link')->nullable();
             $table->integer('thumbnail')->unsigned()->nullable()->default(0);
             $table->timestamps();
         });

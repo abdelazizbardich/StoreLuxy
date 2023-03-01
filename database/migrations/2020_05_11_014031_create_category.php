@@ -15,10 +15,10 @@ class CreateCategory extends Migration
     {
         Schema::create('categorys', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 100)->nullable()->default('text');
-            $table->string('slug_name', 100)->nullable()->default('text');
-            $table->text('car_desc')->nullable()->default('text');
-            $table->string('type', 100)->nullable()->default('text');
+            $table->string('name', 100)->nullable();
+            $table->string('slug_name', 100)->nullable();
+            $table->text('car_desc')->nullable();
+            $table->string('type', 100)->nullable();
             $table->Integer('thumbnail')->nullable()->default(0);
             $table->integer('parent')->unsigned()->nullable()->default(0);
             $table->boolean('in_home')->nullable()->default(false);

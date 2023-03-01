@@ -15,18 +15,18 @@ class CreateOrder extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('first_name', 100)->nullable()->default('text');
-            $table->string('last_name', 100)->nullable()->default('text');
-            $table->string('phone', 100)->nullable()->default('text');
-            $table->string('city', 100)->nullable()->default('text');
-            $table->text('adress')->nullable()->default('text');
+            $table->string('first_name', 100)->nullable();
+            $table->string('last_name', 100)->nullable();
+            $table->string('phone', 100)->nullable();
+            $table->string('city', 100)->nullable();
+            $table->text('adress')->nullable();
             $table->float('total_cart')->nullable()->default(0.00);
             $table->float('shipping_cost')->nullable()->default(0.00);
             $table->float('tax_cost')->nullable()->default(0.00);
             $table->float('total_order')->nullable()->default(0.00);
-            $table->string('code', 100)->nullable()->default('text');
+            $table->string('code', 100)->nullable();
             $table->integer('carts_ids')->unsigned()->nullable()->default(0);
-            $table->text('note')->nullable()->default('text');
+            $table->text('note')->nullable();
             $table->integer('state')->unsigned()->nullable()->default(0);
             $table->timestamps();
         });

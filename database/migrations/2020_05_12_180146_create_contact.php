@@ -15,10 +15,10 @@ class CreateContact extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('full_name', 100)->nullable()->default('text');
-            $table->string('email', 100)->nullable()->default('text');
+            $table->string('full_name', 100)->nullable();
+            $table->string('email', 100)->nullable();
             $table->integer('subject_id')->unsigned()->nullable()->default(0);
-            $table->longText('message')->nullable()->default('text');
+            $table->longText('message')->nullable();
             $table->string('state', 100)->nullable()->default('unread');
             $table->timestamps();
         });

@@ -16,8 +16,8 @@ class CreateTrackOrder extends Migration
         Schema::create('track_orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('order_id')->unsigned()->nullable()->default(0);
-            $table->string('title', 100)->nullable()->default('text');
-            $table->text('details')->nullable()->default('text');
+            $table->string('title', 100)->nullable();
+            $table->text('details')->nullable();
             $table->string('state', 100)->nullable()->default('progress');
             $table->timestamps();
         });

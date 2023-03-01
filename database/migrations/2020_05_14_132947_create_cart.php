@@ -18,7 +18,7 @@ class CreateCart extends Migration
             $table->integer('product_id')->unsigned()->nullable()->default(0);
             $table->float('price')->nullable()->default(0.00);
             $table->integer('quantity')->unsigned()->nullable()->default(0);
-            $table->string('client_ip', 100)->nullable()->default('text');
+            $table->string('client_ip', 100)->nullable();
             $table->integer('total_price')->unsigned()->nullable()->default(0);
             $table->timestamps();
         });

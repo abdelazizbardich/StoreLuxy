@@ -17,7 +17,7 @@ class CreateReview extends Migration
             $table->bigIncrements('id');
             $table->integer('stars');
             $table->string('username');
-            $table->longText('comment')->nullable()->default('text');
+            $table->longText('comment')->nullable();
             $table->integer('product_id');
             $table->integer('state');
             $table->string('gallery_ids');

@@ -15,8 +15,8 @@ class CreateComment extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 100)->nullable()->default('text');
-            $table->mediumText('comment')->nullable()->default('text');
+            $table->string('name', 100)->nullable();
+            $table->mediumText('comment')->nullable();
             $table->integer('post_id')->unsigned()->nullable()->default(0);
             $table->string('state', 100)->nullable()->default('pending');
             $table->timestamps();

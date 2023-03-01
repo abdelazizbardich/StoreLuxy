@@ -15,8 +15,8 @@ class CreateCity extends Migration
     {
         Schema::create('citys', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 100)->nullable()->default('text');
-            $table->string('slug_name', 100)->unique()->nullable()->default('text');
+            $table->string('name', 100)->nullable();
+            $table->string('slug_name', 100)->unique()->nullable();
             $table->float('shipping_cost')->nullable()->default(0.00);
             $table->timestamps();
         });
