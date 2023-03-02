@@ -152,7 +152,7 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js?{{ date('d')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js?{{ date('d')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js?{{ date('d')}}/2.8.0/Chart.bundle.min.js?{{ date('d')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js?{{ date('d')}}"></script>
     <script src="/assets/admin/js/chart.js?{{ date('d')}}"></script>
     <script src="/assets/admin/js/datatables.min.js?{{ date('d')}}"></script>
     <script src="/assets/admin/js/pdfmake.min.js?{{ date('d')}}"></script>
