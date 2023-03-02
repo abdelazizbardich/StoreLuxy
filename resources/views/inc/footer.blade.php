@@ -48,11 +48,11 @@
     <div class="d-lg-none d-xl-none" id="side-menu">
         <div style="background-color: #ffe600;height: 100%;width: 100%;overflow: hidden;"><img width="100%" src="/assets/img/Storluxy2.svg" style="width: 36%;/*transform: rotateZ(-15deg);*/margin: 5%;margin-bottom: 0;">
             <ul class="list-unstyled">
-                <li class="text-uppercase" style="background-color: #2C3E50;"><a href="/" style="transform: translateX(-50%);">accueil</a></li>
-                <li class="text-uppercase" style="background-color: #ffe600;"><a href="/boutique" style="transform: translateX(50%);color: rgb(44,62,80);">boutique</a></li>
-                <li class="text-uppercase" style="background-color: #2c3e50;"><a href="/à-propos" style="transform: translateX(-50%);">à propos</a></li>
-                <li class="text-uppercase" style="background-color: #ffe600;color: rgb(44,62,80);"><a href="/blogs" style="transform: translateX(50%);">blogs</a></li>
-                <li class="text-uppercase" style="background-color: #2c3e50;"><a href="/contact" style="transform: translateX(-50%);">contact</a></li>
+                <li class="text-uppercase" style="background-color: #2C3E50;"><a href="/" style="transform: translateX(-50%);">@lang("accueil")</a></li>
+                <li class="text-uppercase" style="background-color: #ffe600;"><a href="/boutique" style="transform: translateX(50%);color: rgb(44,62,80);">@lang("boutique")</a></li>
+                <li class="text-uppercase" style="background-color: #2c3e50;"><a href="/à-propos" style="transform: translateX(-50%);">@lang("à propos")</a></li>
+                <li class="text-uppercase" style="background-color: #ffe600;color: rgb(44,62,80);"><a href="/blogs" style="transform: translateX(50%);">@lang("blogs")</a></li>
+                <li class="text-uppercase" style="background-color: #2c3e50;"><a href="/contact" style="transform: translateX(-50%);">@lang("contact")</a></li>
             </ul><i class="fa fa-close" id="close-side-menu" style="position: absolute;height: 36px;width: 36px;right: 5%;text-align: center;bottom: 5%;border-radius: 50px;padding: 6px;background: #ffffff;cursor: pointer;font-size: 22px;"></i></div>
         </div>
         <div id="lightBox">
@@ -67,7 +67,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h1 style="font-size: 36px;line-height: 39px;position: relative;height: 104px;">Panier<img src="/assets/img/Icon feather-shopping-cart2.svg" style="position: absolute;left: 20px;top: -34%;width: 110px;" /></h1>
+                        <h1 style="font-size: 36px;line-height: 39px;position: relative;height: 104px;">@lang("Panier")<img src="/assets/img/Icon feather-shopping-cart2.svg" style="position: absolute;left: 20px;top: -34%;width: 110px;" /></h1>
                     </div>
                 </div>
             </div>
@@ -78,7 +78,7 @@
                    <div class="fixed-carte-product col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
                         <div style="padding: 5px;position: relative;"><img class="img-fluid" style="width: 100%;margin-bottom: 10px;" src="{{asset('storage/' . $CartProduct->Thumbnail->file)}}" />
                             <p class="text-break" style="font-size: 14px;line-height: 19px;margin-bottom: 5px;width: 100%;">{{$CartProduct->Product->name}}</p>
-                            <p class="text-break" style="width: 100%;font-size: 14px;line-height: 19px;color:red">{{$CartProduct->Product->price}}Dh</p><button onclick="removeFromCarte(this)" data-id="{{$CartProduct->Product->id}}" class="btn btn-primary shadow-sm" type="button" style="border: none;color: #ff0000;box-shadow: none;position: absolute;top: -10px;right: -10px;background-color: rgb(255,255,255);border-radius: 50px;border: 2px solid rgb(255,223,0);width: 20px;height: 20px;font-size: 12px;text-align: center;padding: 0px;"><i class="fa fa-close close-fixed-carte-product" style="display: block;"></i></button>
+                            <p class="text-break" style="width: 100%;font-size: 14px;line-height: 19px;color:red">{{$CartProduct->Product->price}} @lang("Dh")</p><button onclick="removeFromCarte(this)" data-id="{{$CartProduct->Product->id}}" class="btn btn-primary shadow-sm" type="button" style="border: none;color: #ff0000;box-shadow: none;position: absolute;top: -10px;right: -10px;background-color: rgb(255,255,255);border-radius: 50px;border: 2px solid rgb(255,223,0);width: 20px;height: 20px;font-size: 12px;text-align: center;padding: 0px;"><i class="fa fa-close close-fixed-carte-product" style="display: block;"></i></button>
                         </div>
                     </div>
                    @endforeach
