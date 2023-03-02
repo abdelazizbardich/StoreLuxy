@@ -46,13 +46,13 @@
             </div><button class="btn btn-primary" id="close-search-box" type="button" style="position: absolute;top: 15%;right: 15%;font-size: 45px;padding: 5px;border: none;background: none;height: auto;box-shadow: none;"><i class="fa fa-close"></i></button>
         </div>
     <div class="d-lg-none d-xl-none" id="side-menu">
-        <div style="background-color: #ffe600;height: 100%;width: 100%;overflow: hidden;"><img width="100%" src="/assets/img/Storluxy2.svg" style="width: 36%;/*transform: rotateZ(-15deg);*/margin: 5%;margin-bottom: 0;">
+        <div style="background-color: #ffe600;height: 100%;width: 100%;overflow: hidden;"><img width="100%" src="{{ asset('storage/' . $options->SiteOptions->site_icon)}}" style="width: 36%;/*transform: rotateZ(-15deg);*/margin: 5%;margin-bottom: 0;">
             <ul class="list-unstyled">
                 <li class="text-uppercase" style="background-color: #2C3E50;"><a href="/" style="transform: translateX(-50%);">@lang("accueil")</a></li>
-                <li class="text-uppercase" style="background-color: #ffe600;"><a href="/boutique" style="transform: translateX(50%);color: rgb(44,62,80);">@lang("boutique")</a></li>
+                <li class="text-uppercase" style="background-color: #ffe600;"><a href="/boutique" style="transform: translateX(50%);color: rgb(44,62,80);">@lang("Boutique")</a></li>
                 <li class="text-uppercase" style="background-color: #2c3e50;"><a href="/à-propos" style="transform: translateX(-50%);">@lang("à propos")</a></li>
-                <li class="text-uppercase" style="background-color: #ffe600;color: rgb(44,62,80);"><a href="/blogs" style="transform: translateX(50%);">@lang("blogs")</a></li>
-                <li class="text-uppercase" style="background-color: #2c3e50;"><a href="/contact" style="transform: translateX(-50%);">@lang("contact")</a></li>
+                <li class="text-uppercase" style="background-color: #ffe600;color: rgb(44,62,80);"><a href="/blogs" style="transform: translateX(50%);">@lang("Blogs")</a></li>
+                <li class="text-uppercase" style="background-color: #2c3e50;"><a href="/contact" style="transform: translateX(-50%);">@lang("Contact")</a></li>
             </ul><i class="fa fa-close" id="close-side-menu" style="position: absolute;height: 36px;width: 36px;right: 5%;text-align: center;bottom: 5%;border-radius: 50px;padding: 6px;background: #ffffff;cursor: pointer;font-size: 22px;"></i></div>
         </div>
         <div id="lightBox">
