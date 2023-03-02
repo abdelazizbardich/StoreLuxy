@@ -98,7 +98,7 @@
                                                         <table>
                                                             <tr>
                                                                 <td style="vertical-align: top;"><img style="width: 100px;margin-bottom: 5px;" src="{{asset('storage/' . $product->thumbnail->file)}}"></td>
-                                                                <td style="vertical-align: top;padding-left:5px;">
+                                                                <td style="vertical-align: top;padding-right:5px;">
                                                                 <p style="width: 100%;font-size: 14px;line-height: 19px;margin: 0;">{{$product->name}}</p>
                                                                 <p style="width: 100%;font-size: 14px;line-height: 19px;margin: 0; color: #ff0000;"><strong>@lang("Prix"): {{$product->price}} @lang("Dh")</strong><br></p>
                                                                 <p style="width: 100%;font-size: 14px;line-height: 19px;margin: 0;">@lang("Quantité"): {{$product->qte}}</p>
