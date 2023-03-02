@@ -28,7 +28,7 @@ class trackOrderController extends Controller
             // 'phone.digits' => 'Le numéro de téléphone doit être un numéro valide',
         ]);
 
-        $order = DB::table('orders')->where('code',$request->code)->where('phone',$request->phone)->first();
+        $order = DB::table('orders')->where('code',$request->code)->first();
         if($order != null){
             $ordersStates = DB::table('track_orders')->where('order_id',$order->id)->orderBy('id', 'DESC')->get();
             $orderDetails = (object)[];
@@ -48,9 +48,7 @@ class trackOrderController extends Controller
 
     }
     public function getDetails($code,$phone){
-        $order = DB::table('orders')
-        ->where('code',$code)
-        ->first();
+        $order = DB::table('orders')->where('code',$code)->first();
             $ordersId = explode(',',$order->carts_ids);
             $orderDetails = (object)[];
             $orderDetail = [];
