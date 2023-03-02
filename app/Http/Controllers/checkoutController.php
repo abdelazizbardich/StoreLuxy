@@ -12,11 +12,11 @@ class checkoutController extends Controller
             $this->validate($request,[
                 'product_id' => 'required',
                 'product_qte' => 'required',
-                'termes_check' => 'required',
+                // 'termes_check' => 'required',
             ],[
                 'product_id.required' => 'Aucun produit sélectionné',
                 'product_qte.required' => 'la quantité doit être d\'au moins 1 ou plus',
-                'termes_check.required' => 'Veuillez cocher le bouton des termes et conditions',
+                // 'termes_check.required' => 'Veuillez cocher le bouton des termes et conditions',
             ]);
             $note = $request->note;
             $productids = (object)$request->product_id;
@@ -44,15 +44,15 @@ class checkoutController extends Controller
                 'first_name' => 'required',
                 'phone' => 'required',
                 'city' => 'required',
-                'termes_check' => 'required'
+                // 'termes_check' => 'required'
             ],[
                 'first_name.required' => 'Le prénom complet est obligatoire',
                 'first_name.required' => 'La ville est obligatoire',
                 'phone.required' => 'Le numéro de téléphone est obligatoire',
-                'termes_check.required' => 'Veuillez cocher le bouton des termes et conditions',
+                // 'termes_check.required' => 'Veuillez cocher le bouton des termes et conditions',
             ]);
             $products = json_decode($request->products);
-            
+
             $totalCartPrice = $request->totalCart;
             $totalTax = $request->totalTax;
             $note = $request->note;
@@ -75,10 +75,10 @@ class checkoutController extends Controller
                 $totalPrice = $price*$qte;
                 $cartsId = $this->addTocart($thisProduct->id,$thisProduct->price,$qte,$totalPrice);
                 $cartsIds = $cartsIds.','.$cartsId;
-                
+
             }
             $cartsIds = trim($cartsIds,',');
-            
+
             if(DB::insert('insert into orders (first_name,last_name,phone,city,adress,total_cart,shipping_cost,tax_cost,total_order,code,carts_ids,note,created_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?)', [$first_name,$last_name,$phone,$cityId,$adress,$totalCartPrice,$shippingcost,$totalTax,$totalOrder,$orderCode,$cartsIds,$note,now()])){
                 $array = array('orderCode' => $orderCode);
                 return view("order-confirmed",$array);
