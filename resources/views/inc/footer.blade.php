@@ -107,7 +107,7 @@
                 </a>
             </div>
             <div class="container-fluid">
-                <div class="row">
+                <div class="row justify-content-center">
                     @foreach ($options->SiteOptions->instagram_photos as $photo)
                         @if($photo)
                             <div class="col-4 col-lg-2 col-xl-2 instagram-post" style="padding: 0;">
