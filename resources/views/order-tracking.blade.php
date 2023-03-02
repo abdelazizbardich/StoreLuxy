@@ -34,7 +34,7 @@
                                             </div>
                                 </div>
                             </div>
-                            <div class="form-row">
+                            {{-- <div class="form-row">
                                 <div class="col">
                                     <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}"><label for="phone" style="font-size: 18px;line-height: 24px;font-weight: bold;"><strong>@lang("Numéro de téléphone"):</strong></label><input value="{{ Request::old('phone') }}" id="phone" name="phone" class="form-control" type="text" style="border: 1px solid #FFCB00;border-radius: 0px;background-color: #F7F8FA;font-size: 14px;line-height: 19px;height: 50px;"
                                             placeholder="@lang("Votre numéro de téléphone")...">
@@ -43,7 +43,7 @@
                                             @enderror
                                             </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="form-row">
                                 <div class="col">
                                     <div class="form-group"><button class="btn btn-primary btn-block btn-lg" type="submit" style="color: rgb(0,0,0);font-size: 25px;line-height: 34px;border: none;background-color: #FFCB00;border-radius: 0px;">@lang("Suivez")</button></div>
@@ -56,7 +56,7 @@
                         <div class="form-row">
                                 <div class="col">
                                     <div class="form-group">
-                                    <a href="/suivi-de-commande/détails-de-la-commande/{{$orderDetails->code}}/{{$orderDetails->phone}}" class="btn btn-primary btn-block btn-lg" style="color: rgb(255, 255, 255);font-size: 25px;line-height: 34px;border: none;background-color: #2978d6;border-radius: 0px;">@lang("Détails de la commande")</a>
+                                    <a href="/suivi-de-commande/détails-de-la-commande/{{$orderDetails->code}}" class="btn btn-primary btn-block btn-lg" style="color: rgb(255, 255, 255);font-size: 25px;line-height: 34px;border: none;background-color: #2978d6;border-radius: 0px;">@lang("Détails de la commande")</a>
                                     </div>
                                 </div>
                         </div>

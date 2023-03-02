@@ -48,7 +48,7 @@ Route::post('/commande-confirmée', [App\Http\Controllers\confirmeOrderControlle
 // oder tracking
 Route::get('/suivi-de-commande', [App\Http\Controllers\trackOrderController::class,"show"]);
 Route::post('/suivi-de-commande', [App\Http\Controllers\trackOrderController::class,"getOrderStates"]);
-Route::get('/suivi-de-commande/détails-de-la-commande/{code}/{phone}', [App\Http\Controllers\trackOrderController::class,"getDetails"]);
+Route::get('/suivi-de-commande/détails-de-la-commande/{code}', [App\Http\Controllers\trackOrderController::class,"getDetails"]);
 
 Route::post('/finalisation-de-commande', [App\Http\Controllers\checkoutController::class,"getForm"]);
 Route::get('/finalisation-de-commande', [App\Http\Controllers\checkoutController::class,"sendToPanier"]);
