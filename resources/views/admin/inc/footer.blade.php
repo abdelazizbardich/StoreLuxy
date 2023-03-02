@@ -150,18 +150,18 @@
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-    <script src="/assets/admin/js/chart.js"></script>
-    <script src="/assets/admin/js/datatables.min.js"></script>
-    <script src="/assets/admin/js/pdfmake.min.js"></script>
-    <script src="/assets/admin/js/vfs_fonts.js"></script>
-    <script src="/assets/admin/js/main.js"></script>
-    <script src="/assets/admin/js/functions.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-    <script type="text/javascript" src="/assets/admin/js/datetimepicker/bootstrap-datetimepicker.js" charset="UTF-8"></script>
-    <script type="text/javascript" src="/assets/admin/js/datetimepicker/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js?{{ date('d')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js?{{ date('d')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js?{{ date('d')}}/2.8.0/Chart.bundle.min.js?{{ date('d')}}"></script>
+    <script src="/assets/admin/js/chart.js?{{ date('d')}}"></script>
+    <script src="/assets/admin/js/datatables.min.js?{{ date('d')}}"></script>
+    <script src="/assets/admin/js/pdfmake.min.js?{{ date('d')}}"></script>
+    <script src="/assets/admin/js/vfs_fonts.js?{{ date('d')}}"></script>
+    <script src="/assets/admin/js/main.js?{{ date('d')}}"></script>
+    <script src="/assets/admin/js/functions.js?{{ date('d')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js?{{ date('d')}}"></script>
+    <script type="text/javascript" src="/assets/admin/js/datetimepicker/bootstrap-datetimepicker.js?{{ date('d')}}" charset="UTF-8"></script>
+    <script type="text/javascript" src="/assets/admin/js/datetimepicker/locales/bootstrap-datetimepicker.fr.js?{{ date('d')}}" charset="UTF-8"></script>
 </body>
 
 </html>
