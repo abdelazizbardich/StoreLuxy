@@ -111,7 +111,7 @@
                                     <div class="col-auto" style="line-height: 0;"><span><img src="/assets/img/Icon%20ionic-ios-star.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star.svg" style="margin-right: 3px;width: 15px;"></span></div>
                                     <div
                                         class="col">
-                                        <div class="progress" style="border-radius: 0px;margin-left: 15px;">
+                                        <div class="progress" style="border-radius: 0px;margin-right: 15px;">
                                             <div class="progress-bar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: {{$reviewStarsCountArr->star5}}%;"><span class="sr-only">{{$reviewStarsCountArr->star5}}%</span></div>
                                         </div>
                                 </div>
@@ -120,7 +120,7 @@
                             <div class="col-auto" style="line-height: 0;"><span><img src="/assets/img/Icon%20ionic-ios-star.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star-outline.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star-outline.svg" style="margin-right: 3px;width: 15px;"></span></div>
                             <div
                                 class="col">
-                                <div class="progress" style="border-radius: 0px;margin-left: 15px;">
+                                <div class="progress" style="border-radius: 0px;margin-right: 15px;">
                                     <div class="progress-bar" aria-valuenow="{{$reviewStarsCountArr->star4}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$reviewStarsCountArr->star4}}%;"><span class="sr-only">{{$reviewStarsCountArr->star4}}%</span></div>
                                 </div>
                         </div>
@@ -129,7 +129,7 @@
                         <div class="col-auto" style="line-height: 0;"><span><img src="/assets/img/Icon%20ionic-ios-star.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star-outline.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star-outline.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star-outline.svg" style="margin-right: 3px;width: 15px;"></span></div>
                         <div
                             class="col">
-                            <div class="progress" style="border-radius: 0px;margin-left: 15px;">
+                            <div class="progress" style="border-radius: 0px;margin-right: 15px;">
                                 <div class="progress-bar" aria-valuenow="{{$reviewStarsCountArr->star3}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$reviewStarsCountArr->star3}}%;"><span class="sr-only">{{$reviewStarsCountArr->star3}}%</span></div>
                             </div>
                     </div>
@@ -138,7 +138,7 @@
                     <div class="col-auto" style="line-height: 0;"><span><img src="/assets/img/Icon%20ionic-ios-star.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star-outline.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star-outline.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star-outline.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star-outline.svg" style="margin-right: 3px;width: 15px;"></span></div>
                     <div
                         class="col">
-                        <div class="progress" style="border-radius: 0px;margin-left: 15px;">
+                        <div class="progress" style="border-radius: 0px;margin-right: 15px;">
                             <div class="progress-bar" aria-valuenow="{{$reviewStarsCountArr->star2}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$reviewStarsCountArr->star2}}%;"><span class="sr-only">{{$reviewStarsCountArr->star2}}%</span></div>
                         </div>
                 </div>
@@ -147,7 +147,7 @@
                 <div class="col-auto" style="line-height: 0;"><span><img src="/assets/img/Icon%20ionic-ios-star-outline.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star-outline.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star-outline.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star-outline.svg" style="margin-right: 3px;width: 15px;"><img src="/assets/img/Icon%20ionic-ios-star-outline.svg" style="margin-right: 3px;width: 15px;"></span></div>
                 <div
                     class="col">
-                    <div class="progress" style="border-radius: 0px;margin-left: 15px;">
+                    <div class="progress" style="border-radius: 0px;margin-right: 15px;">
                         <div class="progress-bar" aria-valuenow="{{$reviewStarsCountArr->star1}}" aria-valuemin="0" aria-valuemax="100" style="width: {{$reviewStarsCountArr->star1}}%;"><span class="sr-only">{{$reviewStarsCountArr->star1}}%</span></div>
                     </div>
             </div>
