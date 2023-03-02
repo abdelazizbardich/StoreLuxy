@@ -1,4 +1,12 @@
-    <!-- Start: Fixed items -->
+
+{{-- instagram-feed1 --}}
+<div id="instagram-feed1">
+
+</div>
+
+
+
+<!-- Start: Fixed items -->
     <div>
     @if($options->OrderNotice == true)
         <div class="shadow" id="order-notis">
@@ -172,6 +180,7 @@
         <script src="/assets/js/notiflix-2.1.3.min.js"></script>
         <script src="/assets/js/script.min.js"></script>
         <script src="/assets/js/countdown.js"></script>
+        <script src="/assets/js/instagram.feed.js"></script>
 
         {!! $options->SiteOptions->after_body_code !!}
 </body>

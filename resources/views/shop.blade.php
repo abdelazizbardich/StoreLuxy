@@ -45,7 +45,9 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9"><span style="font-size: 18px;line-height: 24px;font-weight: bold;display: block;/*border-bottom: 1px solid rgb(255,230,0);*/padding-bottom: 15px;"><strong>@lang("Produits populaires"):</strong></span>
+                    <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+                        <span class="container" style="font-size: 18px;line-height: 24px;font-weight: bold;display: block;/*border-bottom: 1px solid rgb(255,230,0);*/padding-bottom: 15px;"><strong>@lang("Produits populaires"):</strong>
+                        </span>
                         <div>
                             <div class="container">
                                 <div class="row" style="margin-top: 15px;margin-bottom: 15px;">
