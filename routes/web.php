@@ -45,6 +45,10 @@ Route::get('/comparer-les-produits', [App\Http\Controllers\productController::cl
 Route::post('/recherche', [App\Http\Controllers\searchController::class,"search"]);
 Route::post('/commande-confirmée', [App\Http\Controllers\confirmeOrderController::class,"addSingleOrder"]);
 
+// termes-et-conditions && privacy-policy
+Route::get('/privacy-policy', [App\Http\Controllers\homeController::class,"getPrivacyPolicy"]);
+Route::get('/termes-et-conditions', [App\Http\Controllers\homeController::class,"getTermesAndConditions"]);
+
 // oder tracking
 Route::get('/suivi-de-commande', [App\Http\Controllers\trackOrderController::class,"show"]);
 Route::post('/suivi-de-commande', [App\Http\Controllers\trackOrderController::class,"getOrderStates"]);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Models\Option;
 
 class homeController extends Controller
 {
@@ -244,5 +245,21 @@ class homeController extends Controller
 
     public function return404(){
         return view('404');
+    }
+
+    public function getTermesAndConditions(){
+        $data = [
+            "content"=> Option::where("name","terms_and_conditions")->first()->value,
+            "title" => "termes and conditions"
+        ];
+        return view("page",$data);
+    }
+
+    public function getPrivacyPolicy(){
+        $data = [
+            "content"=> Option::where("name","privacy_policies")->first()->value,
+            "title" => "privacy policy"
+        ];
+        return view("page",$data);
     }
 }
