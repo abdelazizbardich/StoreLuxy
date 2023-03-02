@@ -2,7 +2,7 @@ $(document).ready(function(){
    $('#side-menu').find('li.has-elements').children('a').click(function(e){
        e.preventDefault();
        $(this).parent('li.has-elements').children('ul').toggle(300);
-   }); 
+   });
     $('#menu-button').click(function(){
        $('#side-menu').addClass('show');
         $(this).children('img').toggleClass('rotateZ45');
@@ -60,10 +60,10 @@ $(document).ready(function(){
     });
     ////////////
     $('.media-thumbnail').click(function(){
-       $(this).toggleClass('selected'); 
+       $(this).toggleClass('selected');
     });
     $('.media-grid-thumbnail').click(function(){
-        $(this).toggleClass('selected'); 
+        $(this).toggleClass('selected');
      });
      $('.media-grid-thumbnail').dblclick(function(){
          let id = $(this).children('img').attr('data-id');
@@ -89,7 +89,7 @@ $(document).ready(function(){
             $('#medias-item-detalis').find('#item-size').text(size);
             $('#medias-item-detalis').find('#item-dimensions').text(dimensions);
 
-        $(this).addClass('selected'); 
+        $(this).addClass('selected');
 
         $('#medias-item-detalis').fadeIn('slow');
         $('#global-fixed-overlay').fadeIn('slow');
@@ -149,7 +149,7 @@ $(document).ready(function(){
     });
 
     // ajax media fixed upload
-    
+
     $('#fixed-instent-uploademedia').submit(function(e){
         e.preventDefault();
         var form = $(this)[0]; // You need to use standard javascript object here
@@ -179,7 +179,7 @@ $(document).ready(function(){
         window.location.href = '/admin/commandes/modifier-etat/'+state+'/'+orderId;
     });
 
-    // Init Summernot text editor 
+    // Init Summernot text editor
     $(document).ready(function() {
         $('.summernote').summernote({
             toolbar: [
@@ -195,7 +195,7 @@ $(document).ready(function(){
               spellCheck: true
         });
     });
-    
+
     // add tag to list
     $('#tag-add-btn').click(function(){
         let tag = $('#tag-input').val();
@@ -213,7 +213,7 @@ $(document).ready(function(){
             $('#tags-holder').html(tagHolder+'<a ondblclick="removeThisTag(this)" data-tag=", '+tag+'" data-toggle="tooltip" data-placement="top" title="Double click pour supprimer" style="color:var(--color-blue);cursor:pointer;"><span style="color:black">, </span>'+tag+'</a>');
         }
         $('#tag-input').val('');
-        
+
     });
 
     $('.thumbnail-input-holder').parent('div').find('.close').click(function(e){
@@ -245,15 +245,15 @@ $(document).ready(function(){
                 $('#global-fixed-overlay').fadeIn();
                 $('.medias-list').html(mediaList);
                 $('.media-grid-thumbnail').click(function(){
-                    $('.media-grid-thumbnail').removeClass('selected'); 
-                    $(this).toggleClass('selected'); 
+                    $('.media-grid-thumbnail').removeClass('selected');
+                    $(this).toggleClass('selected');
                     $('#media-grid-selected-item-id').val($(this).children('img').attr('data-id'));
                     $('#media-grid-selected-item-file').val($(this).children('img').attr('src'));
                 });
                 $(".chose-selected-media").click(function(){
                     console.log(img);
-                    id = $('#media-grid-selected-item-id').val(); 
-                    file = $('#media-grid-selected-item-file').val(); 
+                    id = $('#media-grid-selected-item-id').val();
+                    file = $('#media-grid-selected-item-file').val();
                     $('#instant-medias-chose-and-upload').fadeOut();
                     $('#global-fixed-overlay').fadeOut();
                     img.find('input[type="text"]').val(id);
@@ -273,18 +273,18 @@ $(document).ready(function(){
         $('input[name="sub_title"]').val(data);
     });
 
-    $.get({
-        url:'https://api.webiframe.com/cod-admin/ads/',
-        success : function (res){
-            $('.advertissment').find('.advertissment-place').html(res);
-            $('.advertissment').show();
-        }
-    })
+    // $.get({
+    //     url:'https://api.webiframe.com/cod-admin/ads/',
+    //     success : function (res){
+    //         $('.advertissment').find('.advertissment-place').html(res);
+    //         $('.advertissment').show();
+    //     }
+    // })
     $('.append-new-city-field').click(function(){
         let cityField  = '<div class="form-row" ><div class="col-md-4"><div class="form-group"><label style="line-height: 22px;font-size: 16px;">Titre:</label><input class="form-control" onkeyup="getnerateSlugname(this)" name="title[] "type="text"><input type="hidden" name="id[]"  hidden /></div></div><div class="col-md-4"><div class="form-group"><label style="line-height: 22px;font-size: 16px;">Slug name:</label><input class="form-control" name="sub_title[]"  type="text" /></div></div><div class="col-md-4"><div class="form-group" style="position:relative;"><button onclick="removeThisRow(this)" class="btn btn-primary close" type="button" style="top: 0;right: 0;position: absolute;color: var(--red);background: none;box-shadow: none;"><i class="fa fa-close"></i></button><label style="line-height: 22px;font-size: 16px;">shipping cost:</label><input class="form-control" name="shipping_cost[]"type="text"></div></div></div>';
         $('.city-container').append(cityField);
     });
-    
+
     // init datetime
     $('.form_datetime').datetimepicker({
         language:  'fr',
