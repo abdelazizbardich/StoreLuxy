@@ -48,7 +48,10 @@ class trackOrderController extends Controller
 
     }
     public function getDetails($code,$phone){
-        $order = DB::table('orders')->where('code',$code)->where('phone',$phone)->first();
+        $order = DB::table('orders')
+        ->where('code',$code)
+        // ->where('phone',$phone)
+        ->first();
             $ordersId = explode(',',$order->carts_ids);
             $orderDetails = (object)[];
             $orderDetail = [];
