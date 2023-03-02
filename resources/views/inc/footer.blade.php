@@ -173,8 +173,8 @@
                     <div class="row align-items-center">
                         <div class="col-md-auto col-12"><img class="bottom-footer-logo" src="{{ asset('storage/' . $options->SiteOptions->site_logo)}}"></div>
                         <div class="col-12 col-md text-center text-lg-right text-xl-right">
-                            <p style="margin-bottom: 0;font-size: 14px;line-height: 19px;"><strong>{{ $options->SiteOptions->site_name}} © </strong>{{date('Y')}}. @lang("Tous droits réservés")
-                                {{-- Crée avec&nbsp;<i class="fa fa-heart" style="color: rgb(255,0,0);font-size: 12px;"></i> par&nbsp;<a rel="nofollow" target="_blank" href="https://webiframe.com"><span style="font-weight: bold;color: rgb(255,0,0);">webiframe</span></a> --}}
+                            <p style="margin-bottom: 0;font-size: 14px;line-height: 19px;">
+                                <strong>{{ $options->SiteOptions->site_name}} © </strong>{{date('Y')}}. @lang("Tous droits réservés")
                             </p>
                         </div>
                     </div>
