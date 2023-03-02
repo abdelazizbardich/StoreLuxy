@@ -13,7 +13,7 @@ class productController extends Controller
 
   $Product = DB::table('products')->where('state','1')->where('slug_name', $name)->first();
   if($Product != null){
-   // Thumbnail 
+   // Thumbnail
    $ThisPthumbnail = DB::table('medias')->where('id', $Product->thumbnail_id)->first();
    // gallery
    $gallerys_ids = explode(',',$Product->gallery_ids);
@@ -30,7 +30,7 @@ class productController extends Controller
      array_push($PCategorys,$PCategory);
    }
 
-   // reviews 
+   // reviews
    $reviews = DB::table('reviews')->where('product_id',$Product->id)->get();
    $reviewsData = [];
    foreach($reviews as $review){
@@ -41,15 +41,15 @@ class productController extends Controller
         $photos = [];
         foreach($reviewPhotosIds as $reviewPhotoId){
              $reviewPhoto = DB::table('medias')->where('id', $reviewPhotoId)->first();
-             array_push($photos,$reviewPhoto);            
+             array_push($photos,$reviewPhoto);
         }
         $reviewData->photos = $photos;
      }
-     
+
      array_push($reviewsData,$reviewData);
-     
+
    }
-   
+
    // Reviews stars average
    $reviewStarsCount = 0;
    $reviewStarsAverage = 0.00;
@@ -57,7 +57,7 @@ class productController extends Controller
      $reviewStars = $review->stars;
      $reviewStarsCount += $reviewStars;
    }
-   if(count($reviews) != 0){@$reviewStarsAverage = $reviewStarsCount/count($reviews);}else{$reviewStarsAverage = 0;}
+   if(count($reviews) != 0){@$reviewStarsAverage = ($reviewStarsCount)?$reviewStarsCount/count($reviews):0;}else{$reviewStarsAverage = 0;}
    // Reviews stars average By type
    $reviewStarsCountArr = (object)[];
    $reviewStarsCountArrStar1 = 0;
@@ -78,17 +78,17 @@ class productController extends Controller
      if($review->stars == 4){$count4++;}
      if($review->stars == 5){$count5++;}
    }
-   
-   if(count($reviews) != 0){@$reviewStarsCountArr->star1 = ($count1/count($reviews))*100;}else{$reviewStarsCountArr->star1 = 0;}
-   if(count($reviews) != 0){@$reviewStarsCountArr->star2 = ($count2/count($reviews))*100;}else{$reviewStarsCountArr->star2 = 0;}
-   if(count($reviews) != 0){@$reviewStarsCountArr->star3 = ($count3/count($reviews))*100;}else{$reviewStarsCountArr->star3 = 0;}
-   if(count($reviews) != 0){@$reviewStarsCountArr->star4 = ($count4/count($reviews))*100;}else{$reviewStarsCountArr->star4 = 0;}
-   if(count($reviews) != 0){@$reviewStarsCountArr->star5 = ($count5/count($reviews))*100;}else{$reviewStarsCountArr->star5 = 0;}
+
+   if(count($reviews) != 0){@$reviewStarsCountArr->star1 = (($count1)?$count1/count($reviews):0)*100;}else{$reviewStarsCountArr->star1 = 0;}
+   if(count($reviews) != 0){@$reviewStarsCountArr->star2 = (($count2)?$count2/count($reviews):0)*100;}else{$reviewStarsCountArr->star2 = 0;}
+   if(count($reviews) != 0){@$reviewStarsCountArr->star3 = (($count3)?$count3/count($reviews):0)*100;}else{$reviewStarsCountArr->star3 = 0;}
+   if(count($reviews) != 0){@$reviewStarsCountArr->star4 = (($count4)?$count4/count($reviews):0)*100;}else{$reviewStarsCountArr->star4 = 0;}
+   if(count($reviews) != 0){@$reviewStarsCountArr->star5 = (($count5)?$count5/count($reviews):0)*100;}else{$reviewStarsCountArr->star5 = 0;}
 
 
 
 
-   // get sponsored 
+   // get sponsored
    $SponsoredProducts = DB::table('products')->where('state','1')->where('sponsored', 1)->get();
    $SponsoredProductsdata = [];
    foreach($SponsoredProducts as $SponsoredProduct){
@@ -110,7 +110,7 @@ class productController extends Controller
      if($SimilarProductsCategorys != null){
         array_push($SimilarProductData,$SimilarProduct->id);
      }
-     
+
    }
    $AllSimiProduct = [];
    foreach($SimilarProductData as $SimilarProductid){
@@ -125,7 +125,7 @@ class productController extends Controller
         $SimireviewStars = $Simireview->stars;
         $SimireviewStarsCount += $SimireviewStars;
      }
-     @$SimireviewStarsAverage = $SimireviewStarsCount/count($Simireviews);
+     @$SimireviewStarsAverage = ($SimireviewStarsCount)?$SimireviewStarsCount/count($Simireviews):0;
      $SimiProductData->stars = $SimireviewStarsAverage;
      // htumbnial
      $Simithumbnail = DB::table('medias')->where('id', $SimiProduct->thumbnail_id)->first();
@@ -148,16 +148,16 @@ class productController extends Controller
      $SimiProductData->categorys = $SimiPCategorys;
      // push
      array_push($AllSimiProduct,$SimiProductData);
-   }        
+   }
    // -------
    // update post view
-   
+
    // -------
    // -------
    $array = array('Product' => $Product, 'categorys' => $PCategorys,'Thumbnail' => $ThisPthumbnail, 'Photos' => $thisPphotos, 'reviews'=> $reviewsData, 'reviewsCount' => count($reviews) , 'globalStarsAvr' => $reviewStarsAverage, 'reviewStarsCountArr' => $reviewStarsCountArr, 'SponsoredProduct' => $SponsoredProductsdata, 'similarProducts' => $AllSimiProduct);
    return view('product',$array);
   }else{
-   return view('404'); 
+   return view('404');
   }
  }
 
