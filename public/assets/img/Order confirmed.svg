@@ -169,8 +169,8 @@
             <circle id="XMLID_190_" cx="2.951" cy="2.951" r="2.951" fill="#263238"/>
           </g>
         </g>
-        <text id="Votre_commande_est_confirmé_" data-name="Votre commande est confirmé!" transform="translate(265.411 210.215)" font-size="28" font-family="Nunito-Bold, Nunito" font-weight="700"><tspan x="-196.77" y="0">Votre commande est confirmé!</tspan></text>
-        <text id="Merci_pour_votre_commande." data-name="Merci pour votre commande." transform="translate(265.411 246.215)" font-size="21" font-family="Nunito-Regular, Nunito"><tspan x="-133.276" y="0">Merci pour votre commande.</tspan></text>
+        <text id="Votre_commande_est_confirmé_" data-name="تم تقديم طلبك! بنجاح" transform="translate(265.411 210.215)" font-size="28" font-family="Nunito-Bold, Nunito" font-weight="700"><tspan x="-196.77" y="0">تم تقديم طلبك! بنجاح</tspan></text>
+        <text id="Merci_pour_votre_commande." data-name="شكرا على ثقتكم." transform="translate(265.411 246.215)" font-size="21" font-family="Nunito-Regular, Nunito"><tspan x="-133.276" y="0">شكرا على ثقتكم.</tspan></text>
       </g>
     </g>
     <g id="Character" transform="translate(199.543 191.89)">
