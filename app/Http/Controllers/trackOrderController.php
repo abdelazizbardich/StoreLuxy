@@ -41,7 +41,7 @@ class trackOrderController extends Controller
         }
         else {
             $orderDetails = (object)[];
-            $orderDetails->errors = 'Aucune commande trouvée avec les données fournies';
+            $orderDetails->errors = 'لم يتم العثور على طلب مرتبط بالكود المقدم';
             $array = array('orderDetails' => $orderDetails);
             return view('order-tracking',$array);
         }
@@ -50,7 +50,6 @@ class trackOrderController extends Controller
     public function getDetails($code,$phone){
         $order = DB::table('orders')
         ->where('code',$code)
-        // ->where('phone',$phone)
         ->first();
             $ordersId = explode(',',$order->carts_ids);
             $orderDetails = (object)[];
