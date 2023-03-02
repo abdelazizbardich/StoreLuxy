@@ -8,17 +8,17 @@
     <meta name="site-storage-url"content="{{asset('storage/')}}">
     <title>{{ $options->SiteOptions->site_name}}</title>
     <link rel="icon" type="image/svg+xml" sizes="219x55" href="{{  asset('storage/' . $options->SiteOptions->site_icon)}}">
-    <link rel="stylesheet" href='/assets/bootstrap/css/bootstrap.@lang("dir").min.css'>
+    <link rel="stylesheet" href='/assets/bootstrap/css/bootstrap.@lang("dir").min.css?{{ date('d')}}'>
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="/assets/fonts/line-awesome.min.css">
-    <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" href="/assets/css/styles.@lang("dir").min.css">
-    <link rel="stylesheet" href="/assets/css/mobile-ready.css">
-    <link rel="stylesheet" href="/assets/css/notiflix-2.1.3.min.css">
-    <link rel="stylesheet" href="/assets/css/animate.min.css">
-    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css?{{ date('d')}}">
+    <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css?{{ date('d')}}">
+    <link rel="stylesheet" href="/assets/fonts/line-awesome.min.css?{{ date('d')}}">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css?{{ date('d')}}">
+    <link rel="stylesheet" href="/assets/css/styles.@lang("dir").min.css?{{ date('d')}}">
+    <link rel="stylesheet" href="/assets/css/mobile-ready.css?{{ date('d')}}">
+    <link rel="stylesheet" href="/assets/css/notiflix-2.1.3.min.css?{{ date('d')}}">
+    <link rel="stylesheet" href="/assets/css/animate.min.css?{{ date('d')}}">
+    <link rel="stylesheet" href="/assets/css/global.css?{{ date('d')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">

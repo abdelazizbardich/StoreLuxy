@@ -182,11 +182,11 @@
             </div>
             {!! $options->SiteOptions->footer_codes !!}
         </footer>
-        <script src="/assets/js/jquery.min.js"></script>
-        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/assets/js/notiflix-2.1.3.min.js"></script>
-        <script src="/assets/js/script.min.js"></script>
-        <script src="/assets/js/countdown.js"></script>
+        <script src="/assets/js/jquery.min.js?{{ date('d')}}"></script>
+        <script src="/assets/bootstrap/js/bootstrap.min.js?{{ date('d')}}"></script>
+        <script src="/assets/js/notiflix-2.1.3.min.js?{{ date('d')}}"></script>
+        <script src="/assets/js/script.min.js?{{ date('d')}}"></script>
+        <script src="/assets/js/countdown.js?{{ date('d')}}"></script>
 
         {!! $options->SiteOptions->after_body_code !!}
 </body>
