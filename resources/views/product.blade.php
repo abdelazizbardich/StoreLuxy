@@ -277,7 +277,7 @@
                             </span>
                             <p class="text-center" style="margin-bottom: 5px;">{{$similarProduct->Product->name}}</p>
                             <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;">{{$similarProduct->Product->price}} @lang("Dh")</p>
-                            <a class="btn btn-primary text-uppercase btn-add-to-carte w-100 p-2" data-id="{{$similarProduct->Product->id}}" role="button" style="margin: auto;border: none;border-radius: 0;font-size: 12px;color: rgb(255,255,255);"><i class="fa fa-cart-plus"></i>&nbsp;@lang("Ajouter au panier")</a>
+                            <a class="btn btn-danger text-uppercase btn-add-to-carte w-100 p-2" data-id="{{$similarProduct->Product->id}}" role="button" style="margin: auto;border: none;border-radius: 0;font-size: 12px;color: rgb(255,255,255);"><i class="fa fa-cart-plus"></i>&nbsp;@lang("Ajouter au panier")</a>
                         </div>
                     </div>
                     @endforeach
