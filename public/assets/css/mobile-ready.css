@@ -130,7 +130,7 @@
   #product-banner .old-price {
     font-size: 20px;
     line-height: 61px;
-    margin-left: 15px;
+    margin-right: 15px;
     opacity: 0.45;
   }
 
@@ -145,7 +145,7 @@
   #product-banner .reduction {
     font-size: 20px;
     line-height: 61px;
-    margin-left: 5px;
+    margin-right: 15px;
     color: #0066FF;
   }
 

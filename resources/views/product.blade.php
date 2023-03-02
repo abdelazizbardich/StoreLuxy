@@ -30,7 +30,7 @@
                                     <img src="/assets/img/Icon%20ionic-ios-star-outline.svg" style="margin-right: 3px;width: 15px;">
                                 @endfor
                         </span>
-                        <div><span class="price">{{$Product->price}}@lang("Dh")</span><span class="old-price"><span style="text-decoration: line-through;">{{$Product->old_price}}@lang("Dh")</span></span><span class="reduction"><?php echo '-'.number_format(100-(($Product->price/$Product->old_price)*100), 2, '.', '').'%'; ?></span></div>
+                        <div><span class="price">{{$Product->price}}@lang("Dh")</span><span class="old-price"><span style="text-decoration: line-through;">{{$Product->old_price}}@lang("Dh")</span></span><span dir="ltr" class="reduction"><?php echo '-'.number_format(100-(($Product->price/$Product->old_price)*100), 2, '.', '').'%'; ?></span></div>
                         <p class="text-justify shortDesc">{{$Product->short_desc}}</p>
                         <div id="dealcount">
                             <p>@lang("Seulement") {{$Product->stock_amount}} @lang("restant en stock")</p>
