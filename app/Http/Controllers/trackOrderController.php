@@ -18,14 +18,14 @@ class trackOrderController extends Controller
     public function getOrderStates(Request $request){
         $this->validate($request,[
             'code' => 'required|min:4',
-            'phone' => 'required|digits:10',
+            // 'phone' => 'required|digits:10',
         ],
         [
             'code.required' => 'Le code du commande est obligatoire',
             'code.min' => 'Le code du commande doit contenir au moins 4 caractères',
 
-            'phone.required' => 'Le numéro de téléphone est obligatoire',
-            'phone.digits' => 'Le numéro de téléphone doit être un numéro valide',
+            // 'phone.required' => 'Le numéro de téléphone est obligatoire',
+            // 'phone.digits' => 'Le numéro de téléphone doit être un numéro valide',
         ]);
 
         $order = DB::table('orders')->where('code',$request->code)->where('phone',$request->phone)->first();
@@ -45,7 +45,7 @@ class trackOrderController extends Controller
             $array = array('orderDetails' => $orderDetails);
             return view('order-tracking',$array);
         }
-        
+
     }
     public function getDetails($code,$phone){
         $order = DB::table('orders')->where('code',$code)->where('phone',$phone)->first();
@@ -55,7 +55,7 @@ class trackOrderController extends Controller
             foreach($ordersId as $id){
                 $carts = DB::table('catrs')->where('id',$ordersId)->first();
                 $Product = DB::table('products')->where('id',$carts->product_id)->first();
-                // Thumbnail 
+                // Thumbnail
                 $thumbnail = DB::table('medias')->where('id', $Product->thumbnail_id)->first();
                 $Product->qte = $carts->quantity;
                 $Product->total_price = $carts->total_price;
