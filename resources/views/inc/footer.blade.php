@@ -46,7 +46,7 @@
             </div><button class="btn btn-primary" id="close-search-box" type="button" style="position: absolute;top: 15%;right: 15%;font-size: 45px;padding: 5px;border: none;background: none;height: auto;box-shadow: none;"><i class="fa fa-close"></i></button>
         </div>
     <div class="d-lg-none d-xl-none" id="side-menu">
-        <div style="background-color: #ffe600;height: 100%;width: 100%;overflow: hidden;"><img width="100%" src="{{ asset('storage/' . $options->SiteOptions->site_icon)}}" style="width: 36%;/*transform: rotateZ(-15deg);*/margin: 5%;margin-bottom: 0;">
+        <div style="background-color: #ffe600;height: 100%;width: 100%;overflow: hidden;"><img width="100%" src="{{ asset('storage/' . $options->SiteOptions->site_icon)}}" style="max-width: 36%;max-height: 50px;/*transform: rotateZ(-15deg);*/margin: 5%;margin-bottom: 0;">
             <ul class="list-unstyled">
                 <li class="text-uppercase" style="background-color: #2C3E50;"><a href="/" style="transform: translateX(-50%);">@lang("accueil")</a></li>
                 <li class="text-uppercase" style="background-color: #ffe600;"><a href="/boutique" style="transform: translateX(50%);color: rgb(44,62,80);">@lang("Boutique")</a></li>
