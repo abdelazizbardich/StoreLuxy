@@ -106,12 +106,14 @@
             <div class="container-fluid">
                 <div class="row">
                     @foreach ($options->SiteOptions->instagram_photos as $photo)
-                        <div class="col-4 col-lg-2 col-xl-2 instagram-post" style="padding: 0;">
-                            <span style="color: initial;text-decoration: none;"><img class="img-fluid lightZoom" src="{{asset('storage/'.@$photo->file)}}" style="width: 100%; height: 100%; aspect-ratio: 1/1; object-fit: cover;"></span>
-                            <a href="{{ @$options->SiteOptions->s_instagram}}" target="_blank" class="link">
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </div>
+                        @if($photo)
+                            <div class="col-4 col-lg-2 col-xl-2 instagram-post" style="padding: 0;">
+                                <span style="color: initial;text-decoration: none;"><img class="img-fluid lightZoom" src="{{asset('storage/'.@$photo->file)}}" style="width: 100%; height: 100%; aspect-ratio: 1/1; object-fit: cover;"></span>
+                                <a href="{{ @$options->SiteOptions->s_instagram}}" target="_blank" class="link">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                            </div>
+                        @endif
                     @endforeach
                 </div>
             </div>
