@@ -104,7 +104,7 @@
                 <div class="row justify-content-center" style="margin-top: 15px;margin-bottom: 15px;">
                     @foreach($TrendingProducts as $TrendingProduct)
                         <div class="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-3" style="margin-bottom: 15px;">
-                            <div class="text-center" style="padding: 8px;background: white;border: 1px solid #dbb300;">
+                            <div class="text-center" style="padding: 8px;background: white;border: 1px solid #dbb300;height: 100%;">
                             <a href="/produit/{{$TrendingProduct->product->slug_name}}">
                                 <img class="img-fluid" src="{{asset('storage/' . $TrendingProduct->thumbnail->file)}}" style="border: 5px solid #ffffff;margin-bottom: 15px;">
                             </a>
@@ -179,7 +179,7 @@
                 <div class="row justify-content-center" style="margin-top: 15px;margin-bottom: 15px;">
                     @foreach($BestSallerProducts as $BestSallerProduct)
                             <div class="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-3" style="margin-bottom: 15px;">
-                                <div class="text-center" style="padding: 8px;background: white;border: 1px solid #dbb300;">
+                                <div class="text-center" style="padding: 8px;background: white;border: 1px solid #dbb300;height: 100%;">
                                     <a href="/produit/{{$BestSallerProduct->product->slug_name}}">
                                         <img class="img-fluid" src="{{asset('storage/' . $BestSallerProduct->thumbnail->file)}}" style="border: 5px solid #ffffff;margin-bottom: 15px;">
                                     </a>

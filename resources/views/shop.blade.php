@@ -51,7 +51,7 @@
                                 <div class="row" style="margin-top: 15px;margin-bottom: 15px;">
                                     @foreach($products as $product)
                                         <div class="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-3" style="margin-bottom: 15px;">
-                                            <div class="text-center" style="padding: 8px;background: white;border: 1px solid #dbb300;">
+                                            <div class="text-center" style="padding: 8px;background: white;border: 1px solid #dbb300;height: 100%;">
                                             <a href="/produit/{{$product->slug_name}}">
                                                 <img class="img-fluid" src="{{asset('storage/' . $product->thumbnail->file)}}" style="border: 5px solid #ffffff;margin-bottom: 15px;">
                                             </a>
