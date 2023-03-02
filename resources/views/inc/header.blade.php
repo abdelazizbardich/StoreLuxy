@@ -25,11 +25,11 @@
 
     <!-- Meta data -->
 
-    <meta property="og:url"           content="{{ $options->SiteOptions->site_url}}" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="{{ $options->SiteOptions->site_name}}" />
-    <meta property="og:description"   content="{{ $options->SiteOptions->site_description}}" />
-    <meta property="og:image"         content="{{  asset('storage/' . $options->SiteOptions->site_social_img)}}" />
+    <meta property="og:url" content="{{ $options->SiteOptions->site_url}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ $options->SiteOptions->site_name}}" />
+    <meta property="og:description" content="{{ $options->SiteOptions->site_description}}" />
+    <meta property="og:image" content="{{  asset('storage/' . $options->SiteOptions->site_social_img)}}" />
     {!! $options->SiteOptions->header_codes !!}
 </head>
 
