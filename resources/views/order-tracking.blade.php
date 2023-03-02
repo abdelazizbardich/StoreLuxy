@@ -87,7 +87,7 @@
 
                                         <p style="background: #ffd50026;padding: 5px 15px;border-radius: 10px;width: fit-content;"><span style="font-weight: bold;">@lang("Détails de livraison"):</span></p>
                                         <ul style="list-style: none;">
-                                            <li><strong>@lang("Téléphone"):</strong> {{$orderDetails->details->phone}}</li>
+                                            <li><strong>@lang("Téléphone"):</strong> <span dir="ltr">{{$orderDetails->details->phone}}</span></li>
                                             <li><strong>@lang("Ville"):</strong> {{$orderDetails->details->city}}</li>
                                             <li><strong>@lang("Adress"):</strong> {{$orderDetails->details->adress}}</li>
                                         </ul>

@@ -62,8 +62,10 @@ class trackOrderController extends Controller
                 $Product->thumbnail = $thumbnail;
                array_push($orderDetail,$Product);
             }
+        $city = DB::table('citys')->where("id",$order->city)->first();
         $orderDetails->products = $orderDetail;
         $orderDetails->details = $order;
+        $orderDetails->details->city = $city->name;
         $array = array('orderDetails' => $orderDetails);
         return view('order-tracking',$array);
     }

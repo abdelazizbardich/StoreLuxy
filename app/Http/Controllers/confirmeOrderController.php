@@ -39,7 +39,7 @@ class confirmeOrderController extends Controller
             $totalOrder = $totalCart+$shippingcost+$taxCost;
             $cartsId = $this->addTocart($id,$product->price,$qte,$totalCart);
 
-            if(DB::insert('insert into orders (first_name,last_name,phone,city,adress,total_cart,shipping_cost,tax_cost,total_order,code,carts_ids,note,created_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?)', [$first_name,$last_name,$phone,$cityId,$adress,$totalCart,$shippingcost,$taxCost,$totalOrder,'ST-'.rand(1000,9999),$cartsId,'This is a direct order',now()])){
+            if(DB::insert('insert into orders (first_name,last_name,phone,city,adress,total_cart,shipping_cost,tax_cost,total_order,code,carts_ids,note,created_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?)', [$first_name,$last_name,$phone,$cityId,$adress,$totalCart,$shippingcost,$taxCost,$totalOrder,'ST-'.rand(1000,9999),$cartsId,'طلب سريع',now()])){
                 $this->removeFromStock($id,$qte);
                 return view("order-confirmed");
             }else{
