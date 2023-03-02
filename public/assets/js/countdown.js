@@ -25,10 +25,10 @@ if(document.getElementById("dataDate")){
       document.getElementById("seconds").innerHTML = seconds;
 
 
-      // If the count down is over, write some text 
+      // If the count down is over, write some text
       if (distance < 0) {
         clearInterval(x);
-        document.getElementById("demo").innerHTML = "EXPIRED";
+        document.getElementById("demo").innerHTML = "انتهى تاريخ العرض";
       }
     }, 1000);
 }
