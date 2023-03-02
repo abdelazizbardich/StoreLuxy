@@ -75,7 +75,7 @@
                                                 <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;">{{$product->price}} @lang("Dh")</p>
                                                 <ul class="list-inline">
                                                 @foreach($product->photos as $photo)
-                                                    <li class="list-inline-item"><img src="{{asset('storage/' . $photo->file)}}" style="width: 30px;height: 30px;"></li>
+                                                    <li class="list-inline-item"><img src="{{asset('storage/' . $photo->file)}}" class="lightZoom" style="width: 30px;height: 30px;"></li>
                                                 @endforeach
                                                 </ul>
                                                 <a class="btn btn-danger text-uppercase btn-add-to-carte w-100 p-2" data-id="{{$product->id}}" role="button" style="margin: auto;border: none;border-radius: 0;font-size: 12px;color: rgb(255,255,255);"><i class="fa fa-cart-plus"></i>&nbsp;@lang("Ajouter au panier")</a>
