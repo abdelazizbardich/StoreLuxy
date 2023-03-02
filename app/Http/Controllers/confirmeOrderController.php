@@ -10,13 +10,13 @@ class confirmeOrderController extends Controller
     public function addSingleOrder(Request $request){
         if($request->isMethod('POST')){
             $this->validate($request,[
-                'termes_check' => 'required',
+                // 'termes_check' => 'required',
                 'first_name' => 'required|min:2',
                 'phone' => 'required|min:2',
                 'id' => 'required',
                 'product_qte' => 'min:1',
             ],[
-                'termes_check.required' => 'Veuillez cocher le bouton des termes et conditions',
+                // 'termes_check.required' => 'Veuillez cocher le bouton des termes et conditions',
                 'first_name.required' => 'Le prénom complet est obligatoire',
                 'first_name.min' => 'Le prénom complet doit contenir au moins 2 caractères',
                 'phone.required' => 'Le numéro de téléphone est obligatoire',
@@ -38,7 +38,7 @@ class confirmeOrderController extends Controller
             $taxCost = $product->tax;
             $totalOrder = $totalCart+$shippingcost+$taxCost;
             $cartsId = $this->addTocart($id,$product->price,$qte,$totalCart);
-            
+
             if(DB::insert('insert into orders (first_name,last_name,phone,city,adress,total_cart,shipping_cost,tax_cost,total_order,code,carts_ids,note,created_at) values (?,?,?,?,?,?,?,?,?,?,?,?,?)', [$first_name,$last_name,$phone,$cityId,$adress,$totalCart,$shippingcost,$taxCost,$totalOrder,'ST-'.rand(1000,9999),$cartsId,'This is a direct order',now()])){
                 $this->removeFromStock($id,$qte);
                 return view("order-confirmed");
