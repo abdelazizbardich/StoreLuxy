@@ -99,9 +99,12 @@
         </div>
         <!-- End: Fixed items -->
         <footer style="position: relative;">
-            <div style="position: absolute;left: 0;right: 0;margin: auto;width: fit-content;height: 60px;top: -80px;">
+            <div style="position: absolute;left: 0;right: 0;margin: auto;width: fit-content;height: 60px;top: -80px;" class="text-center">
                 <p class="text-center" style="font-size: 24px;line-height: 32px;font-weight: bold;margin: 0;"><span style="color: rgb(42,115,216);">@ @lang("SUIVEZ-NOUS")</span>&nbsp;@lang("SUR")</p>
                 <p class="text-center" style="line-height: 22px;font-size: 16px;margin: 0;">@lang("INSTAGRAM")</p>
+                <a href="{{ @$options->SiteOptions->s_instagram}}" target="_blank" rel="noopener noreferrer">
+                    <i class="fa fa-instagram"></i>
+                </a>
             </div>
             <div class="container-fluid">
                 <div class="row">
