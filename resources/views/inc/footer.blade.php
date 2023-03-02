@@ -21,7 +21,7 @@
             </div>
     @endif
 
-        <div class="shadow-sm d-none d-lg-block d-xl-block" id="chat-btn"
+        <div class="shadow-sm" id="chat-btn"
             style="position: fixed;right: 35px;bottom: 89px;background: #ffffff;width: 35px;height: 35px;border-radius: 50px;text-align: center;background-color: rgba(0,102,255,0.84);z-index: 999;padding: 17px;">
             <a target="blank" href="https://m.me/{{ $options->SiteOptions->facebook_id}}" >
             <img class="img-fluid" src="/assets/img/Icon%20awesome-facebook-messenger.png" style="position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;width: 60%;"></a>
@@ -34,7 +34,7 @@
             @endif
         </div>
 
-        <div class="shadow d-none d-lg-block d-xl-block" id="back-to-top" style="position: fixed;right: 25px;bottom: 25px;background: #ffffff;width: 50px;height: 50px;border-radius: 50px;text-align: center;z-index: 999;cursor: pointer;">
+        <div class="shadow " id="back-to-top" style="position: fixed;right: 25px;bottom: 25px;background: #ffffff;width: 50px;height: 50px;border-radius: 50px;text-align: center;z-index: 999;cursor: pointer;">
             <img src="/assets/img/Groupe%2052.png" style="position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;">
         </div>
         <div id="searsh-box">
@@ -105,12 +105,14 @@
             </div>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-4 col-lg-2 col-xl-2" style="padding: 0;"><a href="#" style="color: initial;text-decoration: none;"><img class="img-fluid" src="/assets/img/88125740_158587811769313_3822312808679221668_n.jpg" style="width: 100%;"></a></div>
-                    <div class="col-4 col-lg-2 col-xl-2" style="padding: 0;"><a href="#" style="color: initial;text-decoration: none;"><img class="img-fluid" src="/assets/img/87423314_895653770866595_4459507958076593620_n.jpg" style="width: 100%;"></a></div>
-                    <div class="col-4 col-lg-2 col-xl-2" style="padding: 0;"><a href="#" style="color: initial;text-decoration: none;"><img class="img-fluid" src="/assets/img/88169153_2909371109115506_6510611751840109674_n.jpg" style="width: 100%;"></a></div>
-                    <div class="col-4 col-lg-2 col-xl-2" style="padding: 0;"><a href="#" style="color: initial;text-decoration: none;"><img class="img-fluid" src="/assets/img/87576561_1073413026339093_5799653245439100069_n.jpg" style="width: 100%;"></a></div>
-                    <div class="col-4 col-lg-2 col-xl-2" style="padding: 0;"><a href="#" style="color: initial;text-decoration: none;"><img class="img-fluid" src="/assets/img/87539285_2594882047391566_3195928066324094196_n.jpg" style="width: 100%;"></a></div>
-                    <div class="col-4 col-lg-2 col-xl-2" style="padding: 0;"><a href="#" style="color: initial;text-decoration: none;"><img class="img-fluid" src="/assets/img/85218853_3534970843244663_5545713307216144274_n.jpg" style="width: 100%;"></a></div>
+                    @foreach ($options->SiteOptions->instagram_photos as $photo)
+                        <div class="col-4 col-lg-2 col-xl-2 instagram-post" style="padding: 0;">
+                            <span style="color: initial;text-decoration: none;"><img class="img-fluid lightZoom" src="{{asset('storage/'.$photo->file)}}" style="width: 100%; height: 100%; aspect-ratio: 1/1; object-fit: cover;"></span>
+                            <a href="{{ $options->SiteOptions->s_instagram}}" target="_blank" class="link">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
             <div style="background-color: #0066FF;">
@@ -131,10 +133,10 @@
                         </div>
                         <div class="col-12 col-lg-2 col-xl-auto text-center text-lg-right text-xl-right">
                             <ul class="list-inline" style="margin-bottom: 0;color: rgb(255,255,255);">
-                                <li class="list-inline-item" style="margin: 5px;"><a href="{{ $options->SiteOptions->s_facebook}}" target="_blank" style="color: inherit;text-decoration: none;"><i class="fa fa-facebook" style="font-size: 20px;"></i></a></li>
-                                <li class="list-inline-item" style="margin: 5px;"><a href="{{ $options->SiteOptions->s_twitter}}" target="_blank" style="color: inherit;text-decoration: none;"><i class="fa fa-twitter" style="font-size: 20px;"></i></a></li>
-                                <li class="list-inline-item" style="margin: 5px;"><a href="{{ $options->SiteOptions->s_instagram}}" target="_blank" style="color: inherit;text-decoration: none;"><i class="fa fa-instagram" style="font-size: 20px;"></i></a></li>
-                                <li class="list-inline-item" style="margin: 5px;"><a href="{{ $options->SiteOptions->s_pinterest}}" target="_blank" style="color: inherit;text-decoration: none;"><i class="fa fa-pinterest" style="font-size: 20px;"></i></a></li>
+                                @if($options->SiteOptions->s_facebook)<li class="list-inline-item" style="margin: 5px;"><a href="{{ $options->SiteOptions->s_facebook}}" target="_blank" style="color: inherit;text-decoration: none;"><i class="fa fa-facebook" style="font-size: 20px;"></i></a></li>@endif
+                                @if($options->SiteOptions->s_twitter)<li class="list-inline-item" style="margin: 5px;"><a href="{{ $options->SiteOptions->s_twitter}}" target="_blank" style="color: inherit;text-decoration: none;"><i class="fa fa-twitter" style="font-size: 20px;"></i></a></li>@endif
+                                @if($options->SiteOptions->s_instagram)<li class="list-inline-item" style="margin: 5px;"><a href="{{ $options->SiteOptions->s_instagram}}" target="_blank" style="color: inherit;text-decoration: none;"><i class="fa fa-instagram" style="font-size: 20px;"></i></a></li>@endif
+                                @if($options->SiteOptions->s_pinterest)<li class="list-inline-item" style="margin: 5px;"><a href="{{ $options->SiteOptions->s_pinterest}}" target="_blank" style="color: inherit;text-decoration: none;"><i class="fa fa-pinterest" style="font-size: 20px;"></i></a></li>@endif
                             </ul>
                         </div>
                     </div>

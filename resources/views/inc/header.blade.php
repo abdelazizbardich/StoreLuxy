@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/assets/css/mobile-ready.css">
     <link rel="stylesheet" href="/assets/css/notiflix-2.1.3.min.css">
     <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">

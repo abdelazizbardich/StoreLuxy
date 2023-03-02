@@ -199,4 +199,8 @@ Route::post('/admin/utilisateurs/modifier/mot-de-pass', [App\Http\Controllers\ad
 Route::get('/login',[App\Http\Controllers\admin\userController::class,"getAuthPage"])->name('login');
 Route::post('/admin/utilisateurs/auth',[App\Http\Controllers\admin\userController::class,"userlogin"]);
 Route::get('/admin/utilisateurs/deconnecter',[App\Http\Controllers\admin\userController::class,"logOut"]);
+
+// instagram posts
+Route::post('/admin/parametres/instagram-posts',[App\Http\Controllers\admin\settingController::class,"updateInstagramPhotos"]);
+
 /////////////////////////////////////////////

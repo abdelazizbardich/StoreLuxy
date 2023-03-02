@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use View;
 use Illuminate\Support\Facades\Schema;
 use DB;
+use App\Models\Media;
 use Cookie;
 use Crypt;
 use Session;
@@ -30,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
         // site options
         $this->Options = (object)[];
         $this->Options->SiteOptions = (Schema::hasTable('options'))?$this->getSiteOptions():"";
+        $this->Options->SiteOptions->instagram_photos = $this->getIntagramPhotos($this->Options->SiteOptions->instagram_photos);
         // Cart
         $this->Options->CartProducts = (Schema::hasTable('products'))?$this->getCartProducts():"";
         // Order Notice
@@ -135,6 +137,15 @@ class AppServiceProvider extends ServiceProvider
         }
         //print_r($CategorysArray);
         return $CategorysArray;
+    }
+
+    private function getIntagramPhotos($photos){
+        $photos = explode(',',$photos);
+        $data = [];
+        foreach ($photos as $photo) {
+            array_push($data,Media::where('id',$photo)->first());
+        }
+        return $data;
     }
 
 }

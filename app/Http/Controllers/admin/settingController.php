@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use DB;
+use App\Models\Option;
+use App\Models\Media;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -33,14 +35,14 @@ class settingController extends Controller
         $settings->privacy_policies = (DB::table('options')->where('name','privacy_policies')->first())->value;
         $settings->header_codes = (DB::table('options')->where('name','header_codes')->first())->value;
         $settings->footer_codes = (DB::table('options')->where('name','footer_codes')->first())->value;
-
+        $settings->instagramPhotos = $this->getIntagramPhotos((DB::table('options')->where('name','instagram_photos')->first())->value);
         $array = array('settings' => $settings);
         return view('admin.settings.all',$array);
     }
 
     // edit site infos
     public function editSiteInfos(Request $request){
-        
+
         DB::table('options')->where('name','site_name')->update(['value' => $request->site_name]);
         DB::table('options')->where('name','site_url')->update(['value' => $request->site_url]);
         DB::table('options')->where('name','site_description')->update(['value' => $request->site_desc]);
@@ -48,7 +50,7 @@ class settingController extends Controller
         DB::table('options')->where('name','newsletter_email')->update(['value' => $request->newsletter_email]);
         DB::table('options')->where('name','shipping_cost')->update(['value' => $request->shipping_cost]);
         DB::table('options')->where('name','about')->update(['value' => $request->about]);
-        
+
         return $this->show();
     }
 
@@ -56,7 +58,7 @@ class settingController extends Controller
     public function editSitelogo(Request $request){
         $logo = $this->getMediaFile($request->site_logo);
         DB::table('options')->where('name','site_logo')->update(['value' => $logo->file]);
-        
+
         return $this->show();
     }
 
@@ -64,7 +66,7 @@ class settingController extends Controller
     public function editSiteIcon(Request $request){
         $logo = $this->getMediaFile($request->site_icon);
         DB::table('options')->where('name','site_icon')->update(['value' => $logo->file]);
-        
+
         return $this->show();
     }
 
@@ -72,10 +74,10 @@ class settingController extends Controller
     public function editSocialImage(Request $request){
         $logo = $this->getMediaFile($request->social_image);
         DB::table('options')->where('name','site_social_img')->update(['value' => $logo->file]);
-        
+
         return $this->show();
     }
-    
+
     // edit social links
     public function editSocialLinks(Request $request){
         DB::table('options')->where('name','s_facebook')->update(['value' => $request->facebook_link]);
@@ -140,7 +142,7 @@ class settingController extends Controller
         return $this->getBanners();
     }
 
-    // get Carts 
+    // get Carts
     public function getCartes(){
         $cards = DB::table('cards')->get();
         foreach($cards as $card){
@@ -150,7 +152,7 @@ class settingController extends Controller
         return view('admin.settings.cards',$array);
     }
 
-    // edit cards 
+    // edit cards
     public function editCartes(Request $request){
         $count = count($request->id);
         for($i=0;$i < $count;$i++){
@@ -194,7 +196,7 @@ class settingController extends Controller
         return $this->getHFcodes();
     }
 
-    // get Citys 
+    // get Citys
     public function getCities(){
         $cities = DB::table('citys')->get();
         $array = array('cities' => $cities);
@@ -225,5 +227,32 @@ class settingController extends Controller
         }
     }
 
-    
+    public function updateInstagramPhotos(Request $request)
+    {
+        $photos = [];
+        if(isset($request->instaphotos)){
+            foreach($request->instaphotos as $photo){
+                if(!is_null($photo)){
+                    array_push($photos,$photo);
+                }
+            }
+        }
+        $instagramPhotos = Option::where('name','instagram_photos')->first();
+        if($instagramPhotos){
+            $instagramPhotos->value =  implode(',',$photos);
+            $instagramPhotos->save();
+        }
+        return $this->show();
+    }
+
+    private function getIntagramPhotos($photos){
+        $photos = explode(',',$photos);
+        $data = [];
+        foreach ($photos as $photo) {
+            array_push($data,Media::where('id',$photo)->first());
+        }
+        return $data;
+    }
+
+
 }

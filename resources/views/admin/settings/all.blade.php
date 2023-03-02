@@ -163,5 +163,52 @@
                                 <div class="form-group"><button class="btn btn-primary btn-lg" type="submit">Enregistrer</button></div>
                             </form>
                         </div>
+                        <div class="mb-5">
+                            <form action="/admin/parametres/instagram-posts" method="post" enctype="multipart/form-data">
+                                @csrf
+                                @method('POST')
+                                <div class="form-group">
+                                    <label style="line-height: 22px;font-size: 16px;">les photos instagram:</label>
+                                    <div class="form-row">
+                                        <div class="col-4 col-sm-2" style="position:relative;"><button class="btn btn-primary close" type="button" style="top: 0;right: 4%;position: absolute;color: var(--red);background: none;box-shadow: none;z-index: 1;font-size: initial;"><i class="fa fa-close"></i></button>
+                                            <div class="form-control thumbnail-input-holder" style="border-radius: 5px;background-color: var(--color-white);padding: 15px;height: auto;position: relative;margin-bottom: 15px;">
+                                            <img class="img-fluid thumbnail-placeholder" src="{{($settings->instagramPhotos && @$settings->instagramPhotos[0])?asset('storage/'.$settings->instagramPhotos[0]->file):"/assets/admin/img/thumbnail.jpg"}}">
+                                            <input type="text" name="instaphotos[]" value="{{@$settings->instagramPhotos[0]->id}}" style="position: absolute;top: 0;left: 0;opacity: 1;" hidden>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-2" style="position:relative;"><button class="btn btn-primary close" type="button" style="top: 0;right: 4%;position: absolute;color: var(--red);background: none;box-shadow: none;z-index: 1;font-size: initial;"><i class="fa fa-close"></i></button>
+                                            <div class="form-control thumbnail-input-holder" style="border-radius: 5px;background-color: var(--color-white);padding: 15px;height: auto;position: relative;margin-bottom: 15px;">
+                                            <img class="img-fluid thumbnail-placeholder" src="{{($settings->instagramPhotos && @$settings->instagramPhotos[1])?asset('storage/'.$settings->instagramPhotos[1]->file):"/assets/admin/img/thumbnail.jpg"}}">
+                                            <input type="text" name="instaphotos[]" value="{{@$settings->instagramPhotos[1]->id}}"  style="position: absolute;top: 0;left: 0;opacity: 1;" hidden>
+                                            </div>
+                                        </div><div class="col-4 col-sm-2" style="position:relative;"><button class="btn btn-primary close" type="button" style="top: 0;right: 4%;position: absolute;color: var(--red);background: none;box-shadow: none;z-index: 1;font-size: initial;"><i class="fa fa-close"></i></button>
+                                            <div class="form-control thumbnail-input-holder" style="border-radius: 5px;background-color: var(--color-white);padding: 15px;height: auto;position: relative;margin-bottom: 15px;">
+                                            <img class="img-fluid thumbnail-placeholder" src="{{($settings->instagramPhotos && @$settings->instagramPhotos[2])?asset('storage/'.$settings->instagramPhotos[2]->file):"/assets/admin/img/thumbnail.jpg"}}">
+                                            <input type="text" name="instaphotos[]" value="{{@$settings->instagramPhotos[2]->id}}"  style="position: absolute;top: 0;left: 0;opacity: 1;" hidden>
+                                            </div>
+                                        </div><div class="col-4 col-sm-2" style="position:relative;"><button class="btn btn-primary close" type="button" style="top: 0;right: 4%;position: absolute;color: var(--red);background: none;box-shadow: none;z-index: 1;font-size: initial;"><i class="fa fa-close"></i></button>
+                                            <div class="form-control thumbnail-input-holder" style="border-radius: 5px;background-color: var(--color-white);padding: 15px;height: auto;position: relative;margin-bottom: 15px;">
+                                            <img class="img-fluid thumbnail-placeholder" src="{{($settings->instagramPhotos && @$settings->instagramPhotos[3])?asset('storage/'.$settings->instagramPhotos[3]->file):"/assets/admin/img/thumbnail.jpg"}}">
+                                            <input type="text" name="instaphotos[]" value="{{@$settings->instagramPhotos[3]->id}}"  style="position: absolute;top: 0;left: 0;opacity: 1;" hidden>
+                                            </div>
+                                        </div><div class="col-4 col-sm-2" style="position:relative;"><button class="btn btn-primary close" type="button" style="top: 0;right: 4%;position: absolute;color: var(--red);background: none;box-shadow: none;z-index: 1;font-size: initial;"><i class="fa fa-close"></i></button>
+                                            <div class="form-control thumbnail-input-holder" style="border-radius: 5px;background-color: var(--color-white);padding: 15px;height: auto;position: relative;margin-bottom: 15px;">
+                                            <img class="img-fluid thumbnail-placeholder" src="{{($settings->instagramPhotos && @$settings->instagramPhotos[4])?asset('storage/'.$settings->instagramPhotos[4]->file):"/assets/admin/img/thumbnail.jpg"}}">
+                                            <input type="text" name="instaphotos[]" value="{{@$settings->instagramPhotos[4]->id}}"  style="position: absolute;top: 0;left: 0;opacity: 1;" hidden>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-2" style="position:relative;"><button class="btn btn-primary close" type="button" style="top: 0;right: 4%;position: absolute;color: var(--red);background: none;box-shadow: none;z-index: 1;font-size: initial;"><i class="fa fa-close"></i></button>
+                                            <div class="form-control thumbnail-input-holder" style="border-radius: 5px;background-color: var(--color-white);padding: 15px;height: auto;position: relative;margin-bottom: 15px;">
+                                                <img class="img-fluid thumbnail-placeholder" src="{{($settings->instagramPhotos && @$settings->instagramPhotos[5])?asset('storage/'.$settings->instagramPhotos[5]->file):"/assets/admin/img/thumbnail.jpg"}}">
+                                                <input type="text" name="instaphotos[]" value="{{@$settings->instagramPhotos[5]->id}}"  style="position: absolute;top: 0;left: 0;opacity: 1;" hidden>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-lg" type="submit">Enregistrer</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                     @include('admin.inc.footer')

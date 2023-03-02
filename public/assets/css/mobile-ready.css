@@ -231,12 +231,8 @@
   .str > span:hover img {
     opacity: 1 !important;
   }
-
-  input[type=radio] {
-  }
-
   img.lightZoom {
-    cursor: pointer;
+    cursor: zoom-in;
   }
 
   #post-title {
