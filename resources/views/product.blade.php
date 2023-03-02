@@ -237,11 +237,15 @@
             <div>
                 <div class="row no-gutters">
                     @foreach($SponsoredProduct as $SProduct)
-                    <a href="/produit/{{$SProduct->Product->slug_name}}"><div class="col-12 col-sm-6 col-md-3 col-lg-12 text-center" style="margin-bottom: 15px;padding: 5px;">
-                        <img style="margin-bottom: 10px;" class="img-fluid" alt="{{$SProduct->Thumbnail->alt_title}}" title="{{$SProduct->Thumbnail->name}}" description="{{$SProduct->Thumbnail->file_desc}}" src="{{ asset('storage/' . $SProduct->Thumbnail->file) }}">
-                        <h1 style="font-size: 12px;line-height: 16px;">{{$SProduct->Product->name}}</h1>
-                        <span style="font-size: 15px;line-height: 20px;color: #FF0000;font-weight: bold;"><strong>{{$SProduct->Product->price}}@lang("Dh")</strong></span>
-                    </div></a>
+                    <a href="/produit/{{$SProduct->Product->slug_name}}">
+                        <div class="col-12 col-sm-6 col-md-3 col-lg-12 text-center" style="margin-bottom: 15px;padding: 5px;">
+                            <div class="text-center" style="padding: 8px;background: white;border: 1px solid #dbb300;height: 100%;">
+                                <img style="margin-bottom: 10px;" class="img-fluid" alt="{{$SProduct->Thumbnail->alt_title}}" title="{{$SProduct->Thumbnail->name}}" description="{{$SProduct->Thumbnail->file_desc}}" src="{{ asset('storage/' . $SProduct->Thumbnail->file) }}">
+                                <h1 style="font-size: 12px;line-height: 16px;">{{$SProduct->Product->name}}</h1>
+                                <span style="font-size: 15px;line-height: 20px;color: #FF0000;font-weight: bold;"><strong>{{$SProduct->Product->price}}@lang("Dh")</strong></span>
+                            </div>
+                        </div>
+                </a>
                     @endforeach
                 </div>
             </div>
