@@ -10,12 +10,14 @@
                     </div>
                     <div class="col-md-6" style="position: relative;">
                         <h1 id="post-title">{{$Post->post->name}}</h1><span id="post-author">@lang("Par") <strong style="text-transform: uppercase;">{{$Post->user}}</strong> @lang("le") {{substr($Post->post->created_at,0,10)}}</span>
-                        <div id="post-details"><span style="font-size: 16px;line-height: 22px;position: relative;display: inline-block;">
-                        <?php $i=1; $x=count((array)$Post->categorys); ?>
-                                    @foreach($Post->categorys as $category)
-                                        <a href="/blogs/{{$category->slug_name}}" style="color:inherit;">{{$category->name}}</a><?php if($i++<$x){echo ',';} ?>
-                                    @endforeach
-                        </span><span style="font-size: 16px;line-height: 22px;display: inline-block;margin-left: 15px;"><span style="background-image: url(&quot;/assets/img/Icon%20awesome-comment.svg&quot;);width: 15px;height: 21px;display: block;background-size: contain;background-repeat: no-repeat;background-position: center;float: left;margin-right: 5px;"></span> {{$Post->commentsCount}}</span>
+                        <div id="post-details">
+                        <span style="font-size: 16px;line-height: 22px;position: relative;display: inline-block;margin-right: 15px;">
+                            <?php $i=1; $x=count((array)$Post->categorys); ?>
+                            @foreach($Post->categorys as $category)
+                                <a href="/blogs/{{$category->slug_name}}" style="color:inherit;">{{$category->name}}</a><?php if($i++<$x){echo ',';} ?>
+                            @endforeach
+                        </span>
+                        <span style="font-size: 16px;line-height: 22px;display: inline-block;margin-right: 15px;"><span style="background-image: url(&quot;/assets/img/Icon%20awesome-comment.svg&quot;);width: 15px;height: 21px;display: block;background-size: contain;background-repeat: no-repeat;background-position: center;float: left;margin-right: 5px;"></span> {{$Post->commentsCount}}</span>
                             <span
                                 style="font-size: 16px;line-height: 22px;display: inline-block;margin: 5px;"><span style="width: 18px;height: 20px;display: block;background-size: contain;background-repeat: no-repeat;background-position: center;float: left;margin-right: 5px;"><i class="la la-eye" style="font-size: 16px;line-height: 23px;"></i></span> {{$Post->post->views}}</span>
                                 <span
