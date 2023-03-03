@@ -281,4 +281,9 @@ class postsController extends Controller
         $category = DB::table('categorys')->delete($id);
         return $this->getBlogCategories();
     }
+
+    public function deletePost($id){
+        $category = DB::table('posts')->delete($id);
+        return $this->show();
+    }
 }

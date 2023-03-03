@@ -134,6 +134,7 @@ Route::get('/admin/article/passer-au-brouillon/{id}', [App\Http\Controllers\admi
 Route::get('/admin/article/etat/publier/{id}', [App\Http\Controllers\admin\postsController::class,"moveTopublished"])->middleware('userlogin');
 Route::get('/admin/article/modifier/{id}', [App\Http\Controllers\admin\postsController::class,"getPostForEdit"])->middleware('userlogin');
 Route::post('/admin/articles/modifier', [App\Http\Controllers\admin\postsController::class,"editPost"])->middleware('userlogin');
+Route::post('/admin/articles/supprimer/{id}', [App\Http\Controllers\admin\postsController::class,"deletePost"])->middleware('userlogin');
 Route::get('/admin/articles/nouveau', [App\Http\Controllers\admin\postsController::class,"NewPost"])->middleware('userlogin');
 Route::post('/admin/articles/ajouter', [App\Http\Controllers\admin\postsController::class,"addNewPost"])->middleware('userlogin');
 Route::get('/admin/articles/categories', [App\Http\Controllers\admin\postsController::class,"getBlogCategories"])->middleware('userlogin');
