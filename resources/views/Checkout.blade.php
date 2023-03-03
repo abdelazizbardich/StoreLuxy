@@ -59,7 +59,7 @@
                                 </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="background-color: #FFE600;position: relative;padding-right: 0;">
-                            <div style="margin-top: 12vh;margin-left: 15%;margin-bottom: 12vh;position: relative;animation: 1;">
+                            <div style="margin-top: 12vh;margin-right: 15%;margin-bottom: 12vh;position: relative;animation: 1;">
                                 <p style="font-size: 36px;line-height: 49px;border-bottom: 3px solid #ffffff;margin-bottom: 35px;">@lang("Finalisation de la commande")</p>
                                 <div style="margin-right: 15%;"><span style="font-size: 18px;line-height: 28px;">@lang("Total du Panier"):</span><span style="font-size: 18px;line-height: 28px;float: right;font-weight: bold;"><span class="product-total">{{$totalCart}}</span> @lang("Dh")</span></div>
                                 <div style="margin-right: 15%;"><span style="font-size: 18px;line-height: 28px;">@lang("Frais de Livraison"):</span><span style="font-size: 18px;line-height: 28px;float: right;font-weight: bold;"><span class="shipping-cost">0.00</span> @lang("Dh")</span></div>
