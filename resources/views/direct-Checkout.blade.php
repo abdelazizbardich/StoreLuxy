@@ -98,19 +98,19 @@
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" style="background-color: #FFE600;position: relative;padding-right: 0;">
                         <div style="margin-top: 12vh;margin-right: 15%;margin-bottom: 12vh;position: relative;animation: 1;">
                             <p style="font-size: 36px;line-height: 49px;border-bottom: 3px solid #ffffff;margin-bottom: 35px;">@lang("finaliser la commande")</p>
-                            <div style="margin-right: 15%;">
+                            <div style="/*margin-right: 15%;*/">
                                 <span style="font-size: 18px;line-height: 28px;">@lang("Total du Panier"):</span>
                                 <span style="font-size: 18px;line-height: 28px;font-weight: bold;"><span class="total-cart">{{$Product->Product->price*$Product->Product->qte}}</span> @lang("Dh")</span>
                             </div>
-                            <div style="margin-right: 15%;">
+                            <div style="/*margin-right: 15%;*/">
                                 <span style="font-size: 18px;line-height: 28px;">@lang("Frais de Livraison"):</span>
                                 <span style="font-size: 18px;line-height: 28px;font-weight: bold;"><span class="shipping-cost">0.00</span> @lang("Dh")</span>
                             </div>
-                            <div style="margin-right: 15%;">
+                            <div style="/*margin-right: 15%;*/">
                                 <span style="font-size: 18px;line-height: 28px;">@lang("Frais de Taxes"):</span>
                                 <span style="font-size: 18px;line-height: 28px;font-weight: bold;"><span class="tax">{{ $Product->Product->tax}}</span> @lang("Dh")</span>
                             </div>
-                            <div style="margin-right: 15%;">
+                            <div style="/*margin-right: 15%;*/">
                                 <span style="font-size: 18px;line-height: 28px;">@lang("Total du Commande"):</span>
                                 <span style="font-size: 18px;line-height: 28px;font-weight: bold;color: rgb(255,0,0);"><span class="total-order">{{($Product->Product->price*$Product->Product->qte)+0+$Product->Product->tax}}</span> @lang("Dh")</span>
                             </div>

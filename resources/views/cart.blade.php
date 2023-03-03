@@ -52,7 +52,7 @@
                         <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" style="background-color: #FFE600;position: relative;padding-right: 0;">
                             <div style="margin-top: 12vh;margin-right: 15%;margin-bottom: 12vh;position: relative;z-index: 1;">
                                 <p style="font-size: 36px;line-height: 49px;border-bottom: 3px solid #ffffff;margin-bottom: 35px;">@lang("Mon Panier")</p>
-                                <div style="margin-right: 15%;">
+                                <div style="/*margin-right: 15%;*/">
                                     <p style="font-size: 16px;line-height: 20px;">@lang("Frais de livraison et taxes calculés au moment de la finalisation de la commande").</p>
                                     <div>
                                         <div class="form-group {{ $errors->has('termes_check') ? ' has-error' : '' }}">
