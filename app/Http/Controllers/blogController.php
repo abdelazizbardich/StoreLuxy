@@ -42,8 +42,8 @@ class blogController extends Controller
 
             // Comments
             $Comments = DB::table('comments')->where('post_id',$Post->id)->where('state','approved')->get();
-            $Posts[$i]->commentsCount = count((array)$Comments); 
-            
+            $Posts[$i]->commentsCount = count((array)$Comments);
+
             // User
             $User = DB::table('users')->where('id',$Post->user_id)->first();
             $Posts[$i]->user = $User->username;
@@ -73,11 +73,11 @@ class blogController extends Controller
 
             // Comments
             $Comments = DB::table('comments')->where('post_id',$Post->id)->where('state','approved')->get();
-            $Posts[$i]->commentsCount = count((array)$Comments); 
-            
+            $Posts[$i]->commentsCount = count((array)$Comments);
+
             // User
             $User = DB::table('users')->where('id',$Post->user_id)->first();
-            $Posts[$i]->user = $User->username;
+            $Posts[$i]->user = @$User->username;
             $i++;
         }
         return $Posts;
