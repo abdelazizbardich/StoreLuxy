@@ -38,12 +38,12 @@
                             </li>
                         @endforeach
                         </ul>
-                        <div><span style="font-size: 14px;line-height: 19px;display: block;">@lang("Prix"):</span><input type="range" class="priceRange" style="width: 100%;">
+                        {{-- <div><span style="font-size: 14px;line-height: 19px;display: block;">@lang("Prix"):</span><input type="range" class="priceRange" style="width: 100%;">
                             <ul class="list-inline">
                                 <li class="list-inline-item" style="width: 48%;float: left;">0</li>
                                 <li class="list-inline-item text-right" style="width: 48%;float: right;">100 000</li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
                         <span class="container" style="font-size: 18px;line-height: 24px;font-weight: bold;display: block;/*border-bottom: 1px solid rgb(255,230,0);*/padding-bottom: 15px;"><strong>@lang("Produits populaires"):</strong>
