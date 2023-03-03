@@ -69,7 +69,7 @@
                                 <div>
                                     <div class="form-check">
                                     <input class="form-check-input" type="checkbox"  name="termes_check" id="termes_check"><label class="form-check-label" for="termes_check">@lang("J'accepte")&nbsp;<a href="#" style="font-weight: bold;">@lang("les termes et conditions")</a></label></div>
-                                </div><button class="btn btn-primary text-uppercase" type="submit" style="font-size: 18px;line-height: 24px;padding: 15px 25px;border-radius: 50px;font-weight: 100;margin-top: 15px;">@lang("confirmez")</button></div><img src="/assets/img/Intersection%209.svg"
+                                </div><button class="btn btn-danger text-uppercase" type="submit" style="font-size: 18px;line-height: 24px;padding: 15px 25px;border-radius: 8px;font-weight: 100;margin-top: 15px; min-width:200px;">@lang("confirmez")</button></div><img src="/assets/img/Intersection%209.svg"
                                 style="max-width: 90%;max-height: 35%;position: absolute;bottom: 0;right: 0;"></div>
                     </div>
                 </div>
