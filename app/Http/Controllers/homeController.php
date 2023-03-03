@@ -220,7 +220,7 @@ class homeController extends Controller
 
             // User
             $User = DB::table('users')->where('id',$Post->user_id)->first();
-            $arr->user = $User->username;
+            $arr->user = @$User->username;
             // push all
             array_push($PostsDataArray,$arr);
         }
