@@ -46,7 +46,7 @@ class blogController extends Controller
 
             // User
             $User = DB::table('users')->where('id',$Post->user_id)->first();
-            $Posts[$i]->user = $User->username;
+            $Posts[$i]->user = @$User->username;
 
             if(in_array($calledCategoey_id->id,$Categorys_ids) != null){}else{unset($Posts[$i]);};
 
