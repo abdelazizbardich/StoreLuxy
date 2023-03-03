@@ -20,7 +20,7 @@ class postsController extends Controller
         $posts = DB::table('posts')->orderBy('id', 'DESC')->get();
         foreach($posts as $post){
             $user = $this->getPostAuthor($post->user_id);
-            $post->author = $user->username;
+            $post->author = @$user->username;
 
             $categoriesIds = explode(',',$post->categorys);
             $categoriesData = [];
@@ -102,7 +102,7 @@ class postsController extends Controller
             }
             $post->tagsObjects = $tagsData;
             $post->commentsCount = $this->getPostCommentsCount($post->id);
-            
+
         return $post;
     }
 
@@ -228,7 +228,7 @@ class postsController extends Controller
             return $this->show();
         }
     }
-    
+
     // get Blog Categorys
 
     public function getBlogCategories(){
@@ -237,7 +237,7 @@ class postsController extends Controller
         return view('admin.posts.categories',$array);
     }
 
-    // add New Categort 
+    // add New Categort
     public function addNewCategory(Request $request){
         $category = DB::table('categorys')->insertGetId([
             'name' => $request->title,
