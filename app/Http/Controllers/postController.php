@@ -38,10 +38,10 @@ class postController extends Controller
         }
         $arr->comments = $CommentsData;
         // comments count
-        $arr->commentsCount = count($CommentsData); 
+        $arr->commentsCount = count($CommentsData);
         // User
         $User = DB::table('users')->where('id',$Post->user_id)->first();
-        $arr->user = $User->username;
+        $arr->user = @$User->username;
 
         //
         $Tags = explode(',',$Post->tags);
@@ -96,8 +96,8 @@ class postController extends Controller
 
                 // Comments
                 $Comments = DB::table('comments')->where('post_id',$Post->id)->where('state','approved')->get();
-                $arr->commentsCount = count((array)$Comments); 
-                
+                $arr->commentsCount = count((array)$Comments);
+
                 // User
                 $User = DB::table('users')->where('id',$Post->user_id)->first();
                 $arr->user = $User->username;
