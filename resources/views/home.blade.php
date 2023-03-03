@@ -230,7 +230,7 @@
                                     <p style="font-size: 12px;line-height: 16px;margin-bottom: 5px;color: #0066FF;font-weight: bold;">
                                     <?php $i=1; $x=count((array)$Post->categorys); ?>
                                     @foreach($Post->categorys as $category)
-                                        <a style="color: inherit;" href="/boutique/{{$category->slug_name}}">{{$category->name}}</a><?php if($i++<$x){echo ',';} ?>
+                                        <a style="color: inherit;" href="/blogs/{{$category->slug_name}}">{{$category->name}}</a><?php if($i++<$x){echo ',';} ?>
                                     @endforeach
                                     </p>
                                     <h1 style="font-size: 19px;line-height: 17px;font-weight: bold;margin-bottom: 5px;">{{$Post->post->name}}</h1>
