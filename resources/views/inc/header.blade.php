@@ -29,7 +29,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ $options->SiteOptions->site_name}}@if(isset($Product)) - {{ $Product->name }}@endif" />
     <meta property="og:description" content="@if(isset($Product)) - {{ $Product->short_desc }}@else{{ $options->SiteOptions->site_description}}@endif" />
-    <meta property="og:image" content="@if(isset($Product)) - {{ $Product->Thumbnail->file }}@else{{  asset('storage/' . $options->SiteOptions->site_social_img)}}@endif" />
+    <meta property="og:image" content="@if(isset($Thumbnail)) - {{ $Thumbnail->file }}@else{{  asset('storage/' . $options->SiteOptions->site_social_img)}}@endif" />
     {!! $options->SiteOptions->header_codes !!}
 </head>
 
