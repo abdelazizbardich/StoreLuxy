@@ -136,6 +136,10 @@ class DatabaseSeeder extends Seeder
                 "name" => "instagram_photos",
                 "value" => "",
             ]);
+            Option::create([
+                "name" => "whatsapp_number",
+                "value" => "+212612345678",
+            ]);
         }
         if(!Message_subject::count()){
             Message_subject::create(["name" => "الاستفسار العام"]);
