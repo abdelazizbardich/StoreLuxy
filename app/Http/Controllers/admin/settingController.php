@@ -35,6 +35,7 @@ class settingController extends Controller
         $settings->privacy_policies = (DB::table('options')->where('name','privacy_policies')->first())->value;
         $settings->header_codes = (DB::table('options')->where('name','header_codes')->first())->value;
         $settings->footer_codes = (DB::table('options')->where('name','footer_codes')->first())->value;
+        $settings->whatsapp_number = (DB::table('options')->where('name','whatsapp_number')->first())->value;
         $settings->instagramPhotos = $this->getIntagramPhotos((DB::table('options')->where('name','instagram_photos')->first())->value);
         $array = array('settings' => $settings);
         return view('admin.settings.all',$array);
