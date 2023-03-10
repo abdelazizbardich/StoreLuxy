@@ -50,6 +50,7 @@ class settingController extends Controller
         DB::table('options')->where('name','newsletter_email')->update(['value' => $request->newsletter_email]);
         DB::table('options')->where('name','shipping_cost')->update(['value' => $request->shipping_cost]);
         DB::table('options')->where('name','about')->update(['value' => $request->about]);
+        DB::table('options')->where('name','whatsapp_number')->update(['value' => $request->whatsapp_number]);
 
         return $this->show();
     }

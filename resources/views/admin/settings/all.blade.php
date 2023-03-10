@@ -29,6 +29,8 @@
                                         <input class="form-control" name="facebook_id" value="{{$settings->facebook_id}}" type="text"></div>
                                         <div class="form-group"><label style="line-height: 22px;font-size: 16px;">Email de newsletter:</label>
                                         <input class="form-control" name="newsletter_email" value="{{$settings->newsletter_email}}" type="text"></div>
+                                        <div class="form-group"><label style="line-height: 22px;font-size: 16px;">Whatsapp number:</label>
+                                        <input class="form-control" name="whatsapp_number" value="{{$settings->whatsapp_number}}" type="text"></div>
                                         <div class="form-group"><label style="line-height: 22px;font-size: 16px;">Frais de livraison:</label>
                                         <input class="form-control" name="shipping_cost" value="{{$settings->shipping_cost}}" type="text"></div>
                                         <div class="form-group"><label style="line-height: 22px;font-size: 16px;">À propos du site (page d'à proppos):</label>
