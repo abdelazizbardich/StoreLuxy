@@ -137,7 +137,7 @@
                                 class="fa fa-cart-plus"></i>&nbsp;@lang('Ajouter au panier')</a>
                     </div>
                     <div class="my-3">
-                        <a href="
+                        <a rel="nofollow" target="_blank" href="
                         https://api.whatsapp.com/send?phone={{$options->SiteOptions->whatsapp_number}}&text=@lang('Bonjour, je souhaite commander ce produit'): {{ $Product->name }}, @lang("lien de produit"): {{ $options->SiteOptions->site_url }}/produit/{{ $Product->slug_name }}
                         " class="w-100 btn btn-success border-white rounded-0 border-2 mx-1 p-3" role="button" style="background-color: #28a745;color: rgb(255,255,255);border-width: 3px;font-size: 1.3rem;display: flex;justify-content: center;align-items: center;">
                             <i class="fa fa-whatsapp" style="margin-left: 1rem;font-size: 2rem;"></i>@lang("Commande via WhatsApp")</a>
