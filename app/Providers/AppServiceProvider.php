@@ -31,7 +31,9 @@ class AppServiceProvider extends ServiceProvider
         // site options
         $this->Options = (object)[];
         $this->Options->SiteOptions = (Schema::hasTable('options'))?$this->getSiteOptions():"";
-        $this->Options->SiteOptions->instagram_photos = $this->getIntagramPhotos($this->Options->SiteOptions->instagram_photos);
+        if(isset($this->Options->SiteOptions->instagram_photos)){
+            $this->Options->SiteOptions->instagram_photos = $this->getIntagramPhotos($this->Options->SiteOptions->instagram_photos);
+        }
         // Cart
         $this->Options->CartProducts = (Schema::hasTable('products'))?$this->getCartProducts():"";
         // Order Notice

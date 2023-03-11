@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
                 "adress" => "578 Collier Lights Suite 331",
                 "zip" => "09418",
                 "age" => 27,
-                "password" => '$2y$10$iebvNrlTmVpz3VWaNeVe5uR5lLc0ZR9CULOzZJiZDabvSqYHR7cWy',
+                "password" => '$2y$10$tXpFJfrK2yD1lyZE8QamieuEwgPMFhwRAn5V1tDF5G0mWjqeumVd.',
                 "role" => 1,
                 "avatar" => 1,
                 "state" => 1,
