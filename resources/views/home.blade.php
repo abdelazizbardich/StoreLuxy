@@ -122,14 +122,11 @@
                                         <img src="/assets/img/Icon%20ionic-ios-star-outline.svg" style="margin-right: 3px;width: 16px;">
                                     @endfor
                                 </span>
-                                <p class="text-center" style="font-size: 12px;line-height: 19px;margin-bottom: 5px;">{{$TrendingProduct->product->name}}</p>
+                                <p class="text-center" style="font-weight: bold;font-size: 15px;line-height: 19px;margin-bottom: 5px;">{{$TrendingProduct->product->name}}</p>
                                 <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;">{{$TrendingProduct->product->price}} @lang("Dh")</p>
-                                <ul class="list-inline">
-                                @foreach($TrendingProduct->photos as $photo)
-                                    <li class="list-inline-item"><img src="{{asset('storage/' . $photo->file)}}" class="lightZoom" style="width: 30px;height: 30px;"></li>
-                                @endforeach
-                                </ul>
-                                <a class="btn btn-danger text-uppercase btn-add-to-carte w-100 p-2" data-id="{{$TrendingProduct->product->id}}" role="button" style="margin: auto;border: none;border-radius: 0;font-size: 12px;color: rgb(255,255,255);"><i class="fa fa-cart-plus"></i>&nbsp;@lang("Ajouter au panier")</a>
+                                <a href="/commandez-maintenant/{{$TrendingProduct->product->id}}/1" class="btn btn-warning text-uppercase w-100 p-2" role="button" style="margin: auto;border: none;border-radius: 0;font-size: 16px;color: rgb(255,255,255);">
+                                    <i class="fa fa-cart-plus"></i>&nbsp;@lang("Commandez maintenant")
+                                </a>
                             </div>
                         </div>
                     @endforeach
@@ -197,14 +194,11 @@
                                             <img src="/assets/img/Icon%20ionic-ios-star-outline.svg" style="margin-right: 3px;width: 16px;">
                                         @endfor
                                     </span>
-                                    <p class="text-center" style="font-size: 12px;line-height: 19px;margin-bottom: 5px;">{{$BestSallerProduct->product->name}}</p>
+                                    <p class="text-center" style="font-weight: bold;font-size: 15px;line-height: 19px;margin-bottom: 5px;">{{$BestSallerProduct->product->name}}</p>
                                     <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;">{{$BestSallerProduct->product->price}} @lang("Dh")</p>
-                                    <ul class="list-inline">
-                                    @foreach($BestSallerProduct->photos as $photo)
-                                        <li class="list-inline-item"><img src="{{asset('storage/' . $photo->file)}}" class="lightZoom" style="width: 30px;height: 30px;"></li>
-                                    @endforeach
-                                    </ul>
-                                    <a class="btn btn-danger text-uppercase btn-add-to-carte w-100 p-2" data-id="{{$BestSallerProduct->product->id}}" role="button" style="margin: auto;border: none;border-radius: 0;font-size: 12px;color: rgb(255,255,255);"><i class="fa fa-cart-plus"></i>&nbsp;@lang("Ajouter au panier")</a>
+                                    <a href="/commandez-maintenant/{{$BestSallerProduct->product->id}}/1" class="btn btn-warning text-uppercase w-100 p-2" role="button" style="margin: auto;border: none;border-radius: 0;font-size: 16px;color: rgb(255,255,255);">
+                                        <i class="fa fa-cart-plus"></i>&nbsp;@lang("Commandez maintenant")
+                                    </a>
                                 </div>
                             </div>
                         @endforeach

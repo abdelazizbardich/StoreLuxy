@@ -108,9 +108,11 @@
                 </div>
                 <div class="col text-center">
                     <ul class="list-inline" style="margin: 0;">
-                        <li class="list-inline-item"><a id="show-search-box"><img src="/assets/img/Icon%20awesome-search.svg" style="width: 14px;margin: 5px;cursor:pointer;"></a><a href="/panier" style="position: relative;"><img src="/assets/img/Icon%20feather-shopping-cart.svg" style="height: 14px;margin: 5px;"><span class="cart-count-badge" style="position: absolute;width: 15px;height: 15px;font-size: 10px;background: red;color: #ffffff;text-align: center;border-radius: 50px;right: -4px;top: -3px;font-weight: bold;">{{$options->CartCount}}</span></a>
-                            <a
-                                href="/suivi-de-commande"><img src="/assets/img/Icon%20feather-truck.svg" style="width: 14px;margin: 5px;"></a>
+                        <li class="list-inline-item">
+                            <a id="show-search-box">
+                                <img src="/assets/img/Icon%20awesome-search.svg" style="width: 14px;margin: 5px;cursor:pointer;">
+                            </a>
+                            <a href="/suivi-de-commande"><img src="/assets/img/Icon%20feather-truck.svg" style="width: 14px;margin: 5px;"></a>
                         </li>
                     </ul>
                 </div>
