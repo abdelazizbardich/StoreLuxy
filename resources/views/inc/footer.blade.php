@@ -151,17 +151,17 @@
                 <div class="container">
                     <div class="row order-lg-center order-xl-center">
                         @if($options->SiteOptions->widjet_1)
-                        <div class="col">
+                        <div class="col-12 col-md mb-5">
                             {!! $options->SiteOptions->widjet_1 !!}
                         </div>
                         @endif
                         @if($options->SiteOptions->widjet_2)
-                        <div class="col">
+                        <div class="col-12 col-md mb-5">
                             {!! $options->SiteOptions->widjet_2 !!}
                         </div>
                         @endif
                         @if($options->SiteOptions->widjet_3)
-                        <div class="col">
+                        <div class="col-12 col-md mb-5">
                             {!! $options->SiteOptions->widjet_3 !!}
                         </div>
                         @endif
