@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="site-storage-url"content="{{asset('storage/')}}">
-    <title>{{ $options->SiteOptions->site_name}}@if(isset($Product)) - {{ $Product->name }}@endif</title>
+    <title>{{ $options->SiteOptions->site_name}}@if(isset($Product->Product)) {{$Product->Product->name}} @elseif(isset($Product)) - {{ $Product->name }}@endif</title>
     <link rel="icon" type="image/svg+xml" sizes="219x55" href="{{  asset('storage/' . $options->SiteOptions->site_icon)}}">
     <link rel="stylesheet" href='/assets/bootstrap/css/bootstrap.@lang("dir").min.css?{{ date('d')}}'>
     <link rel="manifest" href="/manifest.json">
@@ -27,8 +27,8 @@
 
     <meta property="og:url" content="{{ $options->SiteOptions->site_url}}" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="{{ $options->SiteOptions->site_name}}@if(isset($Product)) - {{ $Product->name }}@endif" />
-    <meta property="og:description" content="@if(isset($Product)) - {{ $Product->short_desc }}@else{{ $options->SiteOptions->site_description}}@endif" />
+    <meta property="og:title" content="{{ $options->SiteOptions->site_name}} @if(isset($Product->Product)) {{$Product->Product->name}} @elseif(isset($Product)) - {{ $Product->name }}@endif" />
+    <meta property="og:description" content="@if(isset($Product->Product)) {{$Product->Product->short_desc}} @elseif(isset($Product)) - {{ $Product->short_desc }}@else{{ $options->SiteOptions->site_description}}@endif" />
     <meta property="og:image" content="@if(isset($Thumbnail)) - {{ $Thumbnail->file }}@else{{  asset('storage/' . $options->SiteOptions->site_social_img)}}@endif" />
     {!! $options->SiteOptions->header_codes !!}
 </head>
