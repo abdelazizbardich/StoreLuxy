@@ -58,6 +58,7 @@ Route::post('/finalisation-de-commande', [App\Http\Controllers\checkoutControlle
 Route::get('/finalisation-de-commande', [App\Http\Controllers\checkoutController::class,"sendToPanier"]);
 Route::post('/confirmer-la-commande', [App\Http\Controllers\checkoutController::class,"addOrder"]);
 Route::get('/commandez-maintenant/{id}/{qte}', [App\Http\Controllers\directCheckoutController::class,"getorderData"]);
+Route::post('/commandez-maintenant/fast', [App\Http\Controllers\directCheckoutController::class,"addOrderFast"]);
 
 /*
 Route::get('/page', function () {

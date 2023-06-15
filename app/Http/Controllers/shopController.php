@@ -56,11 +56,11 @@ class shopController extends Controller
                         }
                         $SubCategoryArray->subSubCategorys = $subSubCategorysArray;
 
-
+                    if($SubCategoryArray)
                     array_push($SubCategorysArray,$SubCategoryArray);
                 }
                 $CategoryArray->subCategorys = $SubCategorysArray;
-
+                if($CategoryArray)
             array_push($CategorysArray,$CategoryArray);
         }
         return $CategorysArray;
@@ -90,6 +90,7 @@ class shopController extends Controller
             $categorys = [];
             foreach($Categorys_ids as $Category_id){
                 $category = DB::table('categorys')->where('id',$Category_id)->first();
+                if($category)
                 array_push($categorys,$category);
             }
             $Products[$i]->categorys = (object)$categorys;

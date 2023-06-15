@@ -16,7 +16,7 @@
     "Tous droits réservés": "جميع الحقوق محفوظة",
     "PRODUIT": "المنتج",
     "Dh": "دم",
-    "Quantité": "الكمية",
+    "Quantité": "الكمية المرغوبة",
     "Acheter maintenant": "اشتري الآن",
     "Ajouter au panier": "أضف إلى السلة",
     "Détails du produit": "تفاصيل المنتج",
@@ -119,5 +119,10 @@
     "Commande via WhatsApp": "اطلب عبر الواتساب",
     "Bonjour, je souhaite commander ce produit": "مرحبًا ، أود أن أطلب هذا المنتج",
     "lien de produit": "رابط المنتج",
-    "Commandez maintenant":"اطلب الان"
+    "Commandez maintenant":"اطلب الان",
+    "Remplissez le formulaire pour passer une commande":"يرجى تعبئة النموذج المرفق لتقديم طلب الشراء",
+    "Adresse":"العنوان",
+    "Note":"ملاحظة",
+    "Commander":"اطلب الان",
+    "Veuillez vérifier les données que vous avez soumises !":"يرجى التحقق من البيانات المقدمة!"
 }

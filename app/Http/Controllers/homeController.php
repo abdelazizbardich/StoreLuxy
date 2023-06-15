@@ -49,7 +49,9 @@ class homeController extends Controller
             $PCategorys = [];
             foreach($Categorys_ids as $Categorys_id){
                 $PCategory = DB::table('categorys')->where('id',$Categorys_id)->first();
-                array_push($PCategorys,$PCategory);
+                if($PCategory){
+                    array_push($PCategorys,);
+                }
             }
             $arr->categorys = $PCategorys;
 
@@ -71,7 +73,7 @@ class homeController extends Controller
             // set thumbnail
             $thumbnail = DB::table('medias')->where('id',$Category->thumbnail)->first();
             $CategoryArray->thumbnail = $thumbnail;
-
+            if($CategoryArray)
             array_push($CategorysArray,$CategoryArray);
         }
         return $CategorysArray;
@@ -121,6 +123,7 @@ class homeController extends Controller
             $categorys = [];
             foreach($Categorys_ids as $Category_id){
                 $category = DB::table('categorys')->where('id',$Category_id)->first();
+                if($category)
                 array_push($categorys,$category);
             }
             $arr->categorys = (object)$categorys;
@@ -170,9 +173,8 @@ class homeController extends Controller
             $categorys = [];
             foreach($Categorys_ids as $Category_id){
                 $category = DB::table('categorys')->where('id',$Category_id)->where('type','category')->first();
-                if($category != null){
+                if($category)
                 array_push($categorys,$category);
-                }
             }
             $arr->categorys = (object)$categorys;
 
@@ -210,6 +212,7 @@ class homeController extends Controller
             $categorys = [];
             foreach($Categorys_ids as $Category_id){
                 $category = DB::table('categorys')->where('id',$Category_id)->first();
+                if($category)
                 array_push($categorys,$category);
             }
             $arr->categorys = (object)$categorys;

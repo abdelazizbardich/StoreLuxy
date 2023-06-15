@@ -27,6 +27,7 @@ class productController extends Controller
    $PCategorys = [];
    foreach($Categorys_ids as $Categorys_id){
      $PCategory = DB::table('categorys')->where('id',$Categorys_id)->first();
+     if($PCategory)
      array_push($PCategorys,$PCategory);
    }
 
@@ -143,18 +144,20 @@ class productController extends Controller
      $SimiPCategorys = [];
      foreach($SimiCategorys_ids as $SimiCategorys_id){
         $SimiPCategory = DB::table('categorys')->where('id',$SimiCategorys_id)->first();
+        if($SimiPCategory)
         array_push($SimiPCategorys,$SimiPCategory);
      }
      $SimiProductData->categorys = $SimiPCategorys;
      // push
+     if($SimiProductData)
      array_push($AllSimiProduct,$SimiProductData);
    }
    // -------
    // update post view
-
+   $Citys = DB::table('citys')->get();
    // -------
    // -------
-   $array = array('Product' => $Product, 'categorys' => $PCategorys,'Thumbnail' => $ThisPthumbnail, 'Photos' => $thisPphotos, 'reviews'=> $reviewsData, 'reviewsCount' => count($reviews) , 'globalStarsAvr' => $reviewStarsAverage, 'reviewStarsCountArr' => $reviewStarsCountArr, 'SponsoredProduct' => $SponsoredProductsdata, 'similarProducts' => $AllSimiProduct);
+   $array = array('Citys'=>$Citys, 'Product' => $Product, 'categorys' => $PCategorys,'Thumbnail' => $ThisPthumbnail, 'Photos' => $thisPphotos, 'reviews'=> $reviewsData, 'reviewsCount' => count($reviews) , 'globalStarsAvr' => $reviewStarsAverage, 'reviewStarsCountArr' => $reviewStarsCountArr, 'SponsoredProduct' => $SponsoredProductsdata, 'similarProducts' => $AllSimiProduct);
    return view('product',$array);
   }else{
    return view('404');

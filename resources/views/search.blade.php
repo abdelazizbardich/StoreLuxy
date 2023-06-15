@@ -34,7 +34,7 @@
                                 <li class="list-inline-item"><img src="{{asset('storage/' . $photo->file)}}" class="lightZoom" style="width: 30px;height: 30px;"></li>
                             @endforeach
                             </ul>
-                            <a href="/commandez-maintenant/{{$product->id}}/1" class="btn btn-warning text-uppercase w-100 p-2" role="button" style="margin: auto;border: none;border-radius: 0;font-size: 16px;color: rgb(255,255,255);">
+                            <a href="/produit/{{$product->slug_name}}" class="btn btn-warning text-uppercase w-100 p-2" role="button" style="margin: auto;border: none;border-radius: 0;font-size: 16px;color: rgb(255,255,255);">
                                 <i class="fa fa-cart-plus"></i>&nbsp;@lang("Commandez maintenant")
                             </a>
                         </div>

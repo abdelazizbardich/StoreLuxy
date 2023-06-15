@@ -30,14 +30,17 @@
     <meta property="og:title" content="{{ $options->SiteOptions->site_name}} @if(isset($Product->Product)) {{$Product->Product->name}} @elseif(isset($Product)) - {{ $Product->name }}@endif" />
     <meta property="og:description" content="@if(isset($Product->Product)) {{$Product->Product->short_desc}} @elseif(isset($Product)) - {{ $Product->short_desc }}@else{{ $options->SiteOptions->site_description}}@endif" />
     <meta property="og:image" content="@if(isset($Thumbnail)) - {{ $Thumbnail->file }}@else{{  asset('storage/' . $options->SiteOptions->site_social_img)}}@endif" />
-    {!! $options->SiteOptions->header_codes !!}
+    @if ($options->SiteOptions->header_codes && $options->SiteOptions->header_codes != "NULL")
+        {!! $options->SiteOptions->header_codes !!}
+    @endif
 </head>
 
 <body>
-{!! $options->SiteOptions->before_body_code !!}
+    @if ($options->SiteOptions->before_body_code && $options->SiteOptions->before_body_code != "NULL")
+        {!! $options->SiteOptions->before_body_code !!}
+    @endif
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=953076688357292&autoLogAppEvents=1"></script>
-
     <header class="shadow-sm" style="position: sticky;top: 0;z-index: 99;background: #ffffff;">
         <div class="container">
             <div class="row align-items-center">

@@ -22,7 +22,7 @@ class CreateProduct extends Migration
             $table->longText('short_desc');
             $table->string('categorys_ids');
             $table->longText('long_desc');
-            $table->string('sall_end');
+            $table->string('sall_end')->nullable();
             $table->string('type');
             $table->boolean('in_slider')->default(false);
             $table->boolean('is_trend')->default(false);

@@ -32,6 +32,7 @@ class searchController extends Controller
             $categorys = [];
             foreach($Categorys_ids as $Category_id){
                 $category = DB::table('categorys')->where('id',$Category_id)->first();
+                if($category)
                 array_push($categorys,$category);
             }
             $Products[$i]->categorys = (object)$categorys;

@@ -180,7 +180,9 @@
                     </div>
                 </div>
             </div>
-            {!! $options->SiteOptions->footer_codes !!}
+            @if ($options->SiteOptions->footer_codes && $options->SiteOptions->footer_codes != "NULL")
+                {!! $options->SiteOptions->footer_codes !!}
+            @endif
         </footer>
         <script src="/assets/js/jquery.min.js?{{ date('d')}}"></script>
         <script src="/assets/bootstrap/js/bootstrap.min.js?{{ date('d')}}"></script>
@@ -188,7 +190,9 @@
         <script src="/assets/js/script.min.js?{{ date('d')}}"></script>
         <script src="/assets/js/countdown.js?{{ date('d')}}"></script>
 
-        {!! $options->SiteOptions->after_body_code !!}
+        @if($options->SiteOptions->footer_codes && $options->SiteOptions->footer_codes != "NULL")
+            {!! $options->SiteOptions->after_body_code !!}
+        @endif
 </body>
 
 </html>

@@ -135,6 +135,7 @@ class AppServiceProvider extends ServiceProvider
             // set sub categorys
             $SubCategorys = DB::table('categorys')->where('parent',$Category->id)->get();
             $CategoryArray->subCategorys = $SubCategorys;
+            if($CategoryArray)
             array_push($CategorysArray,$CategoryArray);
         }
         //print_r($CategorysArray);

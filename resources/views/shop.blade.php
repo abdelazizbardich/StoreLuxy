@@ -73,7 +73,7 @@
                                                 </span>
                                                 <p class="text-center" style="font-weight: bold;font-size: 15px;line-height: 19px;margin-bottom: 5px;    min-height: 38px;">{{$product->name}}</p>
                                                 <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;">{{$product->price}} @lang("Dh")</p>
-                                                <a href="/commandez-maintenant/{{$product->id}}/1" class="btn btn-warning text-uppercase w-100 p-2" role="button" style="margin: auto;border: none;border-radius: 0;font-size: 16px;color: rgb(255,255,255);">
+                                                <a href="/produit/{{$product->slug_name}}" class="btn btn-warning text-uppercase w-100 p-2" role="button" style="margin: auto;border: none;border-radius: 0;font-size: 16px;color: rgb(255,255,255);">
                                                     <i class="fa fa-cart-plus"></i>&nbsp;@lang("Commandez maintenant")
                                                 </a>
                                             </div>

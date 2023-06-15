@@ -1,8 +1,8 @@
 @include('inc.header')
 <main style="min-height: 100vh;position: relative;overflow: hidden;padding-bottom: 80px;">
-    <div style="height: 150px;background-color: #F7F8FA;position: relative;">
+    <div style="height: 70px;background-color: #F7F8FA;position: relative;">
         <p class="text-center"
-            style="font-size: 54px;line-height: 74px;font-weight: bold;position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;height: fit-content;width: fit-content;">
+            style="font-size: 2rem;line-height: 2rem;font-weight: bold;position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;height: fit-content;width: fit-content;">
             @lang('PRODUIT')</p>
     </div>
     <div id="product-banner"
@@ -51,7 +51,7 @@
                     <p class="text-justify shortDesc">{{ $Product->short_desc }}</p>
                     <div id="dealcount">
                         <p>@lang('Seulement') {{ $Product->stock_amount }} @lang('restant en stock')</p>
-                        <div class="progress" style="height: 33px;border-radius: 17px;">
+                        <div class="progress" style="height: 10px;border-radius: 10px;margin-top:10px">
 
                             <div class="progress-bar"
                                 aria-valuenow="{{ number_format(($Product->stock_amount / $Product->stock_size) * 100, 2, '.', '') }}"
@@ -62,7 +62,7 @@
                             </div>
 
                         </div>
-                        <div id="countDown" class="countdown-circles d-flex flex-wrap justify-content-center pt-4"><span
+                        {{-- <div id="countDown" class="countdown-circles d-flex flex-wrap justify-content-center pt-4"><span
                                 id="dataDate"
                                 style="display: none;opacity: 0;width: 0;height: 0;overflow: hidden;">{{ $Product->sall_end }}</span>
                             <ul class="list-inline" id="countdown">
@@ -79,66 +79,124 @@
                                         style="display: block;background-color: #ff0000;color: rgb(255,255,255);font-size: 36px;line-height: 61px;width: 60px;height: 60px;">-</span><span>@lang('Secondes')</span>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
-                    <div>
-                        <ul class="list-inline d-flex justify-content-start align-items-center">
-                            <li class="list-inline-item"><span
-                                    style="font-size: 18px;line-height: 61px;">@lang('Quantité')</span></li>
-                            <li class="list-inline-item">
-                                <div class="input-group qte_input" style="width: 184px;">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-primary minus" type="button"
-                                            style="background-color: #F7F8FA;color: #9D9D9F;font-size: 36px;font-weight: bold;line-height: 24px;width: 40px;height: 40px;padding: 0px;border-radius: 0px;border: none;">-</button>
+                    <form action="/commandez-maintenant/fast"method="POST">
+                        @csrf
+                        <div>
+                            <ul class="list-inline d-flex justify-content-start align-items-center">
+                                <li class="list-inline-item">
+                                    <span style="font-size: 18px;line-height: 61px;">@lang('Quantité')</span>
+                                </li>
+                                <li class="list-inline-item">
+                                    <div class="input-group qte_input" style="width: 184px;">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-primary minus" type="button"
+                                                style="background-color: #F7F8FA;color: #9D9D9F;font-size: 36px;font-weight: bold;line-height: 24px;width: 40px;height: 40px;padding: 0px;border-radius: 0px;border: none;">-</button>
+                                        </div>
+                                        <input class="form-control product-qte" data-max="{{ $Product->stock_amount }}"
+                                            readonly type="text"
+                                            style="height: 40px;max-width: 60px;border: none;text-align: center;font-size: 24px;line-height: 61px;font-weight: 100;"
+                                            inputmode="numeric"
+                                            value="{{ Request::old('quantity') ? Request::old('quantity') : 1 }}"
+                                            id="order-quantity">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary text-center plus" type="button"
+                                                style="background-color: #E4E4E4;color: #9D9D9F;font-size: 36px;font-weight: bold;line-height: 24px;width: 40px;height: 40px;padding: 0px;border-radius: 0px;border: none;">+</button>
+                                        </div>
                                     </div>
-                                    <input class="form-control product-qte" data-max="{{ $Product->stock_amount }}"
-                                        readonly type="text"
-                                        style="height: 40px;max-width: 60px;border: none;text-align: center;font-size: 24px;line-height: 61px;font-weight: 100;"
-                                        inputmode="numeric" value="1">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary text-center plus" type="button"
-                                            style="background-color: #E4E4E4;color: #9D9D9F;font-size: 36px;font-weight: bold;line-height: 24px;width: 40px;height: 40px;padding: 0px;border-radius: 0px;border: none;">+</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="border p-2 bg-light">
+                            <div class="note"><strong>@lang('Remplissez le formulaire pour passer une commande'):</strong></div>
+                            @if(session()->get('errors'))
+                                <span class="alert-danger alert d-block p-1 my-1">@lang("Veuillez vérifier les données que vous avez soumises !")</span>
+                            @endif
+                            <input type="text" name="product" value="6" hidden="">
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <div class="m-0 form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                        <label for="name" class="form-label">@lang('Nom complet'):</label>
+                                        <input type="text" name="name" class="form-control" id="name"
+                                        value="{{ Request::old('name') }}" aria-describedby="name">
                                     </div>
                                 </div>
+                                <div class="mb-3 col-md-6">
+                                    <div class="m-0 form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                                        <label for="phone" class="form-label">@lang('Téléphone'):</label>
+                                        <input type="tel" name="phone" class="form-control" id="phone"
+                                            value="{{ Request::old('phone') }}">
+                                    </div>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <div class="m-0 form-group{{ $errors->has('city') ? ' has-error' : '' }}">
+                                        <label for="city" class="form-label">@lang('Ville'):</label>
+                                        {{-- <input type="text" name="city" class="form-control" id="city"> --}}
+                                        <select name="city" class="form-control" id="city">
+                                            <option>@lang('Choisissez votre ville')</option>
+                                            @foreach ($Citys as $city)
+                                                <option value="{{ $city->id }}"
+                                                    data-cost="{{ $city->shipping_cost }}"
+                                                    {{ Request::old('city') == $city->id ? 'selected' : '' }}>
+                                                    {{ $city->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <div class="m-0 form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                                        <label for="address" class="form-label">@lang('Adresse'):</label>
+                                        <input type="text" name="address" class="form-control" id="address"
+                                            value="{{ Request::old('address') }}">
+                                    </div>
+                                </div>
+                                <div class="mb-3 col-12">
+                                    <div class="m-0 form-group{{ $errors->has('note') ? ' has-error' : '' }}">
+                                        <label for="note" class="form-label">@lang('Note'):</label>
+                                        <textarea id="note" name="note" class="form-control" rows="5" value="{{ Request::old('note') }}"></textarea>
+                                    </div>
+                                </div>
+                                <div class="mb-3 col-12">
+                                    <button type="submit" class="btn btn-warning shadow w-100"
+                                        style="border-width: 3px;font-size: 1.3rem;display: flex;justify-content: center;align-items: center;">@lang('Commander')</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="my-3">
+                        <a rel="nofollow" target="_blank"
+                            href="https://api.whatsapp.com/send?phone={{ $options->SiteOptions->whatsapp_number }}&text=@lang('Bonjour, je souhaite commander ce produit'): {{ $Product->name }}, @lang('lien de produit'): {{ $options->SiteOptions->site_url }}/produit/{{ $Product->slug_name }}"
+                            class="w-100 btn btn-success border-white rounded-0 border-2 mx-1 p-3" role="button"
+                            style="background-color: #28a745;color: rgb(255,255,255);border-width: 3px;font-size: 1.3rem;display: flex;justify-content: center;align-items: center;"><i
+                                class="fa fa-whatsapp"
+                                style="margin-left: 1rem;font-size: 2rem;"></i>@lang('Commande via WhatsApp')</a>
+                    </div>
+                    <li class="list-inline-item">
+                        <ul class="list-inline d-none d-lg-block d-xl-block"
+                            style="height: 42px;background: #F7F8FA;min-width: 150px;border-radius: 25px;padding-right: 10px;">
+                            <li class="list-inline-item text-center"
+                                style="height: 42px;width: 42px;background: #0066FF;border-radius: 25px;float: left;">
+                                <img class="img-fluid" src="/assets/img/Icon%20feather-share-2.svg"
+                                    style="width: 22px;margin: 10px;">
                             </li>
-                            <li class="list-inline-item">
-                                <ul class="list-inline d-none d-lg-block d-xl-block"
-                                    style="height: 42px;background: #F7F8FA;min-width: 150px;border-radius: 25px;padding-right: 10px;">
-                                    <li class="list-inline-item text-center"
-                                        style="height: 42px;width: 42px;background: #0066FF;border-radius: 25px;float: left;">
-                                        <img class="img-fluid" src="/assets/img/Icon%20feather-share-2.svg"
-                                            style="width: 22px;margin: 10px;"></li>
 
-                                    <li class="list-inline-item "
-                                        style="height: 42px;width: 35px;border-radius: 25px;text-align: center;float: left;">
-                                        <a target="_blank" style="color: inherit;"
-                                            href="https://www.facebook.com/sharer/sharer.php?u={{ $options->SiteOptions->site_url }}/produit/{{ $Product->slug_name }}&amp;src=sdkpreparse"
-                                            class="fb-xfbml-parse-ignore">
-                                            <i class="fa fa-facebook"
-                                                style="font-size: 22px;line-height: 42px;"></i></a>
-                                    </li>
-                                    <li class="list-inline-item"
-                                        style="height: 42px;width: 35px;border-radius: 25px;text-align: center;float: left;">
-                                        <a target="_blank" style="color: inherit;"
-                                            href="https://twitter.com/intent/tweet?text={{ $Product->slug_name }}%0APrix: {{ $Product->price }}%0ALien: {{ $options->SiteOptions->site_url }}/produit/{{ $Product->slug_name }}">
-                                            <i class="fa fa-twitter" style="font-size: 22px;line-height: 42px;"></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                            <li class="list-inline-item "
+                                style="height: 42px;width: 35px;border-radius: 25px;text-align: center;float: left;">
+                                <a target="_blank" style="color: inherit;"
+                                    href="https://www.facebook.com/sharer/sharer.php?u={{ $options->SiteOptions->site_url }}/produit/{{ $Product->slug_name }}&amp;src=sdkpreparse"
+                                    class="fb-xfbml-parse-ignore">
+                                    <i class="fa fa-facebook" style="font-size: 22px;line-height: 42px;"></i></a>
+                            </li>
+                            <li class="list-inline-item"
+                                style="height: 42px;width: 35px;border-radius: 25px;text-align: center;float: left;">
+                                <a target="_blank" style="color: inherit;"
+                                    href="https://twitter.com/intent/tweet?text={{ $Product->slug_name }}%0APrix: {{ $Product->price }}%0ALien: {{ $options->SiteOptions->site_url }}/produit/{{ $Product->slug_name }}">
+                                    <i class="fa fa-twitter" style="font-size: 22px;line-height: 42px;"></i>
+                                </a>
                             </li>
                         </ul>
-                    </div>
-                    <div class="btn-group actions" role="group">
-                        <a class="btn btn-primary order-now" data-id="{{ $Product->id }}" role="button"
-                            style="background-color: #FFE600;color: rgb(0,0,0);"><i
-                                class="far fa-hand-point-right"></i>&nbsp;@lang('Acheter maintenant')</a>
-                        {{-- <a data-id="{{ $Product->id }}" class="btn btn-primary btn-add-to-carte" role="button"
-                            style="background-color: #FF0000;color: rgb(255,255,255);"><i
-                                class="fa fa-cart-plus"></i>&nbsp;@lang('Ajouter au panier')</a> --}}
-                    </div>
-                    <div class="my-3">
-                        <a rel="nofollow" target="_blank" href="https://api.whatsapp.com/send?phone={{$options->SiteOptions->whatsapp_number}}&text=@lang('Bonjour, je souhaite commander ce produit'): {{ $Product->name }}, @lang("lien de produit"): {{ $options->SiteOptions->site_url }}/produit/{{ $Product->slug_name }}" class="w-100 btn btn-success border-white rounded-0 border-2 mx-1 p-3" role="button" style="background-color: #28a745;color: rgb(255,255,255);border-width: 3px;font-size: 1.3rem;display: flex;justify-content: center;align-items: center;"><i class="fa fa-whatsapp" style="margin-left: 1rem;font-size: 2rem;"></i>@lang("Commande via WhatsApp")</a>
-                    </div>
+                    </li>
                 </div>
             </div>
         </div>
@@ -148,7 +206,8 @@
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9" style="margin-bottom: 15px;">
                     <div style="background-color: #F7F8FA;padding-left: 15px;padding-right: 15px;margin-bottom: 35px;">
-                        <span style="font-size: 20px;line-height: 61px;">@lang('Détails du produit'):</span></div>
+                        <span style="font-size: 20px;line-height: 61px;">@lang('Détails du produit'):</span>
+                    </div>
                     <div id="product-details"
                         style="padding: 35px;border-bottom: 1px solid rgb(255,230,0);background-color: #f7f8fa;margin-bottom: 65px;position: relative;">
                         <div class="product-details-content">
@@ -161,7 +220,8 @@
                         </div>
                     </div>
                     <div style="background-color: #F7F8FA;padding-left: 15px;padding-right: 15px;margin-bottom: 35px;">
-                        <span style="font-size: 20px;line-height: 61px;">@lang('Évaluations et commentaires'):</span></div>
+                        <span style="font-size: 20px;line-height: 61px;">@lang('Évaluations et commentaires'):</span>
+                    </div>
                     <div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-sm-12 col-md-4 col-lg-6 text-center text-sm-center text-md-left text-lg-left text-xl-left"
@@ -294,7 +354,8 @@
                     </div>
                     <div
                         style="padding-left: 15px;padding-right: 15px;margin-bottom: 35px;border-top: 1px solid rgba(112,112,112,0.12);border-bottom: 1px solid rgba(112,112,112,0.12);">
-                        <span style="font-size: 20px;line-height: 44px;">@lang('Avis sur le produit'):</span></div>
+                        <span style="font-size: 20px;line-height: 44px;">@lang('Avis sur le produit'):</span>
+                    </div>
                     <!-- Start: review -->
                     @foreach ($reviews as $review)
                         <div class="review">
@@ -351,7 +412,7 @@
                                             {{ session()->get('message') }}
                                         </div>
                                     @endif
-                                    <div class="form-group{{ $errors->has('fulnamelname') ? ' has-error' : '' }}">
+                                    <div class="m-0 form-group{{ $errors->has('fulnamelname') ? ' has-error' : '' }}">
                                         <label style="font-size: 18px;line-height: 14px;">@lang('Nom'):</label>
                                         <input class="form-control" name="name"
                                             value="{{ Request::old('name') }}" type="text"
@@ -359,13 +420,13 @@
                                             style="font-size: 14px;line-height: 19px;padding: 30px;background-color: #F7F8FA;border: 1px solid #FFCB00;box-shadow: none;border-radius: 0;padding-left: 15px;padding-right: 15px;"
                                             required="">
                                     </div>
-                                    <div class="form-group{{ $errors->has('comment') ? ' has-error' : '' }}"><label
+                                    <div class="m-0 form-group{{ $errors->has('comment') ? ' has-error' : '' }}"><label
                                             style="font-size: 18px;line-height: 14px;">@lang('Avis'):</label>
                                         <textarea class="form-control" name="comment" value="{{ Request::old('comment') }}"
                                             style="font-size: 14px;line-height: 19px;padding: 15px;background-color: #F7F8FA;border: 1px solid #FFCB00;box-shadow: none;border-radius: 0;min-height: 150px;"
                                             placeholder="@lang('Tapez votre avis')..." required=""></textarea>
                                     </div>
-                                    <div class="form-group{{ $errors->has('strCount') ? ' has-error' : '' }}">
+                                    <div class="m-0 form-group{{ $errors->has('strCount') ? ' has-error' : '' }}">
                                         <label style="font-size: 18px;display: block;">@lang("Combien d'étoiles pouvez-vous attribuer à ce produit ?")</label>
                                         <ul class="list-inline starsList">
                                             <li class="list-inline-item str" data-order="1"><span
@@ -404,13 +465,13 @@
                                             name="strCount" required="" readonly="" autocomplete="off"
                                             hidden="">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="m-0 form-group">
                                         <label style="font-size: 18px;line-height: 14px;">@lang('Quelques photos du produit'):</label>
                                         <input type="file"
                                             style="font-size: 14px;line-height: 19px;padding: 8px;background-color: #ffbd00;border: 1px solid #FFCB00;box-shadow: none;border-radius: 0;display: block;width: 100%;padding-left: 30px;"
                                             multiple="" name="photos[]">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="m-0 form-group">
                                         <button class="btn btn-primary btn-block" type="submit"
                                             style="background-color: #ffe600;font-size: 21px;line-height: 28px;text-transform: uppercase;color: #000000;padding: 15px;border-radius: 0;border: none;box-shadow: none;">@lang('Soumettre Une avis')</button>
                                     </div>
@@ -421,7 +482,8 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
                     <div style="background-color: #FFE600;padding-left: 15px;padding-right: 15px;margin-bottom: 35px;">
-                        <span style="font-size: 20px;line-height: 61px;">@lang('Produits sponsorisés'):</span></div>
+                        <span style="font-size: 20px;line-height: 61px;">@lang('Produits sponsorisés'):</span>
+                    </div>
                     <div>
                         <div class="row no-gutters">
                             @foreach ($SponsoredProduct as $SProduct)

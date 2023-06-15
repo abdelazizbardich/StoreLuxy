@@ -24,6 +24,7 @@ class productController extends Controller
             $categoriesData = [];
             foreach($categories as $category){
                 $categoryItem = $this->getProductCategorys($category);
+                if($categoryItem)
                 array_push($categoriesData,$categoryItem);
             }
             $product->categories = $categoriesData;
@@ -39,6 +40,7 @@ class productController extends Controller
             $categoriesData = [];
             foreach($categories as $category){
                 $categoryItem = $this->getProductCategorys($category);
+                if($categoryItem)
                 array_push($categoriesData,$categoryItem);
             }
             $product->categories = $categoriesData;
