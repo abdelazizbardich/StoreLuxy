@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use \App\Models\Option;
 use \App\Models\User;
+use \App\Models\Banner;
 use \App\Models\Message_subject;
 class DatabaseSeeder extends Seeder
 {
@@ -152,6 +153,11 @@ class DatabaseSeeder extends Seeder
             Message_subject::create(["name" => "فرص العمل"]);
             Message_subject::create(["name" => "الاستعلامات الإعلامية"]);
             Message_subject::create(["name" => "غير ذلك"]);
+        }
+        if(!Banner::count()){
+            Banner::create(["title" => "Service 1", "text" => "Lorem ipsum, dolor sit amet consectetur adipisicing elit.", "icon" => "", "created_at" => now()]);
+            Banner::create(["title" => "Service 2", "text" => "Lorem ipsum, dolor sit amet consectetur adipisicing elit.", "icon" => "", "created_at" => now()]);
+            Banner::create(["title" => "Service 3", "text" => "Lorem ipsum, dolor sit amet consectetur adipisicing elit.", "icon" => "", "created_at" => now()]);
         }
     }
 }

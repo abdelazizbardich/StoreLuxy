@@ -98,7 +98,8 @@
                                             readonly type="text"
                                             style="height: 40px;max-width: 60px;border: none;text-align: center;font-size: 24px;line-height: 61px;font-weight: 100;"
                                             inputmode="numeric"
-                                            value="{{ Request::old('quantity') ? Request::old('quantity') : 1 }}"
+                                            name="product_qte"
+                                            value="{{ Request::old('product_qte') ? Request::old('product_qte') : 1 }}"
                                             id="order-quantity">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary text-center plus" type="button"
@@ -113,7 +114,7 @@
                             @if(session()->get('errors'))
                                 <span class="alert-danger alert d-block p-1 my-1">@lang("Veuillez vérifier les données que vous avez soumises !")</span>
                             @endif
-                            <input type="text" name="product" value="6" hidden="">
+                            <input type="text" name="product" value="{{ $Product->id }}" hidden="">
                             <div class="row">
                                 <div class="mb-3 col-md-6">
                                     <div class="m-0 form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -500,7 +501,7 @@
                                             <h1 style="font-size: 12px;line-height: 16px;">
                                                 {{ $SProduct->Product->name }}</h1>
                                             <span
-                                                style="font-size: 15px;line-height: 20px;color: #FF0000;font-weight: bold;"><strong>{{ $SProduct->Product->price }}@lang('Dh')</strong></span>
+                                                style="font-size: 1.5rem;line-height: 20px;color: #FF0000;font-weight: bold;"><strong>{{ $SProduct->Product->price }}@lang('Dh')</strong></span>
                                         </div>
                                     </div>
                                 </a>
@@ -523,35 +524,41 @@
                     <div class="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-3" style="margin-bottom: 15px;">
                         <div class="text-center"
                             style="padding: 8px;background: white;border: 1px solid #dbb300;height: 100%;">
-                            <img class="img-fluid" title="{{ $similarProduct->thumbnail->name }}"
-                                description="{{ $similarProduct->thumbnail->file_desc }}"
-                                alt="{{ $similarProduct->thumbnail->alt_title }}"
-                                src="{{ asset('storage/' . $similarProduct->thumbnail->file) }}"
-                                style="border: 5px solid #ffffff;margin-bottom: 15px;">
-                            <p class="text-center" style="font-size: 10px;line-height: 16px;margin-bottom: 0;">
+                            <a href="/produit/{{ $similarProduct->Product->slug_name }}">
+                                <img class="img-fluid"
+                                    src="{{ asset('storage/' . $similarProduct->thumbnail->file) }}"
+                                    style="border: 5px solid #ffffff;margin-bottom: 15px;">
+                            </a>
+                            <p class="text-center" style="font-size: 12px;line-height: 16px;margin-bottom: 0;">
+                                <?php $i = 1;
+                                $x = count((array) $similarProduct->categorys); ?>
                                 @foreach ($similarProduct->categorys as $category)
                                     <a style="color: inherit;"
-                                        href="/boutique/{{ $category->slug_name }}">{{ $category->name }}</a>,&nbsp;
+                                        href="/boutique/{{ $category->slug_name }}">{{ $category->name }}</a><?php if ($i++ < $x) {
+                                            echo ',';
+                                        } ?>
                                 @endforeach
                             </p>
                             <span class="text-center" style="display: block;margin-bottom: 5px;">
                                 @for ($i = 0; $i < intval($similarProduct->stars); $i++)
                                     <img src="/assets/img/Icon%20ionic-ios-star.svg"
-                                        style="margin-right: 3px;width: 15px;">
+                                        style="margin-right: 3px;width: 16px;">
                                 @endfor
                                 @for ($i = 0; $i < 5 - intval($similarProduct->stars); $i++)
                                     <img src="/assets/img/Icon%20ionic-ios-star-outline.svg"
-                                        style="margin-right: 3px;width: 15px;">
+                                        style="margin-right: 3px;width: 16px;">
                                 @endfor
                             </span>
-                            <p class="text-center" style="margin-bottom: 5px;">{{ $similarProduct->Product->name }}
-                            </p>
-                            <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;">
+                            <p class="text-center"
+                                style="font-weight: bold;font-size: 15px;line-height: 19px;margin-bottom: 5px;">
+                                {{ $similarProduct->Product->name }}</p>
+                            <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;font-size: 1.7rem;">
                                 {{ $similarProduct->Product->price }} @lang('Dh')</p>
-                            <a class="btn btn-danger text-uppercase btn-add-to-carte w-100 p-2"
-                                data-id="{{ $similarProduct->Product->id }}" role="button"
-                                style="margin: auto;border: none;border-radius: 0;font-size: 12px;color: rgb(255,255,255);"><i
-                                    class="fa fa-cart-plus"></i>&nbsp;@lang('Ajouter au panier')</a>
+                            <a href="/produit/{{ $similarProduct->Product->slug_name }}"
+                                class="btn btn-warning text-uppercase w-100 p-2" role="button"
+                                style="margin: auto;border: none;border-radius: 0;font-size: 16px;color: rgb(255,255,255);">
+                                <i class="fa fa-cart-plus"></i>&nbsp;@lang('Commandez maintenant')
+                            </a>
                         </div>
                     </div>
                 @endforeach

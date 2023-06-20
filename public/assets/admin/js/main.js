@@ -118,7 +118,7 @@ $(document).ready(function(){
                 }else{
                     $('#fixed-order-detalis').find('.done').show();
                 }
-                $('#fixed-order-name').text(data['first_name']+' '+data['laqst_name']);
+                $('#fixed-order-name').text(data['first_name']+' '+data['last_name']);
                 $('#fixed-order-adess').text(data['adress']);
                 $('#fixed-order-city').text(data['city']);
                 $('#fixed-order-phone').text(data['phone']);
@@ -280,6 +280,7 @@ $(document).ready(function(){
     //         $('.advertissment').show();
     //     }
     // })
+
     $('.append-new-city-field').click(function(){
         let cityField  = '<div class="form-row" ><div class="col-md-4"><div class="form-group"><label style="line-height: 22px;font-size: 16px;">Titre:</label><input class="form-control" onkeyup="getnerateSlugname(this)" name="title[] "type="text"><input type="hidden" name="id[]"  hidden /></div></div><div class="col-md-4"><div class="form-group"><label style="line-height: 22px;font-size: 16px;">Slug name:</label><input class="form-control" name="sub_title[]"  type="text" /></div></div><div class="col-md-4"><div class="form-group" style="position:relative;"><button onclick="removeThisRow(this)" class="btn btn-primary close" type="button" style="top: 0;right: 0;position: absolute;color: var(--red);background: none;box-shadow: none;"><i class="fa fa-close"></i></button><label style="line-height: 22px;font-size: 16px;">shipping cost:</label><input class="form-control" name="shipping_cost[]"type="text"></div></div></div>';
         $('.city-container').append(cityField);

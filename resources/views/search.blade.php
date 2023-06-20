@@ -28,7 +28,7 @@
                                 @endfor
                             </span>
                             <p class="text-center" style="font-weight: bold;font-size: 15px;line-height: 19px;margin-bottom: 5px;    min-height: 38px;">{{$product->name}}</p>
-                            <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;">{{$product->price}} @lang("Dh")</p>
+                            <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;font-size: 1.7rem;">{{$product->price}} @lang("Dh")</p>
                             <ul class="list-inline">
                             @foreach($product->photos as $photo)
                                 <li class="list-inline-item"><img src="{{asset('storage/' . $photo->file)}}" class="lightZoom" style="width: 30px;height: 30px;"></li>

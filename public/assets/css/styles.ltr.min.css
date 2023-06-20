@@ -70,7 +70,7 @@ header .nav-item:hover #mega-menu {
 }
 
 #home-slider ol.carousel-indicators li {
-  border: 2px solid #ffbd00;
+  border: 2px solid #212529;
   width: 18px;
   height: 18px;
   margin-left: 10px;
@@ -82,7 +82,7 @@ header .nav-item:hover #mega-menu {
 }
 
 #home-slider ol.carousel-indicators li.active {
-  background: #ffbd00;
+  background: #212529;
 }
 
 #home-slider ol.carousel-indicators {

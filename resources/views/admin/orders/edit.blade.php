@@ -46,11 +46,11 @@
                                                             <th>Livraison</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody style="height: 30vh;">
+                                                    <tbody>
                                                         @foreach($order->carts as $orderCart)
                                                             <tr>
                                                                 <td>{{$orderCart->product->name}}</td>
-                                                                <td>{{$orderCart->price}}</td>
+                                                                <td>{{$orderCart->price}} Dh</td>
                                                                 <td style="color: var(--color-blue);">{{$orderCart->total_price}} Dh</td>
                                                                 <td>{{$orderCart->quantity}}</td>
                                                                 <td>{{$order->tax_cost}} Dh</td>
@@ -78,9 +78,9 @@
                                                                 <p style="font-size: 10px;line-height: 14px;">{{$note->details}}</p><span style="position: absolute;left: 0;bottom: -40px;height: 20px;font-size: 9px;line-height: 12px; color:var(--color-dark-blue)">{{$note->created_at}}</span>
                                                                 <span style="position: absolute;right: 0;bottom: -26px;height: 20px; font-size: 9px;line-height: 12px;cursor: pointer; color:var(--color-black)">
                                                                 @if($note->state == 'progress')
-                                                                <a style="color: var(--color-green);" href="/admin/commandes/marquer-la-note-comme-terminer/{{$note->id}}/{{$order->id}}" >Marquer comme Terminer</a> | 
+                                                                <a style="color: var(--color-green);" href="/admin/commandes/marquer-la-note-comme-terminer/{{$note->id}}/{{$order->id}}" >Marquer comme Terminer</a> |
                                                                 @elseif($note->state == 'done')
-                                                                <a style="color: var(--color-blue);" href="/admin/commandes/marquer-la-note-comme-en-cours/{{$note->id}}/{{$order->id}}" >Marquer comme en cous</a> | 
+                                                                <a style="color: var(--color-blue);" href="/admin/commandes/marquer-la-note-comme-en-cours/{{$note->id}}/{{$order->id}}" >Marquer comme en cous</a> |
                                                                 @endif
                                                                 <a style="color: var(--color-red);" href="/admin/commandes/supprimer-la-note/{{$note->id}}/{{$order->id}}" >Supprimer</a>
                                                             </span>

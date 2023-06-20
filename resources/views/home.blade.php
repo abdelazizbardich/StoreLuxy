@@ -123,16 +123,20 @@
                     @foreach ($banners as $banner)
                         <div class="col-12 col-md-4 col-lg-4 col-xl-4" style="margin-bottom: 15px;">
                             <div
-                                style="border: 5px solid #FFE500;background: #ffffff;padding-top: 25px;padding-bottom: 25px;height: 100%;">
+                                style="border: 5px solid #FFE500;background: #ffffff;padding-top: 10px;padding-bottom: 10px;height: 100%;">
                                 <div class="row no-gutters align-items-center" style="height: 100%;">
-                                    <div class="col-auto text-center"><img
-                                            src="{{ asset('storage/' . $banner->icon->file) }}"
-                                            style="margin: 5px 10px;"></div>
+                                    @if($banner->icon)
+                                    <div class="col-auto text-center">
+                                        <img
+                                            src="{{ asset('storage/' . @$banner->icon->file) }}"
+                                            style="margin: 5px;width:50px;heigth:50px;">
+                                        </div>
+                                    @endif
                                     <div class="col">
                                         <p class="text-uppercase"
-                                            style="font-size: 14px;line-height: 22px;font-weight: bold;color: rgb(0,102,255);margin-bottom: 0;">
+                                            style="font-size: 14px;line-height: 22px;font-weight: bold;color: rgb(0,102,255);margin-bottom: 0;margin-right: 5px;">
                                             {{ $banner->Banner->title }}</p>
-                                        <p style="font-size: 12px;line-height: 19px;margin-bottom: 0;">
+                                        <p style="font-size: 12px;line-height: 19px;margin-bottom: 0;margin-right: 5px;">
                                             {!! $banner->Banner->text !!}</p>
                                     </div>
                                 </div>
@@ -184,7 +188,7 @@
                                 <p class="text-center"
                                     style="font-weight: bold;font-size: 15px;line-height: 19px;margin-bottom: 5px;">
                                     {{ $TrendingProduct->product->name }}</p>
-                                <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;">
+                                <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;font-size: 1.7rem;">
                                     {{ $TrendingProduct->product->price }} @lang('Dh')</p>
                                 <a href="/produit/{{ $TrendingProduct->product->slug_name }}"
                                     class="btn btn-warning text-uppercase w-100 p-2" role="button"
@@ -289,7 +293,7 @@
                                 <p class="text-center"
                                     style="font-weight: bold;font-size: 15px;line-height: 19px;margin-bottom: 5px;">
                                     {{ $BestSallerProduct->product->name }}</p>
-                                <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;">
+                                <p class="text-center" style="margin-bottom: 10px;color: #E74C3C;font-weight: bold;font-size: 1.7rem;">
                                     {{ $BestSallerProduct->product->price }} @lang('Dh')</p>
                                 <a href="/produit/{{ $BestSallerProduct->product->slug_name }}"
                                     class="btn btn-warning text-uppercase w-100 p-2" role="button"

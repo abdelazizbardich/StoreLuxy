@@ -63,13 +63,15 @@
                             <div class="order-step">
                                 @foreach($orderDetails->ordersStates as $orderState)
                                     <div {{$orderState->state == 'done' ? 'class=done' : ''}} >
-                                        <h5 style="font-weight: bold;"><strong>{{$orderState->title}}&nbsp;</strong><i class="fa fa-check-square-o" style="font-size: 15px;color: rgb(255,172,0);"></i><br></h5>
+                                        <h5 style="font-weight: bold;"><strong>{{$orderState->title}}&nbsp;</strong>
+                                            {{-- <i class="fa fa-check-square-o" style="font-size: 15px;color: rgb(255,172,0);"></i><br> --}}
+                                        </h5>
                                         <p style="font-size: 12px;">{{$orderState->details}}<br></p>
                                         @if($orderState->updated_at == null)
-                                            <span class="text-right" style="position: absolute;right: 0;top: 5px;font-size: 12px;">{{substr($orderState->created_at,0,10)}}<br>
+                                            <span class="text-right" style="position: absolute;right: -6px;top: 5px;font-size: 12px;">{{substr($orderState->created_at,0,10)}}<br>
                                             <span style="font-weight: bold;">{{substr($orderState->created_at,11,5)}}</span></span>
                                         @else
-                                            <span class="text-right" style="position: absolute;right: 0;top: 5px;font-size: 12px;">{{substr($orderState->updated_at,0,10)}}<br>
+                                            <span class="text-right" style="position: absolute;right: -6px;top: 5px;font-size: 12px;">{{substr($orderState->updated_at,0,10)}}<br>
                                             <span style="font-weight: bold;">{{substr($orderState->updated_at,11,5)}}</span></span>
                                         @endif
                                     </div>
@@ -117,7 +119,7 @@
                                     </div>
                             </div>
                         </div>
-                    @endif
+                    @endif 
                     @if(isset($orderDetails->errors) and $orderDetails->errors != null)
                         <div class="col-9">
                             <div class="alert alert-info">{{$orderDetails->errors}}</div>

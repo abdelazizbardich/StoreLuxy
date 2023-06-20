@@ -47,6 +47,11 @@
       grid-template-areas: 'cat1 cat1 cat1 cat1'
    'cat3 cat3 cat4 cat4' 'cat2 cat2 cat2 cat2' !important;
     }
+    #header-logo {
+        width: 104px;
+        aspect-ratio: 1/1;
+        max-height: 30px;
+    }
   }
 
   @media (min-width: 0px) and  (max-width: 768px) {

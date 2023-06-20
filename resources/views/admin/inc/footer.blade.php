@@ -132,7 +132,7 @@
                                                                                 <th>Total</th>
                                                                             </tr>
                                                                         </thead>
-                                                                        <tbody style="height: 30vh;" id="fixed-order-products">
+                                                                        <tbody id="fixed-order-products">
                                                                         </tbody>
                                                                     </table>
                                                                 </div>

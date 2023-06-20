@@ -25,7 +25,8 @@ class ordersController extends Controller
             array_push($orderCarts,$orderCartData);
         }
         $order->carts = $orderCartData;
-        
+        $city = DB::table('citys')->where('id',$order->city)->first();
+        $order->city = $city->name." ".$city->shipping_cost. "(Dh)";
         return json_encode($order);
     }
 
@@ -50,7 +51,7 @@ class ordersController extends Controller
         $product = DB::table('products')->where('id',$id)->first();
         return $product;
     }
-    
+
     // get Order
     public function getOrder($id){
         $order = DB::table('orders')->where('id',$id)->first();
@@ -62,6 +63,8 @@ class ordersController extends Controller
         }
         $order->carts = $orderCartData;
         $order->notes = $this->getOrderNotes($order->id);
+        $city = DB::table('citys')->where('id',$order->city)->first();
+        $order->city = $city->name." ".$city->shipping_cost. "(Dh)";
         $array = array('order' => $order);
         return view('admin.orders.edit',$array);
     }
@@ -116,5 +119,5 @@ class ordersController extends Controller
     }
 
     // get city
-    
+
 }

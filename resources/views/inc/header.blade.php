@@ -83,7 +83,7 @@
                                                                                     <a href="/produit/{{$product->Product->slug_name}}" style="color: initial;text-decoration: none;">
                                                                                         <div><img class="img-fluid" alt="{{$product->thumbnail->alt_title}}" title="{{$product->thumbnail->name}}" description="{{$product->thumbnail->file_desc}}" src="{{asset('storage/' . $product->thumbnail->file)}}" style="width: 100%;">
                                                                                             <p class="text-left" style="font-size: 12px;line-height: 16px;margin-bottom: 0;">{{$product->Product->name}}</p>
-                                                                                            <p class="text-lowercase text-left" style="font-size: 15px;line-height: 20px;color: #FF0000;font-weight: bold;margin-bottom: 0;">{{$product->Product->price}}Dh</p>
+                                                                                            <p class="text-lowercase text-left" style="font-size: 1.5rem;line-height: 20px;color: #FF0000;font-weight: bold;margin-bottom: 0;">{{$product->Product->price}}Dh</p>
                                                                                         </div>
                                                                                     </a>
                                                                                 </div>
