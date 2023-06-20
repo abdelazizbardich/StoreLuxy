@@ -33,7 +33,7 @@
                                                 <div class="form-group" style="postion:relative;"><label style="line-height: 22px;font-size: 16px;">Icon:</label>
                                                 <button class="btn btn-primary close" type="button" style="top: 0;right: 0;position: absolute;color: var(--red);background: none;box-shadow: none;"><i class="fa fa-close"></i></button>
                                                     <div class="form-control thumbnail-input-holder" style="border-radius: 5px;background-color: var(--color-white);position: relative;">
-                                                        <img class="img-fluid thumbnail-placeholder" style="height: 100%;width: auto;margin: 0;" src="{{ asset( 'storage/' . $banner->thumbnail->file)}}">
+                                                        <img class="img-fluid thumbnail-placeholder" style="height: 100%;width: auto;margin: 0;" src="{{ asset( 'storage/' . @$banner->thumbnail->file)}}">
                                                         <input type="text" name="icon[]" value="{{$banner->icon}}" required style="position: absolute;top: 0;left: 0;opacity: 1;" hidden>
                                                     </div>
                                                     </div>
