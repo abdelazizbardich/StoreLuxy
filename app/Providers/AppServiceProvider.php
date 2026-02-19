@@ -27,28 +27,34 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Using Closure based composers...
-        // site options
-        $this->Options = (object)[];
-        $this->Options->SiteOptions = (Schema::hasTable('options'))?$this->getSiteOptions():"";
-        if(isset($this->Options->SiteOptions->instagram_photos)){
-            $this->Options->SiteOptions->instagram_photos = $this->getIntagramPhotos($this->Options->SiteOptions->instagram_photos);
-        }
-        // Cart
-        $this->Options->CartProducts = (Schema::hasTable('products'))?$this->getCartProducts():"";
-        // Order Notice
-        $this->Options->OrderNotice = (Schema::hasTable('ordernotice'))?$this->getOrderNoticeState():"";
-        // Chat Message
-        $this->Options->ChatMessage = (Schema::hasTable('chatmessage'))?$this->getChatMessageState():"";
-        // carte Count
-        $this->Options->CartCount = (Schema::hasTable('ordernotice'))?$this->getCartCount():"";
-        // Categorys
+        Schema::defaultStringLength(191);
+
+        try {
+            // Using Closure based composers...
+            // site options
+            $this->Options = (object)[];
+            $this->Options->SiteOptions = (Schema::hasTable('options'))?$this->getSiteOptions():"";
+            if(isset($this->Options->SiteOptions->instagram_photos)){
+                $this->Options->SiteOptions->instagram_photos = $this->getInstagramPhotos($this->Options->SiteOptions->instagram_photos);
+            }
+            // Cart
+            $this->Options->CartProducts = (Schema::hasTable('products'))?$this->getCartProducts():"";
+            // Order Notice
+            $this->Options->OrderNotice = (Schema::hasTable('ordernotice'))?$this->getOrderNoticeState():"";
+            // Chat Message
+            $this->Options->ChatMessage = (Schema::hasTable('chatmessage'))?$this->getChatMessageState():"";
+            // carte Count
+            $this->Options->CartCount = (Schema::hasTable('products'))?$this->getCartCount():"";
+            // Categorys
             $this->Options->Categorys = (Schema::hasTable('categorys'))?$this->getCategorys():"";
-            // Sare data to all views
-            View::composer('*', function ($view) {
-                $view->with('options', $this->Options);
-            });
-            Schema::defaultStringLength(191);
+        } catch (\Exception $e) {
+            $this->Options = (object)[];
+        }
+
+        // Share data to all views
+        View::composer('*', function ($view) {
+            $view->with('options', $this->Options);
+        });
 
     }
 
@@ -142,7 +148,7 @@ class AppServiceProvider extends ServiceProvider
         return $CategorysArray;
     }
 
-    private function getIntagramPhotos($photos){
+    private function getInstagramPhotos($photos){
         $photos = explode(',',$photos);
         $data = [];
         foreach ($photos as $photo) {
